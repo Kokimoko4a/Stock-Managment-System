@@ -1,0 +1,275 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\typeofvehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\train.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\truck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B05A95D3-B433-49A9-9BCA-5386208C209A}|..\\SMS.Data\\SMS.Data.csproj|d:\\kaloyan\\stock managment system\\api\\sms.data\\smsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B05A95D3-B433-49A9-9BCA-5386208C209A}|..\\SMS.Data\\SMS.Data.csproj|d:\\kaloyan\\stock managment system\\api\\sms.data\\sms.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9C83EA3-6D22-4683-A539-810A7DC11D65}|..\\SMS.Repository\\SMS.Repository.csproj|d:\\kaloyan\\stock managment system\\api\\sms.repository\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF9E3337-E5BD-45B1-BB1F-0694EDC299D1}|..\\SMS.Factory\\SMS.Factory.csproj|d:\\kaloyan\\stock managment system\\api\\sms.factory\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Stock.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Stock.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\Stock.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Stock.cs",
+              "RelativeToolTip": "..\\SMS.Models\\Stock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T09:03:55.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Ship.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Ship.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\Ship.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Ship.cs",
+              "RelativeToolTip": "..\\SMS.Models\\Ship.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T09:01:24.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Train.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Train.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\Train.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Train.cs",
+              "RelativeToolTip": "..\\SMS.Models\\Train.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T09:00:53.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Plane.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Plane.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\Plane.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Plane.cs",
+              "RelativeToolTip": "..\\SMS.Models\\Plane.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T09:00:34.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Truck.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Truck.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\Truck.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Truck.cs",
+              "RelativeToolTip": "..\\SMS.Models\\Truck.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:52:06.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TypeOfVehicle.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TypeOfVehicle.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\TypeOfVehicle.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TypeOfVehicle.cs",
+              "RelativeToolTip": "..\\SMS.Models\\TypeOfVehicle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:46:12.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SMS.Data",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj",
+              "RelativeDocumentMoniker": "..\\SMS.Data\\SMS.Data.csproj",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj",
+              "RelativeToolTip": "..\\SMS.Data\\SMS.Data.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-26T08:24:19.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Vehicle.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\Vehicle.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Vehicle.cs",
+              "RelativeToolTip": "..\\SMS.Models\\Vehicle.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwCQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:26:47.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Services\\Class1.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Class1.cs",
+              "RelativeToolTip": "..\\SMS.Services\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:30:15.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Repository\\Class1.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\Class1.cs",
+              "RelativeToolTip": "..\\SMS.Repository\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:28:05.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Factory\\Class1.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\Class1.cs",
+              "RelativeToolTip": "..\\SMS.Factory\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:27:41.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SMSDbContext.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMSDbContext.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Data\\SMSDbContext.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMSDbContext.cs",
+              "RelativeToolTip": "..\\SMS.Data\\SMSDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:24:08.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:23:23.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:23:21.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WeatherForecast.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\WeatherForecast.cs",
+              "RelativeToolTip": "WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:23:17.129Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
