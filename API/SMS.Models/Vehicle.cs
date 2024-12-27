@@ -48,7 +48,10 @@
 
         public Company Company { get; set; }
 
-        public ICollection<Stock> Stocks { get; set; }
+        public Order Order { get; set; }
+
+        [ForeignKey(nameof(Order))]
+        public Guid  OrderId { get; set; }
 
     }
 }

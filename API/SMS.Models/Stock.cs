@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SMS.Models
 {
@@ -19,6 +20,9 @@ namespace SMS.Models
         [Required]
         public double Gauge { get; set; }
 
-       
+        [ForeignKey(nameof(Order))]
+        public Guid OrderId { get; set; }
+
+        public Order Order { get; set; }
     }
 }
