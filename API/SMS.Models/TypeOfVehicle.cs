@@ -1,10 +1,12 @@
 ﻿namespace SMS.Models
 {
+    using static SMS.Common.ApplicationConstants;
+
     public enum TypeOfVehicle
     {
-        Truck = 0,
-        Ship = 1,
-        Train = 2,
-        Plane = 3
+        Truck = TruckCode,
+        Ship = ShipCode,
+        Train = TrainCode,
+        Plane = PlaneCode
     }
 }

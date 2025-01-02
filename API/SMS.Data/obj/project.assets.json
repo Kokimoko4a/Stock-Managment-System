@@ -812,6 +812,30 @@
             "rid": "win"
           }
         }
+      },
+      "SMS.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SMS.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Common.dll": {}
+        }
+      },
+      "SMS.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.36",
+          "SMS.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SMS.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Models.dll": {}
+        }
       }
     }
   },
@@ -2104,13 +2128,24 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "SMS.Common/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Common/SMS.Common.csproj",
+      "msbuildProject": "../SMS.Common/SMS.Common.csproj"
+    },
+    "SMS.Models/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Models/SMS.Models.csproj",
+      "msbuildProject": "../SMS.Models/SMS.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.36",
       "Microsoft.EntityFrameworkCore >= 6.0.36",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.36"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.36",
+      "SMS.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2145,7 +2180,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj": {
+              "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

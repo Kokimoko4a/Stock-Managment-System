@@ -2,6 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using static SMS.Common.GeneralValidationConstants.Vehicle;
 
     public abstract class Vehicle
     {
@@ -14,44 +15,36 @@
             Type = (TypeOfVehicle)type;
             LoadCapacity = loadCapacity;
             ReservoirCapacity = reservoirCapacity;
-            Stocks = new HashSet<Stock>();
         }
 
         [Key]
         public Guid Id { get; set; }
 
+        [Required]
+        [StringLength(RegistrationNumberMaxLength,MinimumLength = RegistrationNumberMinLength)]
         public string RegistrationNumber { get; set; } = null!;
 
+        [Range(TravelledKmMinValue,TraveledKmMaxValue)]
         public double TravelledKm { get; set; }
 
         public TypeOfVehicle Type { get; set; }
 
+        [Required]
+        [Range(LoadCapacityMinValue,LoadCapacityMaxValue)]
         public double LoadCapacity { get; set; }
 
         public bool IsDriving { get; set; }
 
+        [Range(LatitudeMinValue,LatitudeMaxValue)]
         public double Latitude { get; set; }
 
+        [Range(LongtitudeMinValue, LongtitudeMaxValue)]
         public double Longtitude { get; set; }
 
+        [Required]
+        [Range(ReservoirCapacityMinValue, ReservoirCapacityMaxValue)]
         public double ReservoirCapacity { get; set; }
 
-
-        [ForeignKey(nameof(Driver))]
-        public Guid DriverId { get; set; }
-
-        public Driver Driver { get; set; }
-
-
-        [ForeignKey(nameof(Company))]
-        public Guid CompanyId { get; set; }
-
-        public Company Company { get; set; }
-
-        public Order Order { get; set; }
-
-        [ForeignKey(nameof(Order))]
-        public Guid  OrderId { get; set; }
 
     }
 }

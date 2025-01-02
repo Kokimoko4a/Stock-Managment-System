@@ -1,0 +1,13 @@
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Factory.deps.json
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Factory.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Factory.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.csproj.AssemblyReference.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.AssemblyInfoInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.AssemblyInfo.cs
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.sourcelink.json
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\refint\SMS.Factory.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\ref\SMS.Factory.dll

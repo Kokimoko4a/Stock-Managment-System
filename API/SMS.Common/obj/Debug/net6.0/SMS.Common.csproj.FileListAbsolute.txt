@@ -1,0 +1,12 @@
+D:\Kaloyan\Stock Managment System\API\SMS.Common\bin\Debug\net6.0\SMS.Common.deps.json
+D:\Kaloyan\Stock Managment System\API\SMS.Common\bin\Debug\net6.0\SMS.Common.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Common\bin\Debug\net6.0\SMS.Common.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.AssemblyInfoInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.AssemblyInfo.cs
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.sourcelink.json
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\refint\SMS.Common.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\SMS.Common.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Common\obj\Debug\net6.0\ref\SMS.Common.dll

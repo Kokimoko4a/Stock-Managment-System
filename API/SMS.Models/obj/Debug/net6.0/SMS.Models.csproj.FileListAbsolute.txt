@@ -1,0 +1,16 @@
+D:\Kaloyan\Stock Managment System\API\SMS.Models\bin\Debug\net6.0\SMS.Models.deps.json
+D:\Kaloyan\Stock Managment System\API\SMS.Models\bin\Debug\net6.0\SMS.Models.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Models\bin\Debug\net6.0\SMS.Models.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Models\bin\Debug\net6.0\SMS.Common.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Models\bin\Debug\net6.0\SMS.Common.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.csproj.AssemblyReference.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.AssemblyInfoInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.AssemblyInfo.cs
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.sourcelink.json
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.csproj.Up2Date
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\refint\SMS.Models.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\SMS.Models.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Models\obj\Debug\net6.0\ref\SMS.Models.dll
