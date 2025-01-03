@@ -164,6 +164,39 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.36": {
         "type": "package",
         "dependencies": {
@@ -1206,6 +1239,47 @@
           "bin/placeholder/SMS.Data.dll": {}
         }
       },
+      "SMS.Dtos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SMS.Dtos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Dtos.dll": {}
+        }
+      },
+      "SMS.Factory/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.36",
+          "SMS.Dtos": "1.0.0",
+          "SMS.Models": "1.0.0",
+          "SMS.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SMS.Factory.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Factory.dll": {}
+        }
+      },
+      "SMS.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "SMS.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SMS.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Infrastructure.dll": {}
+        }
+      },
       "SMS.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1218,6 +1292,37 @@
         },
         "runtime": {
           "bin/placeholder/SMS.Models.dll": {}
+        }
+      },
+      "SMS.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.36",
+          "SMS.Data": "1.0.0",
+          "SMS.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SMS.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Repository.dll": {}
+        }
+      },
+      "SMS.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.36",
+          "SMS.Dtos": "1.0.0",
+          "SMS.Factory": "1.0.0",
+          "SMS.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SMS.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Services.dll": {}
         }
       }
     }
@@ -1371,6 +1476,32 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "microsoft.aspnetcore.cryptography.keyderivation.6.0.36.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "sha512": "Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
+        "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.36": {
@@ -3236,10 +3367,35 @@
       "path": "../SMS.Data/SMS.Data.csproj",
       "msbuildProject": "../SMS.Data/SMS.Data.csproj"
     },
+    "SMS.Dtos/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Dtos/SMS.Dtos.csproj",
+      "msbuildProject": "../SMS.Dtos/SMS.Dtos.csproj"
+    },
+    "SMS.Factory/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Factory/SMS.Factory.csproj",
+      "msbuildProject": "../SMS.Factory/SMS.Factory.csproj"
+    },
+    "SMS.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Infrastructure/SMS.Infrastructure.csproj",
+      "msbuildProject": "../SMS.Infrastructure/SMS.Infrastructure.csproj"
+    },
     "SMS.Models/1.0.0": {
       "type": "project",
       "path": "../SMS.Models/SMS.Models.csproj",
       "msbuildProject": "../SMS.Models/SMS.Models.csproj"
+    },
+    "SMS.Repository/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Repository/SMS.Repository.csproj",
+      "msbuildProject": "../SMS.Repository/SMS.Repository.csproj"
+    },
+    "SMS.Services/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Services/SMS.Services.csproj",
+      "msbuildProject": "../SMS.Services/SMS.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3251,6 +3407,9 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.36",
       "Microsoft.Identity.Web >= 1.16.0",
       "SMS.Data >= 1.0.0",
+      "SMS.Dtos >= 1.0.0",
+      "SMS.Infrastructure >= 1.0.0",
+      "SMS.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -3289,6 +3448,15 @@
           "projectReferences": {
             "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj": {
               "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj"
+            },
+            "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj": {
+              "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj"
+            },
+            "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Infrastructure\\SMS.Infrastructure.csproj": {
+              "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Infrastructure\\SMS.Infrastructure.csproj"
+            },
+            "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\SMS.Services.csproj": {
+              "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\SMS.Services.csproj"
             }
           }
         }

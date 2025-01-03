@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fb;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+
+        .slogan {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .hands-gif {
+            width: 250px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hands-gif:hover {
+            transform: scale(1.1);
+        }
+
+        main {
+            padding: 60px 0;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro h2, .services h2, .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .intro p, .services p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .services ul {
+            list-style: none;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            padding-left: 0;
+            color: #333;
+        }
+
+        .services ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .services ul li:before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-size: 1.5rem;
+        }
+
+        .cta {
+            background-color: #007bff;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .cta .button {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta .button:hover {
+            background-color: #ff4500;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Stock Management System</h1>
+            <p class="slogan">You make the order, we make the delivery</p>
+            <!-- Shaking Hands GIF -->
+            <img src="https://media1.tenor.com/m/LFJ6zjm6k9QAAAAd/dribble.gif" alt="Shaking Hands" class="hands-gif">
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="container">
+                <h2>Efficient, Fast, and Reliable</h2>
+                <p>Our system allows you to manage orders, stocks, and deliveries seamlessly. Make your orders, and we’ll handle the rest with top-tier precision and speed!</p>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Real-time stock tracking</li>
+                    <li>Instant order processing</li>
+                    <li>Delivery management</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Start Managing Your Stock Today</h2>
+                <a href="register.html" class="button">Get Started</a>  
+            </div> 
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Stock Management System | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

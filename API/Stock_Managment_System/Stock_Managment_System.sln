@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Repository", "..\SMS.Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Services", "..\SMS.Services\SMS.Services.csproj", "{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Common", "..\SMS.Common\SMS.Common.csproj", "{BF44534D-E7D5-4F96-929A-5D9A82076589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Common", "..\SMS.Common\SMS.Common.csproj", "{BF44534D-E7D5-4F96-929A-5D9A82076589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Dtos", "..\SMS.Dtos\SMS.Dtos.csproj", "{10F8202A-0B04-4D53-A589-DB7FE36F5805}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Infrastructure", "..\SMS.Infrastructure\SMS.Infrastructure.csproj", "{AE1661DC-E4EC-41C8-84B4-70E9D7994636}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{BF44534D-E7D5-4F96-929A-5D9A82076589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF44534D-E7D5-4F96-929A-5D9A82076589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF44534D-E7D5-4F96-929A-5D9A82076589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F8202A-0B04-4D53-A589-DB7FE36F5805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F8202A-0B04-4D53-A589-DB7FE36F5805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F8202A-0B04-4D53-A589-DB7FE36F5805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F8202A-0B04-4D53-A589-DB7FE36F5805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1661DC-E4EC-41C8-84B4-70E9D7994636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1661DC-E4EC-41C8-84B4-70E9D7994636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1661DC-E4EC-41C8-84B4-70E9D7994636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1661DC-E4EC-41C8-84B4-70E9D7994636}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+            width: 200px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .button:active {
+            background-color: #388e3c;
+        }
+
+        .button.register {
+            background-color: #008CBA;
+        }
+
+        .button.register:hover {
+            background-color: #007B9F;
+        }
+
+        .button.register:active {
+            background-color: #005F6A;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Stock Management</h1>
+        <p>Manage your stock easily with our system</p>
+        
+        <button class="button" onclick="window.location.href='login.html'">Log In</button>
+        <button class="button register" onclick="window.location.href='register.html'">Register</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Stock Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

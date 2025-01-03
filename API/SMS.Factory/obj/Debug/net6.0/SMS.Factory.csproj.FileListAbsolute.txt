@@ -11,3 +11,14 @@ D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.d
 D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\refint\SMS.Factory.dll
 D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Factory.pdb
 D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\ref\SMS.Factory.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Common.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Data.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Dtos.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Models.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Repository.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Dtos.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Models.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Repository.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Common.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Data.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Fact.C345CD3A.Up2Date

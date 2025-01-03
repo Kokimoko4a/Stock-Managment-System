@@ -1,0 +1,12 @@
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\bin\Debug\net6.0\SMS.Dtos.deps.json
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\bin\Debug\net6.0\SMS.Dtos.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\bin\Debug\net6.0\SMS.Dtos.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.AssemblyInfoInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.AssemblyInfo.cs
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.csproj.CoreCompileInputs.cache
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.sourcelink.json
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\refint\SMS.Dtos.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\SMS.Dtos.pdb
+D:\Kaloyan\Stock Managment System\API\SMS.Dtos\obj\Debug\net6.0\ref\SMS.Dtos.dll

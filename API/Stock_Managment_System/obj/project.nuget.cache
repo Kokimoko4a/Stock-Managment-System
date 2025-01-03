@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1d+Jy0TAT3qkt2NKPEKHk1yFvBXIgWlWvENnlvwl7QCpZomW2WSJRp6aLHNc1tEM6eAXqgm06Bt1V6GH3a0vQw==",
+  "dgSpecHash": "oIcXDrSQ4ho2T3y0VItNKnm/ZKDfuikwCNTuc8p9aJh9E439SnUsLEBrXmWw5XMfOX16jq7GZ65sJRrmT3nmMQ==",
   "success": true,
   "projectFilePath": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Stock_Managment_System.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\6.0.26\\microsoft.aspnetcore.authentication.openidconnect.6.0.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.36\\microsoft.aspnetcore.cryptography.internal.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.36\\microsoft.aspnetcore.cryptography.keyderivation.6.0.36.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.36\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -95,3 +95,13 @@ D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SM
 D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Common.pdb
 D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Models.pdb
 D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\obj\Debug\net6.0\Stock_Managment_System.sourcelink.json
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Dtos.dll
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Dtos.pdb
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Factory.dll
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Repository.dll
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Services.dll
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Services.pdb
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Factory.pdb
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Repository.pdb
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Infrastructure.dll
+D:\Kaloyan\Stock Managment System\API\Stock_Managment_System\bin\Debug\net6.0\SMS.Infrastructure.pdb
