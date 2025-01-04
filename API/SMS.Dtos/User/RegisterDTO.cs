@@ -1,4 +1,4 @@
-﻿namespace SMS.Dtos
+﻿namespace SMS.Dtos.User
 {
     public class RegisterDTO
     {

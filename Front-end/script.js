@@ -1,4 +1,4 @@
-async function login() {
+/*async function login() {
     // Get input values
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -8,10 +8,11 @@ async function login() {
 
     try {
         // Make the API call
-        const response = await fetch('https://localhost:7020/User', {
+        const response = await fetch('https://localhost:7020/User/login', {
             method: 'POST', // Must match the HTTP verb expected by the API
             headers: {
-                'Content-Type': 'application/json', // Tell the server this is JSON
+                'Content-Type': 'application/json',
+                credentials: "include", // Tell the server this is JSON
             },
             body: JSON.stringify(payload), // Send the payload as JSON
         });
@@ -29,4 +30,4 @@ async function login() {
         document.getElementById('responseMessage').textContent = '';
         document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
     }
-}
+}*/

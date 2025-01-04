@@ -2,9 +2,13 @@ namespace Stock_Managment_System.Controllers
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using SMS.Dtos;
+    using Microsoft.IdentityModel.Tokens;
+    using SMS.Dtos.User;
     using SMS.Models;
     using SMS.Services.Interfaces;
+    using System.IdentityModel.Tokens.Jwt;
+    using System.Security.Claims;
+    using System.Text;
 
     [ApiController]
     [Route("/User")]
@@ -25,34 +29,90 @@ namespace Stock_Managment_System.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] string test)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            return Ok("Super hi  " + test);
+            // Retrieve the user from your user service
+            ApplicationUser user = userService.GetUser(loginDto.Email);
+            // Create claims for the JWT (e.g., user name, email)
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, user.UserName),
+        new Claim(ClaimTypes.Email, user.Email),
+    };
+
+            // Create signing credentials with a symmetric key (make sure to keep the secret key safe)
+            var key = Encoding.UTF8.GetBytes("your-secure-key-that-is-at-least-16-bytes"); // 128 bits
+            var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+
+            // Generate the JWT token (set expiration and other token parameters)
+            var token = new JwtSecurityToken(
+                issuer: "YourIssuer", // e.g., "MyApp"
+                audience: "YourAudience", // e.g., "MyAppClients"
+                claims: claims,
+                expires: DateTime.Now.AddHours(1), // Token expiration time
+                signingCredentials: creds
+            );
+
+            // Return the token as part of the response
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenString = user.Email;
+
+            return Ok(new { Token = tokenString });
+        }
+
+
+        [HttpGet("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            //await signInManager.SignOutAsync();
+
+
+
+            return Ok("Logged out successfully.");
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
         {
 
-
             var user = userService.CreateUser(registerDTO);
 
-
+            // Step 2: Set email and username
             await userManager.SetEmailAsync(user, registerDTO.Email);
             await userManager.SetUserNameAsync(user, registerDTO.Email);
-            IdentityResult result =
-                await userManager.CreateAsync(user, registerDTO.Password);
+
+            // Step 3: Create the user in the system
+            IdentityResult result = await userManager.CreateAsync(user, registerDTO.Password);
 
             if (!result.Succeeded)
             {
-                return BadRequest();
+                return BadRequest(new { message = "User registration failed", details = result.Errors });
             }
 
-            await signInManager.SignInAsync(user, false);
+            // Step 4: Generate JWT Token after user is created
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, user.UserName),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) // Optional, for user ID
+    };
 
+            var key = Encoding.UTF8.GetBytes("your-secure-key-that-is-at-least-16-bytes"); // Make sure to use a secure key
+            var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
-            return Ok("Successfully created profile!");
+            var token = new JwtSecurityToken(
+                issuer: "YourIssuer",
+                audience: "YourAudience",
+                claims: claims,
+                expires: DateTime.Now.AddHours(1),
+                signingCredentials: creds
+            );
 
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenString = user.Email;
+
+            // Step 5: Respond with the token
+            return Ok(new { Token = tokenString });
 
 
 

@@ -14,6 +14,9 @@ namespace Stock_Managment_System
     using SMS.Factory;
     using SMS.Repository;
     using SMS.Services;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.IdentityModel.Tokens;
+    using System.Text;
 
     public class Program
     {
@@ -56,11 +59,25 @@ namespace Stock_Managment_System
 
             // Add services to the container.
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+           .AddJwtBearer(options =>
+           {
+               options.RequireHttpsMetadata = false; // For development (use HTTPS in production)
+               options.TokenValidationParameters = new TokenValidationParameters
+               {
+                   ValidateIssuer = true,
+                   ValidateAudience = true,
+                   ValidateLifetime = true,
+                   ValidateIssuerSigningKey = true,
+                   ValidIssuer = "YourIssuer", // Replace with your issuer
+                   ValidAudience = "YourAudience", // Replace with your audience
+                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your-secure-key-that-is-at-least-16-bytes")) // Use a secret key for signing
+               };
+           });
 
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IFactoryService, FactoryService>();
             builder.Services.AddScoped<IRepositoryService, RepositoryService>();
+            builder.Services.AddScoped<IManagerService, ManagerService>();
 
             //  builder.Services.AddApplicationServices(typeof(IRepositoryService));
 
@@ -71,9 +88,17 @@ namespace Stock_Managment_System
 
             var app = builder.Build();
 
+
+
+      
+
+
             app.UseCors("AllowAll");
 
+
+
             // Configure the HTTP request pipeline.
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -82,9 +107,9 @@ namespace Stock_Managment_System
 
             app.UseHttpsRedirection();
 
+            // Authentication middleware should come before Authorization
             app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllers();
 

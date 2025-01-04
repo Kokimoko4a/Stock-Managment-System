@@ -130,6 +130,26 @@
             font-size: 1rem;
         }
 
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background-color: #ff4500;
+        }
+
     </style>
 </head>
 <body>
@@ -137,6 +157,8 @@
         <div class="container">
             <h1>Stock Management System</h1>
             <p class="slogan">You make the order, we make the delivery</p>
+            <!-- Log Out Button -->
+            <button id="logout-button" class="logout-button">Log Out</button>
             <!-- Shaking Hands GIF -->
             <img src="https://media1.tenor.com/m/LFJ6zjm6k9QAAAAd/dribble.gif" alt="Shaking Hands" class="hands-gif">
         </div>
@@ -164,7 +186,7 @@
         <section class="cta">
             <div class="container">
                 <h2>Start Managing Your Stock Today</h2>
-                <a href="register.html" class="button">Get Started</a>  
+                <a id="become-manager-btn"  class="button">Get Started</a>  
             </div> 
         </section>
     </main>
@@ -174,5 +196,83 @@
             <p>&copy; 2025 Stock Management System | All Rights Reserved</p>
         </div>
     </footer>
+
+
+
+    
+    <script>
+       document.getElementById("logout-button").addEventListener("click", async function(event) {
+    try {
+        // Optionally, inform the API that the user has logged out
+        const response = await fetch("https://localhost:7020/User/logout", {
+            method: "GET", // or POST if your API requires it
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("token")}`,  // Include the token in the header
+            },
+        });
+
+        if (response.ok) {
+            // Remove the JWT from localStorage after logout request
+            localStorage.clear();  // If you're storing JWT in localStorage
+            // Alternatively, if stored in sessionStorage:
+            // sessionStorage.removeItem("token");
+            // Or if you're using cookies:
+            // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+            // Successfully logged out
+            // Redirect user to login page or home page
+            window.location.href = "login.html";
+        } else {
+            throw new Error("Logout failed.");
+        }
+    } catch (error) {
+        console.error("Error during logout:", error);
+        alert("An error occurred during logout.");
+    }
+});
+    </script>
+
+<script>
+  document.getElementById('become-manager-btn').addEventListener('click', function() {
+    // Confirmation dialog
+    const isConfirmed = confirm("Are you sure you want to become a manager?");
+    
+    if (isConfirmed) {
+        const token = localStorage.getItem("jwtToken"); // Retrieve the token from localStorage
+
+        if (token) {
+            // Sending POST request to the server with the JWT in the Authorization header
+            fetch('https://localhost:7020/Manager/becomeManager', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`  // Make sure the token is correct here
+    },
+    body: JSON.stringify({/* any necessary data */})
+})
+            
+            .then(response => {
+                if (response.ok) {
+                    alert("You are now a manager!");
+                    // Optionally, you can redirect the user to another page after becoming a manager
+                    // window.location.href = "manager_dashboard.html";
+                } else {
+                    alert("Failed to become a manager. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An error occurred. Please try again later.");
+            });
+        } else {
+            alert("You need to log in first.");
+        }
+    } else {
+        alert("Action canceled.");
+    }
+});
+
+</script>
+
 </body>
 </html>

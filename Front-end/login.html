@@ -65,10 +65,6 @@
             background-color: #45a049;
         }
 
-        input[type="submit"]:active {
-            background-color: #388e3c;
-        }
-
         .register-link {
             margin-top: 10px;
             font-size: 14px;
@@ -82,12 +78,25 @@
         .register-link a:hover {
             text-decoration: underline;
         }
+
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h1>Login to Stock Management</h1>
-        <form action="login-handler.html" method="POST">
+        <form id="loginForm">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required placeholder="Enter your email">
 
@@ -100,6 +109,59 @@
         <div class="register-link">
             <p>Don't have an account? <a href="register.html">Register here</a></p>
         </div>
+        <div id="message"></div>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect input values
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const loginData = { email, password }; // Prepare JSON data
+
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = ""; // Clear any previous messages
+
+            try {
+                // Send login request to API
+                const response = await fetch("https://localhost:7020/User/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(loginData),
+                });
+
+                if (response.ok) {
+                    // Read the response as JSON to get the token
+                    const data = await response.json();
+                    const token = data.token; // Assuming the response returns a "token"
+
+                    // Store the token in localStorage for future requests
+                    localStorage.setItem('jwtToken', token);
+
+                    messageDiv.textContent = "Successfully logged in!";
+                    messageDiv.className = "success";
+
+                    // Redirect to another page after success
+                    setTimeout(() => {
+                        window.location.href = "home.html"; // Adjust as per your app's flow
+                    }, 2000); // Delay redirect for user feedback
+                } else {
+                    // Handle non-200 responses
+                    const errorMessage = await response.json(); // Read error message from JSON response
+                    messageDiv.textContent = errorMessage.message || "Login failed. Please try again.";
+                    messageDiv.className = "error";
+                }
+            } catch (error) {
+                console.error("Error during login:", error);
+                messageDiv.textContent = "An error occurred. Please try again later.";
+                messageDiv.className = "error";
+            }
+        });
+    </script>
 </body>
 </html>
