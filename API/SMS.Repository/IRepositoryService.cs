@@ -4,8 +4,12 @@
 
     public interface IRepositoryService
     {
-        public ApplicationUser GetUser(string email);
+        public ApplicationUser GetUserById(string id);
+
+        public ApplicationUser GetUserByEmail(string email);
 
         public Task AddManager(Manager entity);
+
+        public bool IsManager(string id);
     }
 }

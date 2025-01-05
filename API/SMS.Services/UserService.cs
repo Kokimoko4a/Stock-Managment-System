@@ -23,9 +23,9 @@
            return  factory.CreateUser(registerDTO);
         }
 
-        public ApplicationUser GetUser(string email)
+        public ApplicationUser GetUserByEmail(string email)
         {
-            return repositoryService.GetUser(email);
+            return repositoryService.GetUserByEmail(email);
         }
     }
 }

@@ -32,10 +32,10 @@ namespace Stock_Managment_System.Controllers
 
 
 
-            string email = token.Remove(0, 6);
+            string id = token.Remove(0, 6);
 
 
-            await managerService.BecomeManager(email.Trim());
+            await managerService.BecomeManager(id.Trim());
 
             return Ok();
         }

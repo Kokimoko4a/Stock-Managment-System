@@ -16,10 +16,16 @@
             this.factoryService = factoryService;
         }
 
-        public async Task BecomeManager(string email)
+        public async Task BecomeManager(string id)
         {
-            ApplicationUser applicationUser = repositoryService.GetUser(email);
+            if (repositoryService.IsManager(id))
+            {
+                throw new Exception("You are manager already!");
+            }
 
+            ApplicationUser applicationUser = repositoryService.GetUserById(id);
+
+          
 
             Manager manager = factoryService.CreateManager(applicationUser);
 

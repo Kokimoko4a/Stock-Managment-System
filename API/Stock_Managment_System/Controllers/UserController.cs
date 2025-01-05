@@ -29,10 +29,10 @@ namespace Stock_Managment_System.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
+        public  IActionResult Login([FromBody] LoginDto loginDto)
         {
             // Retrieve the user from your user service
-            ApplicationUser user = userService.GetUser(loginDto.Email);
+            ApplicationUser user = userService.GetUserByEmail(loginDto.Email);
             // Create claims for the JWT (e.g., user name, email)
             var claims = new List<Claim>
     {
@@ -55,14 +55,14 @@ namespace Stock_Managment_System.Controllers
 
             // Return the token as part of the response
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenString = user.Email;
+            var tokenString = user.Id;
 
             return Ok(new { Token = tokenString });
         }
 
 
         [HttpGet("logout")]
-        public async Task<IActionResult> Logout()
+        public  IActionResult Logout()
         {
             //await signInManager.SignOutAsync();
 
@@ -109,7 +109,7 @@ namespace Stock_Managment_System.Controllers
             );
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenString = user.Email;
+            var tokenString = user.Id;
 
             // Step 5: Respond with the token
             return Ok(new { Token = tokenString });

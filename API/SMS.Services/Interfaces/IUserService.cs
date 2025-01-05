@@ -7,6 +7,6 @@
     {
         public ApplicationUser CreateUser(RegisterDTO registerDTO);
 
-        public ApplicationUser GetUser(string email);
+        public ApplicationUser GetUserByEmail(string email);
     }
 }
