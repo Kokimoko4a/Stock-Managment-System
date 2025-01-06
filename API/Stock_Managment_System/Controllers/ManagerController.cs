@@ -39,5 +39,40 @@ namespace Stock_Managment_System.Controllers
 
             return Ok();
         }
+
+        [HttpGet("managerDashboard")]
+        public IActionResult DashBoardAccessing() 
+        {
+            string id =  GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            if (!managerService.IsManager(id))
+            {
+                return Unauthorized();
+            }
+
+            return Ok();
+        }
+
+        private string GetTokenAndIdIfExists()
+        {
+            var token = Request.Headers["Authorization"].ToString();
+
+
+            if (token == null)
+            {
+                return null;
+            }
+
+
+
+            string id = token.Remove(0, 6).Trim();
+
+            return id;
+        }
     }
 }

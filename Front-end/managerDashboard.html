@@ -169,7 +169,7 @@
     </div>
 
     <!-- Main content -->
-    <div class="main-content">
+    <div class="main-content" id="mainContent" style="display: none;">
         <!-- Navbar -->
         <div class="navbar">
             <h2>Welcome, Manager</h2>
@@ -199,6 +199,10 @@
                 <button onclick="navigateToSettings()">Configure Settings</button>
             </div>
         </div>
+    </div>
+
+    <div id="loading" style="text-align: center; padding-top: 50px; font-size: 20px;">
+        Checking your access rights...
     </div>
 
     <script>
@@ -233,6 +237,35 @@
             // Redirect to login page
             window.location.href = 'login.html';
         });
+
+        // Authorization Check
+        window.onload = function() {
+            const token = localStorage.getItem('jwtToken');
+            if (!token) {
+                window.location.href = 'login.html';  // Redirect to login if no token
+                return;
+            }
+
+            fetch('https://localhost:7020/Manager/managerDashboard', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // If authorized, hide the loading message and show the main content
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                } else {
+                    window.location.href = 'access-denied.html'; // Redirect to access-denied page if not authorized
+                }
+            })
+            .catch(error => {
+                console.error('Authorization check failed:', error);
+                window.location.href = 'access-denied.html'; // Redirect to access-denied page in case of error
+            });
+        };
     </script>
 </body>
 </html>

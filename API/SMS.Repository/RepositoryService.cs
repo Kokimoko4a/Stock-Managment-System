@@ -1,6 +1,7 @@
 ﻿
 namespace SMS.Repository
 {
+    using Microsoft.EntityFrameworkCore;
     using SMS.Data;
     using SMS.Models;
 
@@ -36,6 +37,8 @@ namespace SMS.Repository
 
         public bool IsManager(string id)
         {
+
+            var manager = data.Managers.FirstOrDefault(x => x.Id.ToString() == id);
             if (data.Managers.FirstOrDefault(x => x.Id.ToString() == id) != null)
             {
                 return true;

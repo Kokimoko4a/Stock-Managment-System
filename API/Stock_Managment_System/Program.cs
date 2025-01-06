@@ -17,6 +17,8 @@ namespace Stock_Managment_System
     using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.IdentityModel.Tokens;
     using System.Text;
+    using Azure.Core;
+    using Microsoft.AspNetCore.Http.Extensions;
 
     public class Program
     {
@@ -42,14 +44,14 @@ namespace Stock_Managment_System
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
             {
-                options.SignIn.RequireConfirmedAccount = false; 
+                options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
 
-                
-                
+
+
                 // Disable account confirmation requirement
             })
                     .AddRoles<IdentityRole<Guid>>()
@@ -90,7 +92,7 @@ namespace Stock_Managment_System
 
 
 
-      
+
 
 
             app.UseCors("AllowAll");
@@ -107,11 +109,15 @@ namespace Stock_Managment_System
 
             app.UseHttpsRedirection();
 
+
+
             // Authentication middleware should come before Authorization
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
+
+
 
             app.Run();
         }

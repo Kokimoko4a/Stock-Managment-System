@@ -32,5 +32,10 @@
             await repositoryService.AddManager(manager);
 
         }
+
+        public bool IsManager(string id)
+        { 
+            return repositoryService.IsManager(id);
+        }
     }
 }
