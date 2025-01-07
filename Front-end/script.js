@@ -1,33 +1,35 @@
-/*async function login() {
-    // Get input values
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
 
-    // Combine inputs into a single string payload
-    const payload = `${username}:${password}`; // This matches the [FromBody]string test
 
-    try {
-        // Make the API call
-        const response = await fetch('https://localhost:7020/User/login', {
-            method: 'POST', // Must match the HTTP verb expected by the API
+
+function AuthorizeOnLoad()
+{
+
+   
+        const token = localStorage.getItem('jwtToken');
+        if (!token) {
+            window.location.href = 'login.html';  // Redirect to login if no token
+            return;
+        }
+    
+        fetch('https://localhost:7020/Manager/managerDashboard', {
+            method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
-                credentials: "include", // Tell the server this is JSON
-            },
-            body: JSON.stringify(payload), // Send the payload as JSON
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // If authorized, hide the loading message and show the main content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            } else {
+                window.location.href = 'access-denied.html'; // Redirect to access-denied page if not authorized
+            }
+        })
+        .catch(error => {
+            console.error('Authorization check failed:', error);
+            window.location.href = 'access-denied.html'; // Redirect to access-denied page in case of error
         });
 
-        if (response.ok) {
-            const data = await response.text(); // The API returns "Super"
-            document.getElementById('responseMessage').textContent = `Response: ${data}`;
-            document.getElementById('errorMessage').textContent = '';
-        } else {
-            const errorText = await response.text();
-            document.getElementById('responseMessage').textContent = '';
-            document.getElementById('errorMessage').textContent = `Error: ${errorText}`;
-        }
-    } catch (error) {
-        document.getElementById('responseMessage').textContent = '';
-        document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
-    }
-}*/
+}
+

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Management System</title>
+    <script src="AuthorizeOnClick.js" defer></script> 
     <style>
         * {
             margin: 0;
@@ -130,7 +131,7 @@
             font-size: 1rem;
         }
 
-        .logout-button {
+        .logoutBtn {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -146,19 +147,19 @@
             cursor: pointer;
         }
 
-        .logout-button:hover {
+        .logoutBtn:hover {
             background-color: #ff4500;
         }
 
     </style>
 </head>
-<body>
+<body onload="">
     <header>
         <div class="container">
             <h1>Stock Management System</h1>
             <p class="slogan">You make the order, we make the delivery</p>
             <!-- Log Out Button -->
-            <button id="logout-button" class="logout-button">Log Out</button>
+            <button id="logoutBtn" class="logout-button">Log Out</button>
             <!-- Shaking Hands GIF -->
             <img src="https://media1.tenor.com/m/LFJ6zjm6k9QAAAAd/dribble.gif" alt="Shaking Hands" class="hands-gif">
         </div>
@@ -273,33 +274,6 @@
 });
 
 
-window.onload = function() {
-            const token = localStorage.getItem('jwtToken');
-            if (!token) {
-                window.location.href = 'login.html';  // Redirect to login if no token
-                return;
-            }
-
-            fetch('https://localhost:7020/Manager/managerDashboard', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // If authorized, hide the loading message and show the main content
-                    window.location.href = "managerDashboard.html";
-
-                } else {
-                    window.location.href = 'home.html'; // Redirect to access-denied page if not authorized
-                }
-            })
-            .catch(error => {
-                console.error('Authorization check failed:', error);
-                window.location.href = 'access-denied.html'; // Redirect to access-denied page in case of error
-            });
-        };
 
 </script>
 

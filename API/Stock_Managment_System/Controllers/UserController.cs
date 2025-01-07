@@ -68,7 +68,7 @@ namespace Stock_Managment_System.Controllers
 
 
 
-            return Ok("Logged out successfully.");
+            return Ok( new { message  =  "Logged out successfully." });
         }
 
         [HttpPost("register")]
