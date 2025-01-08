@@ -236,6 +236,37 @@
         }
     });
 
+
+
+    //Authtorization for managers
+
+    window.onload = async function () {
+    try {
+        const response = await fetch('https://localhost:7020/Manager/managerDashboard', {
+            method: 'GET',
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        });
+
+        if (response.ok) {
+           
+
+            // Display the main content and hide the loading screen
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
+        } else {
+            alert('Authorization failed, redirecting to home page.');
+            window.location.href = 'home.html';
+        }
+    } catch (error) {
+        console.error('Authorization error:', error);
+        alert('An error occurred during authorization. Please try again.');
+        window.location.href = 'home.html';
+    }
+};
+
+
     </script>
 </body>
 </html>

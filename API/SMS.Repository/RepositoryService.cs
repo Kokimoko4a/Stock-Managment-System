@@ -39,7 +39,7 @@ namespace SMS.Repository
         {
 
             var manager = data.Managers.FirstOrDefault(x => x.Id.ToString() == id);
-            if (data.Managers.FirstOrDefault(x => x.Id.ToString() == id) != null)
+            if (manager != null)
             {
                 return true;
             }
