@@ -11,5 +11,10 @@
         public Task AddManager(Manager entity);
 
         public bool IsManager(string id);
+
+        public Manager GetManagerById(Guid managerId);
+
+        public Task AddCompany(Company company);
+
     }
 }

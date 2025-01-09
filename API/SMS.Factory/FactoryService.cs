@@ -2,9 +2,11 @@
 
 namespace SMS.Factory
 {
+    using SMS.Dtos.Company;
     using SMS.Dtos.User;
     using SMS.Models;
     using SMS.Repository;
+    using System.Threading.Tasks;
 
     public class FactoryService : IFactoryService
     {
@@ -42,7 +44,18 @@ namespace SMS.Factory
             return manager;
         }
 
+        public async Task CreateCompany(CompanyDto companyDto, Manager manager)
+        {
+            Company company = new Company()
+            {
+                Description = companyDto.Description,
+                Title = companyDto.Title,
+                Manager = manager,
+                ManagerId = manager.Id
+            };
 
 
+            await repository.AddCompany(company); 
+        }
     }
 }

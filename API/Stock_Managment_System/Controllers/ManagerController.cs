@@ -3,6 +3,8 @@
 namespace Stock_Managment_System.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using SMS.Dtos.Company;
+    using SMS.Dtos.User;
     using SMS.Services.Interfaces;
     using System.Security.Claims;
 
@@ -73,6 +75,17 @@ namespace Stock_Managment_System.Controllers
             string id = token.Remove(0, 6).Trim();
 
             return id;
+        }
+
+
+        [HttpPost("createCompany")]
+        public IActionResult CreateCompany([FromBody] CompanyDto companyDto) 
+        {
+            string id =  GetTokenAndIdIfExists();
+
+            managerService.CreateCompany(id, companyDto); 
+
+            return Ok();
         }
     }
 }

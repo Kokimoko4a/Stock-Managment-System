@@ -1,5 +1,6 @@
 ﻿namespace SMS.Services
 {
+    using SMS.Dtos.Company;
     using SMS.Factory;
     using SMS.Models;
     using SMS.Repository;
@@ -36,6 +37,15 @@
         public bool IsManager(string id)
         { 
             return repositoryService.IsManager(id);
+        }
+
+        public async Task CreateCompany(string userId, CompanyDto companyDto)
+        {
+          
+
+            Manager manager = repositoryService.GetManagerById(Guid.Parse(userId));
+
+            await factoryService.CreateCompany(companyDto, manager);
         }
     }
 }

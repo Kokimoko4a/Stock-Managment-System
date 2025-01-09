@@ -46,5 +46,20 @@ namespace SMS.Repository
 
             return false;
         }
+
+        public Manager GetManagerById(Guid managerId) => data.Managers.FirstOrDefault(x => x.Id == managerId);
+
+        public async Task AddCompany(Company company)
+        {
+            await data.AddAsync(company);
+           
+            await data.SaveChangesAsync();
+
+            Manager manager = company.Manager;
+            manager.Companies.Add(company);
+
+            await data.SaveChangesAsync();
+
+        }
     }
 }
