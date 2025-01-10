@@ -79,11 +79,11 @@ namespace Stock_Managment_System.Controllers
 
 
         [HttpPost("createCompany")]
-        public IActionResult CreateCompany([FromBody] CompanyDto companyDto) 
+        public async Task<IActionResult> CreateCompany([FromBody] CompanyDto companyDto) 
         {
             string id =  GetTokenAndIdIfExists();
 
-            managerService.CreateCompany(id, companyDto); 
+            await managerService.CreateCompany(id, companyDto); 
 
             return Ok();
         }

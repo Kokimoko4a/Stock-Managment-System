@@ -51,14 +51,27 @@ namespace SMS.Repository
 
         public async Task AddCompany(Company company)
         {
-            await data.AddAsync(company);
+        
+
+            // Save all changes
            
-            await data.SaveChangesAsync();
 
-            Manager manager = company.Manager;
-            manager.Companies.Add(company);
+            try
+            {
+                Manager manager = company.Manager;
+                manager.Companies.Add(company);
 
-            await data.SaveChangesAsync();
+                // Add the company to the DbSet
+                await data.AddAsync(company);
+
+                await data.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
+            }
+
 
         }
     }
