@@ -3,7 +3,9 @@ namespace SMS.Repository
 {
     using Microsoft.EntityFrameworkCore;
     using SMS.Data;
+    using SMS.Dtos.Company;
     using SMS.Models;
+    using System.Collections.Generic;
 
     public class RepositoryService : IRepositoryService
     {
@@ -74,5 +76,14 @@ namespace SMS.Repository
 
 
         }
+
+        public async Task<List<CompanySmallExport>> GetAllCompanies(string managerId)   
+            
+            => await data.Companies.Where(x => x.ManagerId.ToString() == managerId).Select(x => new CompanySmallExport() 
+            {
+                Id = x.Id.ToString(),
+                Title = x.Title
+            }).ToListAsync();
+        
     }
 }

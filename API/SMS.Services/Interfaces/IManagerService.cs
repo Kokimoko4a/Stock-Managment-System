@@ -1,7 +1,8 @@
-﻿using SMS.Dtos.Company;
-
-namespace SMS.Services.Interfaces
+﻿namespace SMS.Services.Interfaces
 {
+    using SMS.Dtos.Company;
+    using SMS.Models;
+
     public interface IManagerService
     {
         public Task BecomeManager(string email);
@@ -9,5 +10,7 @@ namespace SMS.Services.Interfaces
         public bool IsManager(string id);
 
         public Task CreateCompany(string userId, CompanyDto companyDto);
+
+        public Task<List<CompanySmallExport>> GetAllCompanies(string userId);
     }
 }

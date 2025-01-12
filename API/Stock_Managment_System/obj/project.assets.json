@@ -1300,6 +1300,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.36",
           "SMS.Data": "1.0.0",
+          "SMS.Dtos": "1.0.0",
           "SMS.Models": "1.0.0"
         },
         "compile": {

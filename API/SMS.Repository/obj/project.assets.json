@@ -839,6 +839,16 @@
           "bin/placeholder/SMS.Data.dll": {}
         }
       },
+      "SMS.Dtos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SMS.Dtos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SMS.Dtos.dll": {}
+        }
+      },
       "SMS.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2155,6 +2165,11 @@
       "path": "../SMS.Data/SMS.Data.csproj",
       "msbuildProject": "../SMS.Data/SMS.Data.csproj"
     },
+    "SMS.Dtos/1.0.0": {
+      "type": "project",
+      "path": "../SMS.Dtos/SMS.Dtos.csproj",
+      "msbuildProject": "../SMS.Dtos/SMS.Dtos.csproj"
+    },
     "SMS.Models/1.0.0": {
       "type": "project",
       "path": "../SMS.Models/SMS.Models.csproj",
@@ -2165,6 +2180,7 @@
     "net6.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.36",
       "SMS.Data >= 1.0.0",
+      "SMS.Dtos >= 1.0.0",
       "SMS.Models >= 1.0.0"
     ]
   },
@@ -2203,6 +2219,9 @@
           "projectReferences": {
             "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj": {
               "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj"
+            },
+            "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj": {
+              "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj"
             },
             "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj": {
               "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj"

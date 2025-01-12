@@ -47,5 +47,22 @@
 
             await factoryService.CreateCompany(companyDto, manager);
         }
+
+        public async Task<List<CompanySmallExport>> GetAllCompanies(string userId)
+        {
+            if (!repositoryService.IsManager(userId))
+            {
+                return null;
+            }
+
+            var companies = await repositoryService.GetAllCompanies(userId);
+
+            if (companies.Any())
+            {
+                return companies; 
+            }
+
+            return null;
+        }
     }
 }

@@ -87,5 +87,20 @@ namespace Stock_Managment_System.Controllers
 
             return Ok();
         }
+
+        [HttpGet("getAllCompanies")]
+        public async Task<IActionResult> GetAllCompanies() 
+        {
+            string id = GetTokenAndIdIfExists();
+
+            var companies =  await managerService.GetAllCompanies(id);
+
+            if (companies == null)
+            { 
+                return NotFound();  
+            }
+
+            return Ok(companies);
+        }
     }
 }
