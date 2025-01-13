@@ -102,5 +102,22 @@ namespace Stock_Managment_System.Controllers
 
             return Ok(companies);
         }
+
+        [HttpPut("updateCompany")]
+
+        public async Task<IActionResult> UpdateCompany([FromBody] CompanyDtoEditImport companyDtoEditImport)
+        {
+            string userId = GetTokenAndIdIfExists();
+
+            var companies =  await managerService.UpdateCompany(companyDtoEditImport,userId);
+
+            if (companies == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(companies);   
+
+        }
     }
 }

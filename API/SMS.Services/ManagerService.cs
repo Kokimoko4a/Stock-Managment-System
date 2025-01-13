@@ -26,7 +26,7 @@
 
             ApplicationUser applicationUser = repositoryService.GetUserById(id);
 
-          
+
 
             Manager manager = factoryService.CreateManager(applicationUser);
 
@@ -35,13 +35,13 @@
         }
 
         public bool IsManager(string id)
-        { 
+        {
             return repositoryService.IsManager(id);
         }
 
         public async Task CreateCompany(string userId, CompanyDto companyDto)
         {
-          
+
 
             Manager manager = repositoryService.GetManagerById(Guid.Parse(userId));
 
@@ -59,7 +59,31 @@
 
             if (companies.Any())
             {
-                return companies; 
+                return companies;
+            }
+
+            return null;
+        }
+
+
+
+        public async Task<List<CompanySmallExport>> UpdateCompany(CompanyDtoEditImport companyDtoEditImport, string managerId)
+        {
+            if (IsManager(managerId))
+            {
+                Company company = await repositoryService.GetCompany(companyDtoEditImport.Id);
+
+                if (company != null)
+                {
+                  
+
+                    await repositoryService.UpdateCompany(companyDtoEditImport);
+
+                    return  await GetAllCompanies(managerId);
+                }
+
+                return null;
+
             }
 
             return null;

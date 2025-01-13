@@ -12,5 +12,8 @@
         public Task CreateCompany(string userId, CompanyDto companyDto);
 
         public Task<List<CompanySmallExport>> GetAllCompanies(string userId);
+
+        public Task<List<CompanySmallExport>> UpdateCompany(CompanyDtoEditImport companyDtoEditImport, string managerId);
+      
     }
 }

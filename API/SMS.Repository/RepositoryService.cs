@@ -84,6 +84,21 @@ namespace SMS.Repository
                 Id = x.Id.ToString(),
                 Title = x.Title
             }).ToListAsync();
-        
+
+
+
+        public async Task<Company> GetCompany(string companyId) => await data.Companies.FirstOrDefaultAsync(x => x.Id.ToString() == companyId);
+
+        public async Task UpdateCompany(CompanyDtoEditImport companyDtoEditImport)
+        {
+            Company company = await GetCompany(companyDtoEditImport.Id);
+
+            company.Title = companyDtoEditImport.Title;
+            company.Description = companyDtoEditImport.Description;
+
+            await data.SaveChangesAsync();
+
+
+        }
     }
 }
