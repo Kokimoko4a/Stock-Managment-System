@@ -425,7 +425,7 @@ document.getElementById('viewAllCompaniesBtn').addEventListener('click', async (
                     editButton.style.borderRadius = '5px';
 
                     // Attach event listener for Edit button
-                    editButton.addEventListener('click', () => openUpdateForm(company));
+                    editButton.addEventListener('click',  async () => await openUpdateForm(company));
 
                     // Append Edit button to the list item
                     listItem.appendChild(editButton);
@@ -448,11 +448,35 @@ document.getElementById('viewAllCompaniesBtn').addEventListener('click', async (
 
 
 
-function openUpdateForm(company) {
+async function  openUpdateForm(company) {
         // Populate form fields with company data
-        document.getElementById('companyId').value = company.id; // Assuming the company object has an `id`
-        document.getElementById('editCompanyName').value = company.title;
-        document.getElementById('editCompanyDescription').value = company.description;
+        console.log(company.description)
+        let id = company.id;
+        let title = company.title;
+
+        const companyToSend = 
+        {
+            id,
+            title
+        }
+        
+
+        
+
+        const response = await fetch('https://localhost:7020/Manager/getCompany', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+            },
+            body: JSON.stringify(companyToSend)
+        });
+
+        let detailedCompany = await response.json();
+
+        document.getElementById('companyId').value = detailedCompany.id; // Assuming the company object has an `id`
+        document.getElementById('editCompanyName').value = detailedCompany.title;
+        document.getElementById('editCompanyDescription').value = detailedCompany.description;
 
         // Show the update form
         document.getElementById('updateCompanyForm').style.display = 'block';

@@ -119,5 +119,20 @@ namespace Stock_Managment_System.Controllers
             return Ok(companies);   
 
         }
+
+        [HttpPost("getCompany")]
+        public async Task<IActionResult> GetCompany([FromBody] CompanySmallExport companySmallExport)
+        {
+            if (GetTokenAndIdIfExists() == null)
+            {
+                return BadRequest();
+            }
+
+
+            var company = await managerService.GetCompany(companySmallExport.Id);
+
+
+            return Ok(company);
+        }
     }
 }

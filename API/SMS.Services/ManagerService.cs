@@ -88,5 +88,8 @@
 
             return null;
         }
+
+        public async Task<Company> GetCompany(string companyId) => await repositoryService.GetCompany(companyId);
+        
     }
 }
