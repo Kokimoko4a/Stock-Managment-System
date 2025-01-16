@@ -761,6 +761,9 @@
         }
       },
       "SMS.Dtos/1.0.0": {
+        "dependencies": {
+          "SMS.Models": "1.0.0"
+        },
         "runtime": {
           "SMS.Dtos.dll": {}
         }

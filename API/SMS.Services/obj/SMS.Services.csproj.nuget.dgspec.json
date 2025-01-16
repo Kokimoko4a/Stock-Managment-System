@@ -180,7 +180,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj": {
+                "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

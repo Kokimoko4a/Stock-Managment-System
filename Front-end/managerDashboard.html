@@ -401,7 +401,7 @@ document.getElementById('viewAllCompaniesBtn').addEventListener('click', async (
 
         if (response.ok) {
             const companies = await response.json();
-            console.log(companies);  // Check the API response
+            console.log(companies); // Check the API response
 
             const companiesList = document.getElementById('companiesList');
             companiesList.innerHTML = ''; // Clear any previous data
@@ -410,8 +410,6 @@ document.getElementById('viewAllCompaniesBtn').addEventListener('click', async (
                 companies.forEach(company => {
                     const listItem = document.createElement('li');
                     listItem.textContent = company.title; // Adjust based on your API response
-
-                  
 
                     // Create Edit button
                     const editButton = document.createElement('button');
@@ -425,12 +423,53 @@ document.getElementById('viewAllCompaniesBtn').addEventListener('click', async (
                     editButton.style.borderRadius = '5px';
 
                     // Attach event listener for Edit button
-                    editButton.addEventListener('click',  async () => await openUpdateForm(company));
+                    editButton.addEventListener('click', async () => await openUpdateForm(company));
 
-                    // Append Edit button to the list item
+                    // Create View button
+                    const viewButton = document.createElement('button');
+                    viewButton.textContent = 'View';
+                    viewButton.style.marginLeft = '10px';
+                    viewButton.style.backgroundColor = '#3498db';
+                    viewButton.style.color = '#fff';
+                    viewButton.style.border = 'none';
+                    viewButton.style.padding = '5px 10px';
+                    viewButton.style.cursor = 'pointer';
+                    viewButton.style.borderRadius = '5px';
+
+                    console.log(company.id)
+
+                    // Attach event listener for View button
+                    viewButton.addEventListener('click', async () => {
+                        try {
+                       
+                            console.log(company.id)
+
+
+                            const viewResponse = await fetch(`https://localhost:7020/Manager/getDetailedCompany/${company.id}`, {
+                                method: 'GET',
+                                headers: {
+                                    "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                                }
+                            });
+
+                            if (viewResponse.ok) {
+                                const companyDetails = await viewResponse.json();
+                                console.log('Company details:', companyDetails); // Log the details
+                                alert(`Company Details: ${JSON.stringify(companyDetails)}`);
+                            } else {
+                                alert(`Failed to fetch company details. Status: ${viewResponse.status}`);
+                            }
+                        } catch (error) {
+                            console.error('Error fetching company details:', error);
+                            alert('An error occurred while fetching company details.');
+                        }
+                    });
+
+                    // Append Edit and View buttons to the list item
                     listItem.appendChild(editButton);
+                    listItem.appendChild(viewButton);
 
-                      companiesList.style.display = 'block'
+                    companiesList.style.display = 'block';
                     // Append list item to the companies list
                     companiesList.appendChild(listItem);
                 });

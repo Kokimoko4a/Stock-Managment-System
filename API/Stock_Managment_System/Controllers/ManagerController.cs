@@ -134,5 +134,19 @@ namespace Stock_Managment_System.Controllers
 
             return Ok(company);
         }
+
+        [HttpGet("getDetailedCompany/{id}")]
+
+        public async Task<IActionResult> GetDetailedCompany([FromRoute]string  id) 
+        {
+            if (GetTokenAndIdIfExists() == null)
+            {
+                return BadRequest();
+            }
+
+            var company = await managerService.GetCompany(id.ToString());
+
+            return Ok(company);
+        }
     }
 }
