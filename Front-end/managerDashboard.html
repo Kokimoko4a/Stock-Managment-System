@@ -439,31 +439,10 @@ document.getElementById('viewAllCompaniesBtn').addEventListener('click', async (
                     console.log(company.id)
 
                     // Attach event listener for View button
-                    viewButton.addEventListener('click', async () => {
-                        try {
-                       
-                            console.log(company.id)
-
-
-                            const viewResponse = await fetch(`https://localhost:7020/Manager/getDetailedCompany/${company.id}`, {
-                                method: 'GET',
-                                headers: {
-                                    "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
-                                }
-                            });
-
-                            if (viewResponse.ok) {
-                                const companyDetails = await viewResponse.json();
-                                console.log('Company details:', companyDetails); // Log the details
-                                alert(`Company Details: ${JSON.stringify(companyDetails)}`);
-                            } else {
-                                alert(`Failed to fetch company details. Status: ${viewResponse.status}`);
-                            }
-                        } catch (error) {
-                            console.error('Error fetching company details:', error);
-                            alert('An error occurred while fetching company details.');
-                        }
+                    viewButton.addEventListener('click', () => {
+                        window.location.href = `companyDetails.html?id=${company.id}`;
                     });
+
 
                     // Append Edit and View buttons to the list item
                     listItem.appendChild(editButton);

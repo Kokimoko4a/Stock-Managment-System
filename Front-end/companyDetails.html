@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div id="companyDetails">
+        <p>Loading company details...</p>
+    </div>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Extract the ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const companyId = urlParams.get('id'); // Get the company ID
+
+        // If no ID is provided, handle the error
+        if (!companyId) {
+            alert('No company ID found in the URL.');
+            return;
+        }
+
+        // Fetch and display the company details
+        fetchCompanyDetails(companyId);
+
+        function fetchCompanyDetails(companyId) {
+    fetch(`https://localhost:7020/Manager/getCompanyDetails/${companyId}`, {
+        method: 'GET',
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch company details.');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Display the company details in the HTML
+        const detailsContainer = document.getElementById('companyDetails');
+        detailsContainer.innerHTML = `
+            <h2>${data.title}</h2>
+            <p>${data.description}</p>
+            <p>Location: ${data.location}</p>
+            <p>Revenue: ${data.revenue}</p>
+            <p>Employees: ${data.employees}</p>
+        `;
+    })
+    .catch(error => {
+        console.error('Error fetching company details:', error);
+        alert('An error occurred while fetching company details.');
+    });
+}
+    });
+
+
+
+
+
+    </script> 
+    
+    
+    
+   
+</body>
+</html>
