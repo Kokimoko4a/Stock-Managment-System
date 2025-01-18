@@ -317,6 +317,8 @@
 
                 if (response.ok) {
                     alert('Company created successfully!');
+                    document.getElementById('createCompanyForm').style.display = 'none';
+                    
                 } else {
                     alert('Error creating company');
                 }
