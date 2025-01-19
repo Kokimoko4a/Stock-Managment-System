@@ -23,5 +23,7 @@
 
         public Task UpdateCompany(CompanyDtoEditImport company);
 
+        public Task DeleteCompany(string companyId);
+
     }
 }

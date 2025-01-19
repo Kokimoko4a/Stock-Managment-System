@@ -148,5 +148,19 @@ namespace Stock_Managment_System.Controllers
 
             return Ok(company);
         }
+
+        [HttpDelete("deleteCompany/{id}")]
+
+        public async Task<IActionResult> DeleteCompany([FromRoute] string id)
+        {
+            if (GetTokenAndIdIfExists() == null!) 
+            {
+                return BadRequest(); 
+            }
+
+            await managerService.DeleteCompany(id);
+
+            Ok();
+        }
     }
 }

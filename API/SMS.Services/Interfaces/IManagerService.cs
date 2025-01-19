@@ -16,8 +16,8 @@
         public Task<List<CompanySmallExport>> UpdateCompany(CompanyDtoEditImport companyDtoEditImport, string managerId);
 
         public Task<Company> GetCompany(string companyId);
-      
 
 
+        public Task DeleteCompany(string companyId);
     }
 }

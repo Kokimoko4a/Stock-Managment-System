@@ -100,5 +100,12 @@ namespace SMS.Repository
 
 
         }
+
+        public async Task DeleteCompany(string companyId)
+        {
+           var company = await data.Companies.FirstAsync(x => x.Id.ToString() == companyId);
+
+            data.Companies.Remove(company);
+        }
     }
 }
