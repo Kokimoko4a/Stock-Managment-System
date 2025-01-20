@@ -106,6 +106,8 @@ namespace SMS.Repository
            var company = await data.Companies.FirstAsync(x => x.Id.ToString() == companyId);
 
             data.Companies.Remove(company);
+
+            await data.SaveChangesAsync();
         }
     }
 }

@@ -160,7 +160,7 @@ namespace Stock_Managment_System.Controllers
 
             await managerService.DeleteCompany(id);
 
-            Ok();
+           return  Ok();
         }
     }
 }
