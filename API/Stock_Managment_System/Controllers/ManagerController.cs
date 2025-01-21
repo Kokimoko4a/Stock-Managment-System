@@ -162,5 +162,7 @@ namespace Stock_Managment_System.Controllers
 
            return  Ok();
         }
+
+       
     }
 }

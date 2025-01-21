@@ -3,11 +3,49 @@
   "WorkspaceRootPath": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\controllers\\drivercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:controllers\\drivercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\driverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF9E3337-E5BD-45B1-BB1F-0694EDC299D1}|..\\SMS.Factory\\SMS.Factory.csproj|d:\\kaloyan\\stock managment system\\api\\sms.factory\\factoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9C83EA3-6D22-4683-A539-810A7DC11D65}|..\\SMS.Repository\\SMS.Repository.csproj|d:\\kaloyan\\stock managment system\\api\\sms.repository\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\interfaces\\idriverservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10F8202A-0B04-4D53-A589-DB7FE36F5805}|..\\SMS.Dtos\\SMS.Dtos.csproj|d:\\kaloyan\\stock managment system\\api\\sms.dtos\\driver\\driverimportdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9C83EA3-6D22-4683-A539-810A7DC11D65}|..\\SMS.Repository\\SMS.Repository.csproj|d:\\kaloyan\\stock managment system\\api\\sms.repository\\irepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF9E3337-E5BD-45B1-BB1F-0694EDC299D1}|..\\SMS.Factory\\SMS.Factory.csproj|d:\\kaloyan\\stock managment system\\api\\sms.factory\\ifactoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\managerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\interfaces\\imanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\truckdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,16 +56,7 @@
       "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:designtimedbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\managerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\sms.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9C83EA3-6D22-4683-A539-810A7DC11D65}|..\\SMS.Repository\\SMS.Repository.csproj|d:\\kaloyan\\stock managment system\\api\\sms.repository\\irepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\interfaces\\imanagerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -37,9 +66,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{10F8202A-0B04-4D53-A589-DB7FE36F5805}|..\\SMS.Dtos\\SMS.Dtos.csproj|d:\\kaloyan\\stock managment system\\api\\sms.dtos\\company\\companybigdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF9E3337-E5BD-45B1-BB1F-0694EDC299D1}|..\\SMS.Factory\\SMS.Factory.csproj|d:\\kaloyan\\stock managment system\\api\\sms.factory\\factoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10F8202A-0B04-4D53-A589-DB7FE36F5805}|..\\SMS.Dtos\\SMS.Dtos.csproj|d:\\kaloyan\\stock managment system\\api\\sms.dtos\\company\\companydtoeditimport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -54,20 +80,10 @@
       "AbsoluteMoniker": "D:0:0:{B05A95D3-B433-49A9-9BCA-5386208C209A}|..\\SMS.Data\\SMS.Data.csproj|d:\\kaloyan\\stock managment system\\api\\sms.data\\smsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|d:\\kaloyan\\stock managment system\\api\\stock_managment_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DADD6A4B-26E0-4F07-A79F-E2AEE4E50DE6}|Stock_Managment_System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC9AD9A-2C02-44FB-B5B8-F4C85CBBAFD6}|..\\SMS.Services\\SMS.Services.csproj|d:\\kaloyan\\stock managment system\\api\\sms.services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BF44534D-E7D5-4F96-929A-5D9A82076589}|..\\SMS.Common\\SMS.Common.csproj|d:\\kaloyan\\stock managment system\\api\\sms.common\\applicationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10F8202A-0B04-4D53-A589-DB7FE36F5805}|..\\SMS.Dtos\\SMS.Dtos.csproj|d:\\kaloyan\\stock managment system\\api\\sms.dtos\\user\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF9E3337-E5BD-45B1-BB1F-0694EDC299D1}|..\\SMS.Factory\\SMS.Factory.csproj|d:\\kaloyan\\stock managment system\\api\\sms.factory\\ifactoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF44534D-E7D5-4F96-929A-5D9A82076589}|..\\SMS.Common\\SMS.Common.csproj|d:\\kaloyan\\stock managment system\\api\\sms.common\\generalvalidationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -126,9 +142,6 @@
       "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\truck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\truckdriver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{86FF1B73-0715-4CFA-B14A-A854D9124A69}|..\\SMS.Models\\SMS.Models.csproj|d:\\kaloyan\\stock managment system\\api\\sms.models\\train.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -169,7 +182,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -185,19 +198,200 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DriverController.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\DriverController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DriverController.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\DriverController.cs",
+              "RelativeToolTip": "Controllers\\DriverController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAuwCMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T17:19:22.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ManagerController.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\ManagerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ManagerController.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\ManagerController.cs",
+              "RelativeToolTip": "Controllers\\ManagerController.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAAAEsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T08:49:28.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DriverImportDto.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\Driver\\DriverImportDto.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Dtos\\Driver\\DriverImportDto.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\Driver\\DriverImportDto.cs",
+              "RelativeToolTip": "..\\SMS.Dtos\\Driver\\DriverImportDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T17:21:28.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IDriverService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IDriverService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Services\\Interfaces\\IDriverService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IDriverService.cs",
+              "RelativeToolTip": "..\\SMS.Services\\Interfaces\\IDriverService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T17:20:27.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAAwFIAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:23:21.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DriverService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\DriverService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Services\\DriverService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\DriverService.cs",
+              "RelativeToolTip": "..\\SMS.Services\\DriverService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T17:22:52.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FactoryService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\FactoryService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Factory\\FactoryService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\FactoryService.cs",
+              "RelativeToolTip": "..\\SMS.Factory\\FactoryService.cs",
+              "ViewState": "AQIAAIIAAAAAAAAAAADwv4cAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T12:52:01.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RepositoryService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\RepositoryService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Repository\\RepositoryService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\RepositoryService.cs",
+              "RelativeToolTip": "..\\SMS.Repository\\RepositoryService.cs",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAQwJQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T13:24:00.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IRepositoryService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\IRepositoryService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Repository\\IRepositoryService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\IRepositoryService.cs",
+              "RelativeToolTip": "..\\SMS.Repository\\IRepositoryService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA5wB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:28:05.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IFactoryService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\IFactoryService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Factory\\IFactoryService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\IFactoryService.cs",
+              "RelativeToolTip": "..\\SMS.Factory\\IFactoryService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:27:41.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ManagerService.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\ManagerService.cs",
               "RelativeDocumentMoniker": "..\\SMS.Services\\ManagerService.cs",
               "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\ManagerService.cs",
               "RelativeToolTip": "..\\SMS.Services\\ManagerService.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAAwGIAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T13:29:21.928Z"
+              "WhenOpened": "2025-01-04T13:29:21.928Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAuwEEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:23:23.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DesignTimeDbContextFactory.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\DesignTimeDbContextFactory.cs",
+              "RelativeDocumentMoniker": "DesignTimeDbContextFactory.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\DesignTimeDbContextFactory.cs",
+              "RelativeToolTip": "DesignTimeDbContextFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T11:06:23.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\UserService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Services\\UserService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\UserService.cs",
+              "RelativeToolTip": "..\\SMS.Services\\UserService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAcwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T08:30:15.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IManagerService.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IManagerService.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Services\\Interfaces\\IManagerService.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IManagerService.cs",
+              "RelativeToolTip": "..\\SMS.Services\\Interfaces\\IManagerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T13:28:35.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "SMS.Services.csproj",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\SMS.Services.csproj",
               "RelativeDocumentMoniker": "..\\SMS.Services\\SMS.Services.csproj",
@@ -209,83 +403,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RepositoryService.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\RepositoryService.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Repository\\RepositoryService.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\RepositoryService.cs",
-              "RelativeToolTip": "..\\SMS.Repository\\RepositoryService.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAcwGUAAAAJAAAA",
+              "DocumentIndex": 13,
+              "Title": "TruckDriver.cs",
+              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TruckDriver.cs",
+              "RelativeDocumentMoniker": "..\\SMS.Models\\TruckDriver.cs",
+              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TruckDriver.cs",
+              "RelativeToolTip": "..\\SMS.Models\\TruckDriver.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T13:24:00.477Z",
+              "WhenOpened": "2024-12-27T08:49:24.11Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DesignTimeDbContextFactory.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\DesignTimeDbContextFactory.cs",
-              "RelativeDocumentMoniker": "DesignTimeDbContextFactory.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\DesignTimeDbContextFactory.cs",
-              "RelativeToolTip": "DesignTimeDbContextFactory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T11:06:23.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAuwEEAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:23:23.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ManagerController.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\ManagerController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ManagerController.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\ManagerController.cs",
-              "RelativeToolTip": "Controllers\\ManagerController.cs",
-              "ViewState": "AQIAAJUAAAAAAAAAAAAmwKMAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T08:49:28.738Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IRepositoryService.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\IRepositoryService.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Repository\\IRepositoryService.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\IRepositoryService.cs",
-              "RelativeToolTip": "..\\SMS.Repository\\IRepositoryService.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAuwBkAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:28:05.485Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IManagerService.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IManagerService.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Services\\Interfaces\\IManagerService.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IManagerService.cs",
-              "RelativeToolTip": "..\\SMS.Services\\Interfaces\\IManagerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T13:28:35.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "IUserService.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "..\\SMS.Services\\Interfaces\\IUserService.cs",
@@ -297,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "Company.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Company.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Company.cs",
@@ -309,19 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FactoryService.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\FactoryService.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Factory\\FactoryService.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\FactoryService.cs",
-              "RelativeToolTip": "..\\SMS.Factory\\FactoryService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T12:52:01.668Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "CompanyDto.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\Company\\CompanyDto.cs",
               "RelativeDocumentMoniker": "..\\SMS.Dtos\\Company\\CompanyDto.cs",
@@ -333,7 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "SMSDbContext.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMSDbContext.cs",
               "RelativeDocumentMoniker": "..\\SMS.Data\\SMSDbContext.cs",
@@ -345,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "CompanyBigDto.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\Company\\CompanyBigDto.cs",
               "RelativeDocumentMoniker": "..\\SMS.Dtos\\Company\\CompanyBigDto.cs",
@@ -357,7 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "CompanyDtoEditImport.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\Company\\CompanyDtoEditImport.cs",
               "RelativeDocumentMoniker": "..\\SMS.Dtos\\Company\\CompanyDtoEditImport.cs",
@@ -369,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "CompanySmallExport.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\Company\\CompanySmallExport.cs",
               "RelativeDocumentMoniker": "..\\SMS.Dtos\\Company\\CompanySmallExport.cs",
@@ -381,31 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAvwCoAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:23:21.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\UserService.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Services\\UserService.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\UserService.cs",
-              "RelativeToolTip": "..\\SMS.Services\\UserService.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAcwBwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:30:15.243Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "ApplicationConstants.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Common\\ApplicationConstants.cs",
               "RelativeDocumentMoniker": "..\\SMS.Common\\ApplicationConstants.cs",
@@ -417,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "RegisterDTO.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\User\\RegisterDTO.cs",
               "RelativeDocumentMoniker": "..\\SMS.Dtos\\User\\RegisterDTO.cs",
@@ -429,19 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IFactoryService.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\IFactoryService.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Factory\\IFactoryService.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\IFactoryService.cs",
-              "RelativeToolTip": "..\\SMS.Factory\\IFactoryService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:27:41.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "GeneralValidationConstants.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Common\\GeneralValidationConstants.cs",
               "RelativeDocumentMoniker": "..\\SMS.Common\\GeneralValidationConstants.cs",
@@ -453,7 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -465,7 +548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "WebApplicationBuilderExtensions.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Infrastructure\\WebApplicationBuilderExtensions.cs",
               "RelativeDocumentMoniker": "..\\SMS.Infrastructure\\WebApplicationBuilderExtensions.cs",
@@ -477,7 +560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\User\\LoginDTO.cs",
               "RelativeDocumentMoniker": "..\\SMS.Dtos\\User\\LoginDTO.cs",
@@ -489,7 +572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "Stock_Managment_System.csproj",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Stock_Managment_System.csproj",
               "RelativeDocumentMoniker": "Stock_Managment_System.csproj",
@@ -501,7 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "SMS.Repository.csproj",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\SMS.Repository.csproj",
               "RelativeDocumentMoniker": "..\\SMS.Repository\\SMS.Repository.csproj",
@@ -513,7 +596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "20250102145840_djjr.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\Migrations\\20250102145840_djjr.cs",
               "RelativeDocumentMoniker": "..\\SMS.Data\\Migrations\\20250102145840_djjr.cs",
@@ -525,7 +608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "SMS.Factory.csproj",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\SMS.Factory.csproj",
               "RelativeDocumentMoniker": "..\\SMS.Factory\\SMS.Factory.csproj",
@@ -537,7 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "20250102145340_new.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\Migrations\\20250102145340_new.cs",
               "RelativeDocumentMoniker": "..\\SMS.Data\\Migrations\\20250102145340_new.cs",
@@ -549,7 +632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "TrainOrder.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TrainOrder.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\TrainOrder.cs",
@@ -561,7 +644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "TruckOrder.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TruckOrder.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\TruckOrder.cs",
@@ -573,7 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "TypeOfVehicle.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TypeOfVehicle.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\TypeOfVehicle.cs",
@@ -585,7 +668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "20250102144619_INItial.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\Migrations\\20250102144619_INItial.cs",
               "RelativeDocumentMoniker": "..\\SMS.Data\\Migrations\\20250102144619_INItial.cs",
@@ -597,7 +680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "Pilot.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Pilot.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Pilot.cs",
@@ -609,7 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "PlaneOrder.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\PlaneOrder.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\PlaneOrder.cs",
@@ -621,7 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "Plane.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Plane.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Plane.cs",
@@ -633,7 +716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 42,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Vehicle.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Vehicle.cs",
@@ -645,7 +728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "Truck.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Truck.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Truck.cs",
@@ -657,19 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "TruckDriver.cs",
-              "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TruckDriver.cs",
-              "RelativeDocumentMoniker": "..\\SMS.Models\\TruckDriver.cs",
-              "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\TruckDriver.cs",
-              "RelativeToolTip": "..\\SMS.Models\\TruckDriver.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAkwCYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T08:49:24.11Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 44,
               "Title": "Train.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Train.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Train.cs",
@@ -681,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 45,
               "Title": "Ship.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Ship.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Ship.cs",
@@ -693,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 46,
               "Title": "Capitan.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Capitan.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Capitan.cs",
@@ -705,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 47,
               "Title": "Machinist.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Machinist.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Machinist.cs",
@@ -717,7 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 48,
               "Title": "Manager.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Manager.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Manager.cs",
@@ -729,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 49,
               "Title": "Stock.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\Stock.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\Stock.cs",
@@ -741,7 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 50,
               "Title": "ShipOrder.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\ShipOrder.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\ShipOrder.cs",
@@ -753,7 +824,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 51,
               "Title": "20250102130753_new.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\Migrations\\20250102130753_new.cs",
               "RelativeDocumentMoniker": "..\\SMS.Data\\Migrations\\20250102130753_new.cs",
@@ -765,7 +836,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 52,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "..\\SMS.Models\\ApplicationUser.cs",
@@ -777,7 +848,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 53,
               "Title": "20250102121938_Initial.cs",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\Migrations\\20250102121938_Initial.cs",
               "RelativeDocumentMoniker": "..\\SMS.Data\\Migrations\\20250102121938_Initial.cs",
@@ -789,7 +860,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 54,
               "Title": "SMS.Data.csproj",
               "DocumentMoniker": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Data\\SMS.Data.csproj",
               "RelativeDocumentMoniker": "..\\SMS.Data\\SMS.Data.csproj",

@@ -25,5 +25,14 @@
 
         public Task DeleteCompany(string companyId);
 
+        public Task<Company> GetCompanyByTitle(string companyTitle);
+
+        public Task AddTruckDriver(TruckDriver truckDriver);
+
+        public Task AddMachinist(Machinist truckDriver);
+
+        public Task AddPilot(Pilot pilot);
+
+        public Task AddCaptain(Capitan capitan);
     }
 }

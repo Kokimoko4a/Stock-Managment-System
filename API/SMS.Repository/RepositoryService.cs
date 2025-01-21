@@ -109,5 +109,54 @@ namespace SMS.Repository
 
             await data.SaveChangesAsync();
         }
+
+        public async Task<Company> GetCompanyByTitle(string companyTitle)
+        {
+            return await data.Companies.FirstOrDefaultAsync(x => x.Title == companyTitle);
+        }
+
+        public async Task AddTruckDriver(TruckDriver truckDriver)
+        {
+            data.Add(truckDriver);
+
+            var company = await GetCompany(truckDriver.CompanyId.ToString());
+
+            company.TruckDrivers.Add(truckDriver);
+
+            await data.SaveChangesAsync();
+        }
+
+        public async Task AddMachinist(Machinist machinist)
+        {
+            data.Add(machinist);
+
+            var company = await GetCompany(machinist.CompanyId.ToString());
+
+            company.Machinists.Add(machinist);
+
+            await data.SaveChangesAsync();
+        }
+
+        public async Task AddPilot(Pilot pilot)
+        {
+            data.Add(pilot);
+
+            var company = await GetCompany(pilot.CompanyId.ToString());
+
+            company.Pilots.Add(pilot);
+
+            await data.SaveChangesAsync();
+        }
+
+        public async Task AddCaptain(Capitan capitan)
+        {
+            data.Add(capitan);
+
+            var company = await GetCompany(capitan.CompanyId.ToString());
+
+            company.Capitans.Add(capitan);
+
+            await data.SaveChangesAsync();
+        }
     }
 }

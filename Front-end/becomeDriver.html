@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="driverForm">
+        <label for="title">Company Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter title" required>
+
+        <label for="type-driver">Type Driver:</label>
+        <select id="type-driver" name="type-driver" required>
+            <option value="">--Select an option--</option>
+            <option value="truck-driver">Truck Driver</option>
+            <option value="pilot">Pilot</option>
+            <option value="machinist">Machinist</option>
+            <option value="captain">Captain</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('driverForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = {
+                title: document.getElementById('title').value,
+                typeDriver: document.getElementById('type-driver').value
+            };
+
+            try {
+                const response = await fetch('https://localhost:7020/Driver/becomeDriver', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                         "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                } else {
+                    alert('Error submitting the form.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the form.');
+            }
+        });
+    </script>
+</body>
+</html>

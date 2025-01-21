@@ -1,6 +1,7 @@
 ﻿namespace SMS.Factory
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Driver;
     using SMS.Dtos.User;
     using SMS.Models;
 
@@ -11,5 +12,7 @@
         public Manager CreateManager(ApplicationUser applicationUser);
 
         public Task CreateCompany(CompanyDto companyDto, Manager manager);
+
+        public Task CreateDriver(DriverImportDto driverImportDto);
     }
 }

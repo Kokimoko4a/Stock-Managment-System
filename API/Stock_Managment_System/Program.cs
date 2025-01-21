@@ -80,6 +80,7 @@ namespace Stock_Managment_System
             builder.Services.AddScoped<IFactoryService, FactoryService>();
             builder.Services.AddScoped<IRepositoryService, RepositoryService>();
             builder.Services.AddScoped<IManagerService, ManagerService>();
+            builder.Services.AddScoped<IDriverService, DriverService>();
 
             //  builder.Services.AddApplicationServices(typeof(IRepositoryService));
 

@@ -3,6 +3,7 @@
 namespace SMS.Factory
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Driver;
     using SMS.Dtos.User;
     using SMS.Models;
     using SMS.Repository;
@@ -55,7 +56,83 @@ namespace SMS.Factory
             };
 
 
-            await repository.AddCompany(company); 
+            await repository.AddCompany(company);
+        }
+
+        public async Task CreateDriver(DriverImportDto driverImportDto)
+        {
+            string typeDriver = driverImportDto.TypeDriver.ToLower().Trim();
+
+            if (driverImportDto == null)
+            {
+                throw new ArgumentException();
+            }
+
+            if (typeDriver == "captain")
+            {
+                Capitan capitan = new Capitan()
+                {
+                    Company = await repository.GetCompanyByTitle(driverImportDto.Title),
+                    CompanyId = (await repository.GetCompanyByTitle(driverImportDto.Title)).Id,
+                    Id = Guid.Parse(driverImportDto.Id)
+
+
+                };
+
+                await repository.AddCaptain(capitan);
+
+            }
+
+
+
+            else if (typeDriver == "machinist")
+            {
+                Machinist machinist = new Machinist()
+                {
+                    Company = await repository.GetCompanyByTitle(driverImportDto.Title),
+                    CompanyId = (await repository.GetCompanyByTitle(driverImportDto.Title)).Id,
+                    Id = Guid.Parse(driverImportDto.Id)
+                };
+
+
+                await repository.AddMachinist(machinist);
+            }
+
+
+            else if (typeDriver == "pilot")
+            {
+                Pilot pilot = new Pilot()
+                {
+                    Company = await repository.GetCompanyByTitle(driverImportDto.Title),
+                    CompanyId = (await repository.GetCompanyByTitle(driverImportDto.Title)).Id,
+                    Id = Guid.Parse(driverImportDto.Id)
+                };
+
+
+                await repository.AddPilot(pilot);
+
+            }
+
+            else if (typeDriver == "truck driver")
+            {
+                TruckDriver truckDriver = new TruckDriver()
+                {
+                    Company = await repository.GetCompanyByTitle(driverImportDto.Title),
+                    CompanyId = (await repository.GetCompanyByTitle(driverImportDto.Title)).Id,
+                    Id = Guid.Parse(driverImportDto.Id)
+                };
+
+
+
+                await repository.AddTruckDriver(truckDriver);
+            }
+
+            else
+            {
+                throw new Exception();
+            }
+
+
         }
     }
 }
