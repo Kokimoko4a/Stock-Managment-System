@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 1em;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .dashboard-section {
+            margin: 2em 0;
+        }
+        .dashboard-section h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+        table th, table td {
+            padding: 0.75em;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #333;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5em 1em;
+            color: white;
+            background-color: #5cb85c;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 1em;
+        }
+        .btn-danger {
+            background-color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Driver Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="dashboard-section">
+            <h2>Current Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Pickup Location</th>
+                        <th>Dropoff Location</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTable">
+                    <!-- Orders will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Vehicle Details</h2>
+            <p>Vehicle: <span id="vehicleName">Loading...</span></p>
+            <p>Status: <span id="vehicleStatus">Loading...</span></p>
+            <button class="btn" onclick="startVehicle()">Start Vehicle</button>
+        </div>
+    </div>
+
+    <script>
+        const orders = [
+            { id: 1, pickup: '123 Main St', dropoff: '456 Elm St', status: 'Pending' },
+            { id: 2, pickup: '789 Oak Ave', dropoff: '101 Pine Rd', status: 'In Progress' }
+        ];
+
+        function loadOrders() {
+            const tableBody = document.getElementById('ordersTable');
+            tableBody.innerHTML = '';
+            orders.forEach(order => {
+                const row = `<tr>
+                    <td>${order.id}</td>
+                    <td>${order.pickup}</td>
+                    <td>${order.dropoff}</td>
+                    <td>${order.status}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function startVehicle() {
+            const vehicleStatus = document.getElementById('vehicleStatus');
+            vehicleStatus.textContent = 'Running';
+            alert('Vehicle started successfully!');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrders();
+            document.getElementById('vehicleName').textContent = 'Ford Transit';
+            document.getElementById('vehicleStatus').textContent = 'Idle';
+        });
+    </script>
+</body>
+</html>

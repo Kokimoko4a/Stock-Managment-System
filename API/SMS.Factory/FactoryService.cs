@@ -113,7 +113,7 @@ namespace SMS.Factory
 
             }
 
-            else if (typeDriver == "truck driver")
+            else if (typeDriver == "truck-driver")
             {
                 TruckDriver truckDriver = new TruckDriver()
                 {
