@@ -36,6 +36,28 @@ namespace Stock_Managment_System.Controllers
         }
 
 
+        [HttpGet("driverDashboard")]
+        public async Task<IActionResult> IsDriver()
+        {
+            var id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+
+            bool result = await driverService.IsDriver(id);
+
+            if (result)
+            {
+                return Ok();
+            }
+
+            return Unauthorized();
+        }
+
+
         private string GetTokenAndIdIfExists()
         {
             var token = Request.Headers["Authorization"].ToString();

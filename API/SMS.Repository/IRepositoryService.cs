@@ -34,5 +34,7 @@
         public Task AddPilot(Pilot pilot);
 
         public Task AddCaptain(Capitan capitan);
+
+        public Task<bool> IsDriver(string userId);
     }
 }

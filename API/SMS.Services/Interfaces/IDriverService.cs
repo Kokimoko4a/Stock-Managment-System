@@ -7,5 +7,7 @@ namespace SMS.Services.Interfaces
     public interface IDriverService
     {
         public Task BecomeDriver(DriverImportDto driverImportDto);
+
+        public Task<bool> IsDriver(string userId);
     }
 }

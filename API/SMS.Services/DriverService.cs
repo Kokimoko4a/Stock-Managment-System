@@ -22,5 +22,10 @@ namespace SMS.Services
         {
            await factoryService.CreateDriver(driverImportDto);
         }
+
+        public async Task<bool> IsDriver(string userId)
+        {
+          return  await repositoryService.IsDriver(userId);
+        }
     }
 }

@@ -53,10 +53,10 @@ namespace SMS.Repository
 
         public async Task AddCompany(Company company)
         {
-        
+
 
             // Save all changes
-           
+
 
             try
             {
@@ -77,9 +77,9 @@ namespace SMS.Repository
 
         }
 
-        public async Task<List<CompanySmallExport>> GetAllCompanies(string managerId)   
-            
-            => await data.Companies.Where(x => x.ManagerId.ToString() == managerId).Select(x => new CompanySmallExport() 
+        public async Task<List<CompanySmallExport>> GetAllCompanies(string managerId)
+
+            => await data.Companies.Where(x => x.ManagerId.ToString() == managerId).Select(x => new CompanySmallExport()
             {
                 Id = x.Id.ToString(),
                 Title = x.Title
@@ -103,7 +103,7 @@ namespace SMS.Repository
 
         public async Task DeleteCompany(string companyId)
         {
-           var company = await data.Companies.FirstAsync(x => x.Id.ToString() == companyId);
+            var company = await data.Companies.FirstAsync(x => x.Id.ToString() == companyId);
 
             data.Companies.Remove(company);
 
@@ -157,6 +157,37 @@ namespace SMS.Repository
             company.Capitans.Add(capitan);
 
             await data.SaveChangesAsync();
+        }
+
+        public async Task<bool> IsDriver(string userId)
+        {
+           
+
+            if (await data.TruckDrivers.AnyAsync(x => x.Id.ToString() == userId))
+            {
+               return true;
+            }
+
+
+            else if (await data.Pilots.AnyAsync(x => x.Id.ToString() == userId))
+            {
+                return true;
+            }
+
+
+            else if (await data.Machinists.AnyAsync(x => x.Id.ToString() == userId))
+            {
+                return true;
+            }
+
+
+            else if (await data.Capitans.AnyAsync(x => x.Id.ToString() == userId))
+            {
+                return true;
+            }
+
+
+           return false;
         }
     }
 }
