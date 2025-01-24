@@ -17,6 +17,18 @@
             color: white;
             padding: 1em 0;
             text-align: center;
+            position: relative;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            font-size: 0.9em;
         }
         .container {
             max-width: 1200px;
@@ -68,6 +80,7 @@
 <body>
     <header>
         <h1>Driver Dashboard</h1>
+        <button class="logout-btn" onclick="logout()">Log Out</button>
     </header>
     <div class="container">
         <div class="dashboard-section">
@@ -121,45 +134,57 @@
             alert('Vehicle started successfully!');
         }
 
+        async function logout() {
+            try {
+                const response = await fetch('https://localhost:7020/User/logout', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    }
+                });
+
+                if (response.ok) {
+                    localStorage.removeItem('jwtToken');
+                    alert('Logged out successfully.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Failed to log out. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error during logout:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             loadOrders();
             document.getElementById('vehicleName').textContent = 'Ford Transit';
             document.getElementById('vehicleStatus').textContent = 'Idle';
         });
 
-
-        // here if not driver not allowed 
-
-
         window.onload = async function () {
-    try {
-        const response = await fetch('https://localhost:7020/Driver/driverDashboard', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
-            }
-        });
+            try {
+                const response = await fetch('https://localhost:7020/Driver/driverDashboard', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                    }
+                });
 
-        if (response.ok) {
-            // If the response is successful (HTTP 200), redirect to the driver dashboard
-           // window.location.href = 'driverDashboard.html';
-        } else {
-            // Handle errors like Unauthorized (HTTP 401) or Bad Request (HTTP 400)
-            if (response.status === 401) {
-                window.location.href = "access-denied.html";
-            } else if (response.status === 400) {
-                alert('Bad request. Please check your session or try again.');
-            } else {
-                alert('An unexpected error occurred.');
+                if (!response.ok) {
+                    if (response.status === 401) {
+                        window.location.href = 'access-denied.html';
+                    } else {
+                        alert('An error occurred. Please check your session.');
+                    }
+                }
+            } catch (error) {
+                console.error('Error while checking driver status:', error);
+                alert('Failed to communicate with the server. Please try again later.');
             }
-        }
-    } catch (error) {
-        console.error('Error while checking driver status:', error);
-        alert('Failed to communicate with the server. Please try again later.');
-    }
-};
-
+        };
     </script>
 </body>
 </html>
