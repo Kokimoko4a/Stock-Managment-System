@@ -29,9 +29,8 @@
         [Range(GaugeMinValue,GaugeMaxValue)]
         public double Gauge { get; set; }
 
-     /*   [ForeignKey(nameof(Order))]
-        public Guid OrderId { get; set; }*/
+      
 
-        //public Order Order { get; set; }
+
     }
 }
