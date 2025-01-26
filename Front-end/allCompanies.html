@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Directory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      width: 90%;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .company-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .company-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .company-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .company-name {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+
+    .company-description {
+      color: #666;
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+
+    .button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 60%;
+      max-width: 600px;
+    }
+
+    .modal-header {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .modal-body {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .close {
+      background-color: #aaa;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+
+    .close:hover {
+      background-color: #666;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Company Directory</h1>
+  </header>
+
+  <div class="container" id="company-container">
+    <!-- Dynamic company cards will be inserted here -->
+  </div>
+
+  <!-- Modal for displaying company details -->
+  <div class="modal" id="company-modal">
+    <div class="modal-content">
+      <div class="modal-header" id="company-modal-title">Company Title</div>
+      <div class="modal-body">
+        <p id="company-modal-description">Description</p>
+        <a href="#" id="company-modal-website" target="_blank">Visit Website</a>
+      </div>
+      <button class="close" id="close-modal">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Fetching companies from the API
+    async function fetchCompanies() {
+      try {
+        const response = await fetch('https://localhost:7020/Manager/getAllCompanies', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+            }
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch companies');
+        }
+        const companies = await response.json();
+
+        // Get the container where company cards will be displayed
+        const container = document.getElementById('company-container');
+
+        // Loop through the companies and create a card for each one
+        companies.forEach(company => {
+          const companyCard = document.createElement('div');
+          companyCard.classList.add('company-card');
+          companyCard.setAttribute('data-id', company.id); // Store company ID for later use
+
+          companyCard.innerHTML = `
+            <img src="${company.logo}" class="company-logo" alt="${company.title} Logo">
+            <h2 class="company-name">${company.title}</h2>
+            <p class="company-description">${company.description}</p>
+          `;
+
+          companyCard.addEventListener('click', function() {
+            fetchCompanyDetails(company.id);
+          });
+
+          container.appendChild(companyCard);
+        });
+
+      } catch (error) {
+        console.error(error);
+        alert('Error fetching companies');
+      }
+    }
+
+    // Fetch company details
+    async function fetchCompanyDetails(companyId) {
+    
+        window.location.href = `companyDetails.html?id=${companyId}`;
+                    
+    }
+
+    // Close modal when the close button is clicked
+    document.getElementById('close-modal').addEventListener('click', function() {
+      document.getElementById('company-modal').style.display = "none";
+    });
+
+    // Call the function to fetch the companies when the page loads
+    fetchCompanies();
+  </script>
+
+</body>
+</html>
