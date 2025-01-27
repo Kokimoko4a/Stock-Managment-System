@@ -36,5 +36,7 @@
         public Task AddCaptain(Capitan capitan);
 
         public Task<bool> IsDriver(string userId);
+
+        public Task CreateStock(Stock stock, string companyId);
     }
 }

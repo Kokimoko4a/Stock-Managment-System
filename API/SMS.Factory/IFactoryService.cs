@@ -2,6 +2,7 @@
 {
     using SMS.Dtos.Company;
     using SMS.Dtos.Driver;
+    using SMS.Dtos.Stock;
     using SMS.Dtos.User;
     using SMS.Models;
 
@@ -14,5 +15,7 @@
         public Task CreateCompany(CompanyDto companyDto, Manager manager);
 
         public Task CreateDriver(DriverImportDto driverImportDto);
+
+        public Task CreateStock(StockImportDto stockImportDto);
     }
 }

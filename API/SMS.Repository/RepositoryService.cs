@@ -189,5 +189,18 @@ namespace SMS.Repository
 
            return false;
         }
+
+        public async Task CreateStock(Stock stock, string companyId)
+        {
+            var company = await GetCompany(companyId);
+
+            await data.Stocks.AddAsync(stock);
+
+            await data.SaveChangesAsync();
+
+            company.Stocks.Add(stock);
+
+            await data.SaveChangesAsync();
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace SMS.Factory
 {
     using SMS.Dtos.Company;
     using SMS.Dtos.Driver;
+    using SMS.Dtos.Stock;
     using SMS.Dtos.User;
     using SMS.Models;
     using SMS.Repository;
@@ -133,6 +134,47 @@ namespace SMS.Factory
             }
 
 
+        }
+
+        public async Task CreateStock(StockImportDto stockImportDto)
+        {
+            string typeTransport = stockImportDto.TransportType;
+
+            /*        public const int TruckCode = 0;
+        public const int ShipCode = 1;
+        public const int TrainCode = 2;
+        public const int PlaneCode = 3;*/
+
+
+            Stock stock = new Stock()
+            {
+                Description = stockImportDto.Description,
+                Gauge = stockImportDto.Gauge,
+                Title = stockImportDto.Title,
+                
+            };
+
+            if (typeTransport == "air")
+            {
+                stock.PreferedTypeOfTransportId = (TypeOfVehicle)3;
+            }
+
+            else if (typeTransport == "water")
+            {
+                stock.PreferedTypeOfTransportId = (TypeOfVehicle)1;
+            }
+
+            else if (typeTransport == "land")
+            {
+                stock.PreferedTypeOfTransportId = (TypeOfVehicle)0;
+            }
+
+            else if (typeTransport == "rail")
+            {
+                stock.PreferedTypeOfTransportId = (TypeOfVehicle)2;
+            }
+
+            await repository.CreateStock(stock, stockImportDto.CompanyId);
         }
     }
 }
