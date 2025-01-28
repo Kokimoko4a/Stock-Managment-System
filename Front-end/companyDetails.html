@@ -54,17 +54,42 @@
         button:hover {
             background-color: #c0392b;
         }
+
+        /* Styling for the stock list */
+        #stockList {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #stockList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #stockList li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
     <div id="companyDetails">
-        <p>Loading company details...</p>
+        
         <!-- The buttons are now inside the same div as the title and description -->
         <div id="companyDetailsContent"></div>
         <div class="button-container">
             <button id="deleteButton">Delete Company</button>
             <button id="addStockButton">Add Stock</button>
+            <button id="viewStocksButton">View Stocks</button> <!-- New button added -->
         </div>
+    </div>
+
+    <div id="stockList" style="display:none;">
+        <h3>Stocks:</h3>
+        <ul id="stocksContainer"></ul> <!-- Container for displaying stocks -->
     </div>
 
     <script>
@@ -101,6 +126,12 @@
                     console.error('Error verifying access:', error);
                     alert("An error occurred while verifying access.");
                 });
+            });
+
+            // New function to view stocks
+            const viewStocksButton = document.getElementById('viewStocksButton');
+            viewStocksButton.addEventListener('click', () => {
+                fetchStocks(companyId);
             });
 
             function fetchCompanyDetails(companyId) {
@@ -156,6 +187,43 @@
                     deleteCompany(companyId);
                 }
             });
+
+            // Function to fetch and display stocks
+            function fetchStocks(companyId) {
+                fetch(`https://localhost:7020/Stock/getStocksForCompany/${companyId}`, {
+                    method: 'GET',
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const stocksContainer = document.getElementById('stocksContainer');
+                    const stockList = document.getElementById('stockList');
+
+                    // Clear previous stock list
+                    stocksContainer.innerHTML = '';
+
+                    if (data && data.length > 0) {
+                        data.forEach(stock => {
+                            const li = document.createElement('li');
+                            li.textContent = `Stock Title: ${stock.title}, , Prefered transport: ${stock.typeOfTransport}`;
+                            stocksContainer.appendChild(li);
+                        });
+                    } else {
+                        const li = document.createElement('li');
+                        li.textContent = 'No stocks available.';
+                        stocksContainer.appendChild(li);
+                    }
+
+                    // Show the stock list
+                    stockList.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching stocks:', error);
+                    alert('An error occurred while fetching stocks.');
+                });
+            }
         });
     </script>
 </body>

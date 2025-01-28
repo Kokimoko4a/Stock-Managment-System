@@ -6,5 +6,7 @@ namespace SMS.Services.Interfaces
     public interface IStockService
     {
         public Task CreateStock( StockImportDto stockImportDto);
+
+        public Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId);
     }
 }

@@ -42,5 +42,7 @@ namespace SMS.Models
         [Required]
         [StringLength(StartPointMaxLength, MinimumLength = StartPointMinLength)]
         public string StartPoint { get; set; }
+
+        
     }
 }

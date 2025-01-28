@@ -29,7 +29,13 @@
         [Range(GaugeMinValue,GaugeMaxValue)]
         public double Gauge { get; set; }
 
-      
+        [Required]
+        [ForeignKey(nameof(Company))]
+        public Guid CompanyId { get; set; }
+
+        public Company Company { get; set; }
+
+       
 
 
     }

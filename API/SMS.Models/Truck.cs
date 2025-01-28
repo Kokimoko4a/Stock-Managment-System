@@ -4,7 +4,7 @@
     using static SMS.Common.ApplicationConstants;
     public class Truck : Vehicle
     {
-        public Truck() : base("11111", TruckCode, 300, 300.0) // Default values to call the base constructor
+        public Truck() : base("11111", TruckCode, 300, 300.0) // Default values to call the base constructor it gives erros just 
         {
         }
 

@@ -5,6 +5,7 @@ namespace Stock_Managment_System.Controllers
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
     using SMS.Dtos.Stock;
     using SMS.Services;
     using SMS.Services.Interfaces;
@@ -37,6 +38,22 @@ namespace Stock_Managment_System.Controllers
 
             return Ok();
            
+        }
+
+        [HttpGet("getStocksForCompany/{companyId}")]
+        public async Task<IActionResult> GetAllStocks([FromRoute] string companyId)
+        {
+            var token = GetTokenAndIdIfExists();
+
+
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+
+
+            return Ok(await stockService.GetAllStocksForCompany(companyId));
+
         }
 
 

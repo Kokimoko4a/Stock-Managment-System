@@ -4,6 +4,7 @@ namespace SMS.Repository
     using Microsoft.EntityFrameworkCore;
     using SMS.Data;
     using SMS.Dtos.Company;
+    using SMS.Dtos.Stock;
     using SMS.Models;
     using System.Collections.Generic;
 
@@ -194,6 +195,9 @@ namespace SMS.Repository
         {
             var company = await GetCompany(companyId);
 
+            stock.Company = company;
+            stock.CompanyId = company.Id;
+
             await data.Stocks.AddAsync(stock);
 
             await data.SaveChangesAsync();
@@ -201,6 +205,19 @@ namespace SMS.Repository
             company.Stocks.Add(stock);
 
             await data.SaveChangesAsync();
+        }
+
+        public async Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId)
+        {
+           return await data.Stocks.Where(x => x.CompanyId.ToString() == companyId)
+                .Select(x => new SmallStockExportDto()
+                { 
+                    Id = x.Id.ToString(),
+                    Title = x.Title,
+                    TypeOfTransport = x.PreferedTypeOfTransportId.ToString()
+                
+                })
+                .ToListAsync();
         }
     }
 }

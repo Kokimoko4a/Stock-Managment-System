@@ -1,6 +1,7 @@
 ﻿namespace SMS.Repository
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Stock;
     using SMS.Models;
 
     public interface IRepositoryService
@@ -38,5 +39,7 @@
         public Task<bool> IsDriver(string userId);
 
         public Task CreateStock(Stock stock, string companyId);
+
+        public Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId); 
     }
 }

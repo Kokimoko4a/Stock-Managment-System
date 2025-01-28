@@ -152,6 +152,7 @@ namespace SMS.Factory
                 Gauge = stockImportDto.Gauge,
                 Title = stockImportDto.Title,
                 
+                
             };
 
             if (typeTransport == "air")
