@@ -26,5 +26,15 @@
         {
             return await repositoryService.GetAllStocksForCompany(companyId);
         }
+
+        public async Task<SmallStockExportDto> GetStock(string stockId)
+        {
+           return await repositoryService.GetStock(stockId);
+        }
+
+        public async Task UpdateStock(SmallStockExportDto stock)
+        {
+           await repositoryService.UpdateStock(stock);
+        }
     }
 }

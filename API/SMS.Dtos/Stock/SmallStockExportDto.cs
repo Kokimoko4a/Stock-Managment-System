@@ -7,5 +7,9 @@
         public string Title { get; set; }
 
         public string TypeOfTransport { get; set; }
+
+        public string Description { get; set; }
+
+        public double Gauge { get; set; }
     }
 }

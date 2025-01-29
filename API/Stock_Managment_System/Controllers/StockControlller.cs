@@ -11,7 +11,7 @@ namespace Stock_Managment_System.Controllers
     using SMS.Services.Interfaces;
 
     [Route("/Stock")]
-  
+
     public class StockControlller : ControllerBase
     {
         private readonly IStockService stockService;
@@ -21,7 +21,7 @@ namespace Stock_Managment_System.Controllers
             this.stockService = stockService;
         }
 
-        
+
         [HttpPost("addStock")]
         public async Task<IActionResult> AddStock([FromBody] StockImportDto stockImportDto)
         {
@@ -37,7 +37,7 @@ namespace Stock_Managment_System.Controllers
 
 
             return Ok();
-           
+
         }
 
         [HttpGet("getStocksForCompany/{companyId}")]
@@ -56,6 +56,23 @@ namespace Stock_Managment_System.Controllers
 
         }
 
+        [HttpGet("getStock/{stockId}")]
+
+        public async Task<IActionResult> GetStock([FromRoute] string stockId)
+        {
+            var token = GetTokenAndIdIfExists();
+
+
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+
+            var test = await stockService.GetStock(stockId);
+
+            return Ok(test);
+        }
+
 
         private string GetTokenAndIdIfExists()
         {
@@ -72,6 +89,24 @@ namespace Stock_Managment_System.Controllers
             string id = token.Remove(0, 6).Trim();
 
             return id;
+        }
+
+        [HttpPut("updateStock")]
+        public async Task<IActionResult> UpdateStock([FromBody] SmallStockExportDto stock)
+        {
+            var token = Request.Headers["Authorization"].ToString();
+
+
+            if (token == null)
+            {
+                return BadRequest();
+            }
+
+
+            await stockService.UpdateStock(stock);
+            
+
+            return Ok();
         }
 
     }

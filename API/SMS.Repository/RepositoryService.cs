@@ -214,10 +214,42 @@ namespace SMS.Repository
                 { 
                     Id = x.Id.ToString(),
                     Title = x.Title,
-                    TypeOfTransport = x.PreferedTypeOfTransportId.ToString()
+                    TypeOfTransport = x.PreferedTypeOfTransportId.ToString(),
+                    Description = x.Description
                 
                 })
                 .ToListAsync();
+        }
+
+        public async Task<SmallStockExportDto> GetStock(string stockId)
+        {
+            return await data.Stocks.Where(x => x.Id.ToString() == stockId).Select(x => new SmallStockExportDto()
+            {
+                Description = x.Description,
+                Id = x.Id.ToString(),
+                Title = x.Title,
+                TypeOfTransport = x.PreferedTypeOfTransportId.ToString(),
+                Gauge = x.Gauge
+            }).FirstAsync();
+        }
+
+        public async Task UpdateStock(SmallStockExportDto stock)
+        {
+            var stockFromDb = await data.Stocks.FirstAsync(x => x.Id.ToString() == stock.Id);
+            if (stockFromDb == null)
+            {
+                throw new KeyNotFoundException($"Stock with ID {stock.Id} not found.");
+            }
+
+     
+            stockFromDb.Gauge = stock.Gauge;
+            stockFromDb.Title = stock.Title;
+            stockFromDb.Description = stock.Description;
+
+
+
+            // Save changes
+            await data.SaveChangesAsync();
         }
     }
 }

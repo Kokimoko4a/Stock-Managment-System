@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Stock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cancelButton {
+            background-color: #f44336;
+        }
+
+        #cancelButton:hover {
+            background-color: #da190b;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Stock</h1>
+
+        <form id="editStockForm">
+            <div class="form-group">
+                <label for="stockTitle">Title:</label>
+                <input type="text" id="stockTitle" name="stockTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stockDescription">Description:</label>
+                <textarea id="stockDescription" name="stockDescription" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="stockTransport">Transport Type:</label>
+                <input type="text" id="stockTransport" name="stockTransport" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stockQuantity">Quantity:</label>
+                <input type="number" id="stockQuantity" name="stockQuantity" required>
+            </div>
+
+        
+
+            <div class="form-group">
+                <button type="submit">Update Stock</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Extract the stock ID from the URL
+            const stockId = new URLSearchParams(window.location.search).get('stockId');
+
+            if (!stockId) {
+                alert('No stock ID provided.');
+                window.history.back();
+                return;
+            }
+
+            // Fetch stock data from the server
+            fetch(`https://localhost:7020/Stock/getStock/${stockId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch stock data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Populate the form fields with the fetched data
+                document.getElementById('stockTitle').value = data.title || '';
+                document.getElementById('stockDescription').value = data.description || '';
+                document.getElementById('stockTransport').value = data.typeOfTransport || 'Road';
+                document.getElementById('stockQuantity').value = data.gauge || '';
+
+                console.log(data.title + " " + data.description + " " + data.typeOfTransport);
+            })
+            .catch(error => {
+                console.error('Error fetching stock data:', error);
+                alert('An error occurred while fetching the stock data.');
+            });
+        });
+
+        document.getElementById('editStockForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+          
+
+            const stockId = new URLSearchParams(window.location.search).get('stockId');
+
+            const stockData = {
+                title: document.getElementById('stockTitle').value,
+                description: document.getElementById('stockDescription').value,
+                typeOfTransport: document.getElementById('stockTransport').value,
+                gauge: document.getElementById('stockQuantity').value,
+                id: stockId
+            };
+
+            fetch(`https://localhost:7020/Stock/updateStock`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                },
+                body: JSON.stringify(stockData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update stock');
+                }
+                alert('Stock updated successfully!');
+                window.location.href = `companyDetails.html?id=${stockId}`; // Redirect back to company details
+            })
+            .catch(error => {
+                console.error('Error updating stock:', error);
+                alert('An error occurred while updating the stock.');
+            });
+        });
+
+        document.getElementById('cancelButton').addEventListener('click', () => {
+            window.history.back(); // Go back to the previous page
+        });
+    </script>
+</body>
+</html>
