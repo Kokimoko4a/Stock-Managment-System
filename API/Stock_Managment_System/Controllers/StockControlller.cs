@@ -103,7 +103,7 @@ namespace Stock_Managment_System.Controllers
             }
 
 
-            await stockService.UpdateStock(stock);
+           await stockService.UpdateStock(stock);
             
 
             return Ok();

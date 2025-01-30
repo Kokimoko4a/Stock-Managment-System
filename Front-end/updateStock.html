@@ -42,7 +42,7 @@
             color: #555;
         }
 
-        input, textarea {
+        input, textarea, select {
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -85,7 +85,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             margin-bottom: 10px;
         }
     </style>
@@ -107,15 +108,15 @@
 
             <div class="form-group">
                 <label for="stockTransport">Transport Type:</label>
-                <input type="text" id="stockTransport" name="stockTransport" required>
+                <select id="stockTransport" name="stockTransport" required>
+                    <option value="" disabled>Select transport type</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="stockQuantity">Quantity:</label>
                 <input type="number" id="stockQuantity" name="stockQuantity" required>
             </div>
-
-        
 
             <div class="form-group">
                 <button type="submit">Update Stock</button>
@@ -135,6 +136,18 @@
                 return;
             }
 
+            // Predefined transport types
+            const transportTypes = ['plane', 'train', 'ship', 'truck'];
+
+            // Populate the dropdown with transport types
+            const transportDropdown = document.getElementById('stockTransport');
+            transportTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+                transportDropdown.appendChild(option);
+            });
+
             // Fetch stock data from the server
             fetch(`https://localhost:7020/Stock/getStock/${stockId}`, {
                 method: 'GET',
@@ -153,10 +166,17 @@
                 // Populate the form fields with the fetched data
                 document.getElementById('stockTitle').value = data.title || '';
                 document.getElementById('stockDescription').value = data.description || '';
-                document.getElementById('stockTransport').value = data.typeOfTransport || 'Road';
                 document.getElementById('stockQuantity').value = data.gauge || '';
 
-                console.log(data.title + " " + data.description + " " + data.typeOfTransport);
+                // Set the selected value in the dropdown
+                if (data.typeOfTransport) {
+                const selectedTransportType = data.typeOfTransport.toLowerCase(); // Convert to lowercase
+                if (transportTypes.includes(selectedTransportType)) {
+                    transportDropdown.value = selectedTransportType;
+                } else {
+                    console.error('Invalid transport type:', data.typeOfTransport);
+                }
+            }
             })
             .catch(error => {
                 console.error('Error fetching stock data:', error);
@@ -166,8 +186,6 @@
 
         document.getElementById('editStockForm').addEventListener('submit', (e) => {
             e.preventDefault();
-
-          
 
             const stockId = new URLSearchParams(window.location.search).get('stockId');
 
@@ -191,8 +209,9 @@
                 if (!response.ok) {
                     throw new Error('Failed to update stock');
                 }
+
                 alert('Stock updated successfully!');
-                window.location.href = `companyDetails.html?id=${stockId}`; // Redirect back to company details
+                window.history.back();
             })
             .catch(error => {
                 console.error('Error updating stock:', error);

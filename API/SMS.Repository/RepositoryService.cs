@@ -245,11 +245,34 @@ namespace SMS.Repository
             stockFromDb.Gauge = stock.Gauge;
             stockFromDb.Title = stock.Title;
             stockFromDb.Description = stock.Description;
+            string wayOfTransport = stock.TypeOfTransport.ToLower();
 
+
+            if (wayOfTransport == "plane")
+            {
+                stockFromDb.PreferedTypeOfTransportId = (TypeOfVehicle)3;
+            }
+
+            else if (wayOfTransport == "ship")
+            {
+                stockFromDb.PreferedTypeOfTransportId = (TypeOfVehicle)1;
+            }
+
+            else if (wayOfTransport == "truck")
+            {
+                stockFromDb.PreferedTypeOfTransportId = (TypeOfVehicle)0;
+            }
+
+            else if (wayOfTransport == "train")
+            {
+                stockFromDb.PreferedTypeOfTransportId = (TypeOfVehicle)2;
+            }
 
 
             // Save changes
             await data.SaveChangesAsync();
+
+           
         }
     }
 }

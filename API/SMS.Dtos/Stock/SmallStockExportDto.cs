@@ -11,5 +11,7 @@
         public string Description { get; set; }
 
         public double Gauge { get; set; }
+
+      
     }
 }
