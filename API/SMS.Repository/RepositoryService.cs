@@ -215,7 +215,8 @@ namespace SMS.Repository
                     Id = x.Id.ToString(),
                     Title = x.Title,
                     TypeOfTransport = x.PreferedTypeOfTransportId.ToString(),
-                    Description = x.Description
+                    Description = x.Description,
+                    Gauge = x.Gauge
                 
                 })
                 .ToListAsync();
