@@ -22,6 +22,7 @@
             await factoryService.CreateStock(stockImportDto);
         }
 
+   
         public async Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId)
         {
             return await repositoryService.GetAllStocksForCompany(companyId);
@@ -36,5 +37,11 @@
         {
            await repositoryService.UpdateStock(stock);
         }
+
+        public async Task DeleteStock(string stockId)
+        {
+            await repositoryService.DeleteStock(stockId);
+        }
+
     }
 }

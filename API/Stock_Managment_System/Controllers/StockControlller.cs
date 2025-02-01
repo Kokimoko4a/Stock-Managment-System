@@ -103,10 +103,28 @@ namespace Stock_Managment_System.Controllers
             }
 
 
-           await stockService.UpdateStock(stock);
-            
+            await stockService.UpdateStock(stock);
+
 
             return Ok();
+        }
+
+        [HttpDelete("deleteProduct")]
+
+        public async Task<IActionResult> DeleteStock([FromQuery] string stockId)
+        {
+            var token = Request.Headers["Authorization"].ToString();
+
+
+            if (token == null)
+            {
+                return BadRequest();
+            }
+
+            await stockService.DeleteStock(stockId);
+
+            return Ok();
+
         }
 
     }

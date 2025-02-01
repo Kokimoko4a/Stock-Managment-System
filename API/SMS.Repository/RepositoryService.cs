@@ -275,5 +275,15 @@ namespace SMS.Repository
 
            
         }
+
+        public async Task DeleteStock(string stockId)
+        {
+            var stockFromDb = await data.Stocks.FirstAsync(x => x.Id.ToString() == stockId);
+
+            data.Remove(stockFromDb);
+
+            await data.SaveChangesAsync();
+
+        }
     }
 }

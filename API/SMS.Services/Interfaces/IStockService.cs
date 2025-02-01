@@ -12,5 +12,7 @@ namespace SMS.Services.Interfaces
         public Task<SmallStockExportDto> GetStock(string stockId);
 
         public Task UpdateStock(SmallStockExportDto stock);
+
+        public Task DeleteStock(string stockId);
     }
 }

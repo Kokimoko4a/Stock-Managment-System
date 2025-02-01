@@ -1,8 +1,11 @@
+
+
 namespace Stock_Managment_System.Controllers
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.IdentityModel.Tokens;
+   // using BCrypt.Net.BCrypt;
     using SMS.Dtos.User;
     using SMS.Models;
     using SMS.Services.Interfaces;
@@ -31,9 +34,16 @@ namespace Stock_Managment_System.Controllers
         [HttpPost("login")]
         public  IActionResult Login([FromBody] LoginDto loginDto)
         {
-            // Retrieve the user from your user service
+            
             ApplicationUser user = userService.GetUserByEmail(loginDto.Email);
-            // Create claims for the JWT (e.g., user name, email)
+
+            var passwordHasher = new PasswordHasher<ApplicationUser>();
+
+            if (user == null || passwordHasher.VerifyHashedPassword(user, user.PasswordHash, loginDto.Password) == PasswordVerificationResult.Failed)
+            {
+                return Unauthorized(new { Message = "Invalid email or password." });
+            }
+
             var claims = new List<Claim>
     {
         new Claim(ClaimTypes.Name, user.UserName),
