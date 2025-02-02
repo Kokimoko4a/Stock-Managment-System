@@ -21,6 +21,14 @@
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(BrandMaxLength, MinimumLength = BrandMinLength)]
+        public string Brand { get; set; }
+
+        [Required]
+        [StringLength(ModelMaxLength,MinimumLength = ModelMinLength)]
+        public string Model { get; set; }
+
+        [Required]
         [StringLength(RegistrationNumberMaxLength,MinimumLength = RegistrationNumberMinLength)]
         public string RegistrationNumber { get; set; } = null!;
 

@@ -12,6 +12,8 @@
         {
         }
 
+       
+
         [ForeignKey(nameof(Driver))]
         public Guid DriverId { get; set; }
 

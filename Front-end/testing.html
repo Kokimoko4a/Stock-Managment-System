@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Markers on Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // 1. Инициализация на картата
+        const map = L.map('map').setView([42.6977, 23.3242], 13);
+
+        // 2. Зареждане на OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // 3. Работеща икона на камион 🚛
+        const truckIcon = L.icon({
+            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Truck_icon.svg', // Директен SVG камион
+            iconSize: [50, 50], 
+            iconAnchor: [25, 50], 
+            popupAnchor: [0, -50] 
+        });
+
+        // 4. Начални координати
+        let lat = 42.6977;
+        let lng = 23.3242;
+        let counter = 1;
+
+        // 5. Добавяне на камиони на всеки 5 секунди
+        setInterval(() => {
+            lat += 0.001;
+            lng += 0.001;
+
+            L.marker([lat, lng], { icon: truckIcon }).addTo(map)
+                .bindPopup(`🚛 Камион #${counter} <br> Координати: ${lat.toFixed(5)}, ${lng.toFixed(5)}`)
+                .openPopup();
+
+            counter++; // Увеличаваме броя на камионите
+        }, 5000);
+
+    </script>
+
+</body>
+</html>

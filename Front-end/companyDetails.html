@@ -232,7 +232,7 @@
                         data.forEach(stock => {
                             const stockDiv = document.createElement('div');
                             stockDiv.className = 'stock-item';
-                            stockDiv.id = stock.id;
+                            stockDiv.id = stock.id + stock.title;
                         
 
                             const stockDetails = document.createElement('div');
@@ -256,9 +256,9 @@
                             const deleteButton = document.createElement('button');
                             deleteButton.className = 'delete-button';
                             deleteButton.textContent = 'Delete';
-                            deleteButton.addEventListener('click', async () => {
-                                console.log(`Delete stock ${stock.id}`);
-                                let stockId = stock.id;
+                           // deleteButton.addEventListener('click', async () => {
+                             //   console.log(`Delete stock ${stock.id}`);
+                             //   let stockId = stock.id;
 
                                 //deleting product logic HERE
 
@@ -277,10 +277,10 @@
                                             throw new Error(`Error: ${response.status} ${response.statusText}`);
                                         }
 
-                                        console.log(`Stock ${stock.id} deleted successfully`);
+                                        alert(`Stock ${stock.title} deleted successfully`);
                                         
                                         // Optionally, remove the deleted stock from the UI
-                                         getElementById(stock.id).remove(); 
+                                         document.getElementById(stock.id + stock.title).remove(); 
 
                                     } catch (error) {
                                         console.error("Failed to delete stock:", error);
@@ -288,7 +288,7 @@
                                 });
 
 
-                            });
+                            //});
 
                             stockActions.appendChild(editButton);
                             stockActions.appendChild(deleteButton);

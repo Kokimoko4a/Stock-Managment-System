@@ -29,7 +29,13 @@
                          
             public const double ReservoirCapacityMinValue = 100;
 
+            public const int BrandMaxLength = 20;
 
+            public const int BrandMinLength = 2;
+
+            public const int ModelMaxLength = 20;
+
+            public const int ModelMinLength = 2;
         }
 
         public static class Stock
@@ -58,6 +64,14 @@
             public const int DestinationMaxLength = 30;
 
             public const int DestinationMinLength = 3;
+
+            public const int TitleMaxLength = 30;
+
+            public const int TitleMinLength = 5;
+
+            public const int DescriptionMaxLength = 200;
+
+            public const int DescriptionMinLength = 20;
         }
 
         public static class Company
