@@ -53,6 +53,8 @@
         [Range(ReservoirCapacityMinValue, ReservoirCapacityMaxValue)]
         public double ReservoirCapacity { get; set; }
 
+        public string ImagePath { get; set; }
+
 
     }
 }

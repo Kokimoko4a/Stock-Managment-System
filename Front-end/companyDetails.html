@@ -113,6 +113,7 @@
             <button id="deleteButton">Delete Company</button>
             <button id="addStockButton">Add Stock</button>
             <button id="viewStocksButton">View Stocks</button>
+            <button id="addVehicleButton">Add Vehicle</button>
         </div>
     </div>
 
@@ -308,8 +309,29 @@
                     console.error('Error fetching stocks:', error);
                     alert('An error occurred while fetching stocks.');
                 });
+
+
+               
             }
         });
+
+        document.getElementById('addVehicleButton').addEventListener('click', () => {
+
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const companyId = urlParams.get('id');
+
+            if (!companyId) {
+                alert('No company ID found.');
+                return;
+            }
+
+            window.location.href = `addVehicle.html?companyId=${companyId}`;
+                
+                
+        
+        })
+                
     </script>
 </body>
 </html>

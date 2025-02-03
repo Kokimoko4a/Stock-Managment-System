@@ -6,6 +6,7 @@ namespace SMS.Factory
     using SMS.Dtos.Driver;
     using SMS.Dtos.Stock;
     using SMS.Dtos.User;
+    using SMS.Dtos.Vehicles;
     using SMS.Models;
     using SMS.Repository;
     using System.Threading.Tasks;
@@ -176,6 +177,100 @@ namespace SMS.Factory
             }
 
             await repository.CreateStock(stock, stockImportDto.CompanyId);
+        }
+
+        public async Task CreateVehicle(VehicleDtoImport vehicleDtoImport)
+        {
+            Vehicle vehicle = null;
+
+            string typeVehicle = vehicleDtoImport.Type.ToLower();
+            var company  = await repository.GetCompany(vehicleDtoImport.CompanyId);
+
+            string directoryPath = Path.Combine("D:", "Kaloyan", "Stock Managment System", "API", "Images");
+
+            // Ensure the directory exists
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+
+            
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(vehicleDtoImport.Image.FileName)}";
+            var filePath = Path.Combine(directoryPath, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await vehicleDtoImport.Image.CopyToAsync(stream);
+            }
+
+            if (typeVehicle == "plane")
+            {
+                vehicle = new Plane()
+                {
+                    Brand = vehicleDtoImport.Brand,
+                    Model = vehicleDtoImport.Model,
+                    TravelledKm = vehicleDtoImport.TravelledKm,
+                    Company = company,
+                    CompanyId = Guid.Parse(vehicleDtoImport.CompanyId),
+                    LoadCapacity = vehicleDtoImport.LoadCapacity,
+                    RegistrationNumber = vehicleDtoImport.RegistrationNumber,
+                    ReservoirCapacity = vehicleDtoImport.ReservoirCapacity,
+                    ImagePath = filePath
+                };  
+            }
+
+            else if (typeVehicle == "ship")
+            {
+                vehicle = new Ship()
+                {
+                    Brand = vehicleDtoImport.Brand,
+                    Model = vehicleDtoImport.Model,
+                    TravelledKm = vehicleDtoImport.TravelledKm,
+                    Company = company,
+                    CompanyId = Guid.Parse(vehicleDtoImport.CompanyId),
+                    LoadCapacity = vehicleDtoImport.LoadCapacity,
+                    RegistrationNumber = vehicleDtoImport.RegistrationNumber,
+                    ReservoirCapacity = vehicleDtoImport.ReservoirCapacity,
+                    ImagePath = filePath
+                };
+            }
+
+            else if (typeVehicle == "truck")
+            {
+                vehicle = new Truck()
+                {
+                    Brand = vehicleDtoImport.Brand,
+                    Model = vehicleDtoImport.Model,
+                    TravelledKm = vehicleDtoImport.TravelledKm,
+                    Company = company,
+                    CompanyId = Guid.Parse(vehicleDtoImport.CompanyId),
+                    LoadCapacity = vehicleDtoImport.LoadCapacity,
+                    RegistrationNumber = vehicleDtoImport.RegistrationNumber,
+                    ReservoirCapacity = vehicleDtoImport.ReservoirCapacity,
+                    ImagePath = filePath
+                };
+            }
+
+            else if (typeVehicle == "train")
+            {
+                vehicle = new Train()
+                {
+                    Brand = vehicleDtoImport.Brand,
+                    Model = vehicleDtoImport.Model,
+                    TravelledKm = vehicleDtoImport.TravelledKm,
+                    Company = company,
+                    CompanyId = Guid.Parse(vehicleDtoImport.CompanyId),
+                    LoadCapacity = vehicleDtoImport.LoadCapacity,
+                    RegistrationNumber = vehicleDtoImport.RegistrationNumber,
+                    ReservoirCapacity = vehicleDtoImport.ReservoirCapacity,
+                    ImagePath = filePath
+                };
+            }
+
+
+            await repository.CreateVehicle(vehicle, vehicleDtoImport.CompanyId);
+
         }
     }
 }

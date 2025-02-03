@@ -162,11 +162,11 @@ namespace SMS.Repository
 
         public async Task<bool> IsDriver(string userId)
         {
-           
+
 
             if (await data.TruckDrivers.AnyAsync(x => x.Id.ToString() == userId))
             {
-               return true;
+                return true;
             }
 
 
@@ -188,7 +188,7 @@ namespace SMS.Repository
             }
 
 
-           return false;
+            return false;
         }
 
         public async Task CreateStock(Stock stock, string companyId)
@@ -209,17 +209,17 @@ namespace SMS.Repository
 
         public async Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId)
         {
-           return await data.Stocks.Where(x => x.CompanyId.ToString() == companyId)
-                .Select(x => new SmallStockExportDto()
-                { 
-                    Id = x.Id.ToString(),
-                    Title = x.Title,
-                    TypeOfTransport = x.PreferedTypeOfTransportId.ToString(),
-                    Description = x.Description,
-                    Gauge = x.Gauge
-                
-                })
-                .ToListAsync();
+            return await data.Stocks.Where(x => x.CompanyId.ToString() == companyId)
+                 .Select(x => new SmallStockExportDto()
+                 {
+                     Id = x.Id.ToString(),
+                     Title = x.Title,
+                     TypeOfTransport = x.PreferedTypeOfTransportId.ToString(),
+                     Description = x.Description,
+                     Gauge = x.Gauge
+
+                 })
+                 .ToListAsync();
         }
 
         public async Task<SmallStockExportDto> GetStock(string stockId)
@@ -242,7 +242,7 @@ namespace SMS.Repository
                 throw new KeyNotFoundException($"Stock with ID {stock.Id} not found.");
             }
 
-     
+
             stockFromDb.Gauge = stock.Gauge;
             stockFromDb.Title = stock.Title;
             stockFromDb.Description = stock.Description;
@@ -273,7 +273,7 @@ namespace SMS.Repository
             // Save changes
             await data.SaveChangesAsync();
 
-           
+
         }
 
         public async Task DeleteStock(string stockId)
@@ -284,6 +284,42 @@ namespace SMS.Repository
 
             await data.SaveChangesAsync();
 
+        }
+
+        public async Task CreateVehicle(Vehicle vehicle, string companyId)
+        {
+            data.Add(vehicle);
+            await data.SaveChangesAsync();
+
+            var company = data.Companies.First(x => x.Id.ToString() == companyId);
+
+            if (vehicle is Plane)
+            {
+                company.Planes.Add((Plane)vehicle);
+            }
+
+            else if (vehicle is Ship)
+            {
+                company.Ships.Add((Ship)vehicle);
+            }
+
+            else if (vehicle is Truck)
+            {
+                company.Trucks.Add((Truck)vehicle);
+            }
+
+            else if (vehicle is Train)
+            {
+                company.Trains.Add((Train)vehicle);
+            }
+
+            else
+            {
+                throw new Exception();
+
+            }
+
+            await data.SaveChangesAsync();
         }
     }
 }

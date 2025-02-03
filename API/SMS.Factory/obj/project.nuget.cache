@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "v+K2gdT5v+4qMvExLs8K3w2CAdXXe8zX0iy5Wv5FKqlGmgehkLFsb6arpViL8tv4CE+IMW75TwpxF2S4pKWTpw==",
+  "dgSpecHash": "Xs4Z4jzX93oZP5wuprLoPo1eVSTa8mGNuHOfg1n5U6msdMdLtZ8t40pLKt/6ThsUtQm3gkHbUmsngU5LFwLmQA==",
   "success": true,
   "projectFilePath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Factory\\SMS.Factory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.36\\microsoft.aspnetcore.cryptography.internal.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.36\\microsoft.aspnetcore.cryptography.keyderivation.6.0.36.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.36\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",

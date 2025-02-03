@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Services", "..\SMS.Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Common", "..\SMS.Common\SMS.Common.csproj", "{BF44534D-E7D5-4F96-929A-5D9A82076589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Dtos", "..\SMS.Dtos\SMS.Dtos.csproj", "{10F8202A-0B04-4D53-A589-DB7FE36F5805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Dtos", "..\SMS.Dtos\SMS.Dtos.csproj", "{10F8202A-0B04-4D53-A589-DB7FE36F5805}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS.Infrastructure", "..\SMS.Infrastructure\SMS.Infrastructure.csproj", "{AE1661DC-E4EC-41C8-84B4-70E9D7994636}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SMS.Infrastructure", "..\SMS.Infrastructure\SMS.Infrastructure.csproj", "{AE1661DC-E4EC-41C8-84B4-70E9D7994636}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{62037423-BEAA-45C4-93CB-97C467BA4233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

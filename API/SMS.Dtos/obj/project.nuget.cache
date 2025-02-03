@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "7jRo6vPdG1slgavRncQ9v9k0y7PylEkWtoLj7HPWCBuivo+Ax98MN0GqqBrh/sB489i0tOxqeRV6D7LrHAO05g==",
+  "dgSpecHash": "i0t18ZzkFSghpqMJG1NtMUJAh48LDrvXAE8DBRSlOhwHoNq+1zsLTvdV8mB+W6lRtcN2MAHZil6dCu9eL1SUxQ==",
   "success": true,
   "projectFilePath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.36\\microsoft.aspnetcore.cryptography.internal.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.36\\microsoft.aspnetcore.cryptography.keyderivation.6.0.36.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.36\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.36\\microsoft.entityframeworkcore.6.0.36.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.36\\microsoft.entityframeworkcore.abstractions.6.0.36.nupkg.sha512",

@@ -1269,6 +1269,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "SMS.Models": "1.0.0"
         },
         "compile": {

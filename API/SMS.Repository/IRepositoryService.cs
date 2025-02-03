@@ -2,6 +2,7 @@
 {
     using SMS.Dtos.Company;
     using SMS.Dtos.Stock;
+    using SMS.Dtos.Vehicles;
     using SMS.Models;
 
     public interface IRepositoryService
@@ -47,6 +48,8 @@
         public Task UpdateStock(SmallStockExportDto stock);
 
         public Task DeleteStock(string stockId);
+
+        public Task CreateVehicle(Vehicle vehicle, string companyId);
 
     }
 }

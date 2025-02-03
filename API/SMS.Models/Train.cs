@@ -14,9 +14,9 @@
         }
 
         [ForeignKey(nameof(Driver))]
-        public Guid DriverId { get; set; }
+        public Guid? DriverId { get; set; }
 
-        public Machinist Driver { get; set; }
+        public Machinist? Driver { get; set; }
 
 
         [ForeignKey(nameof(Company))]
@@ -24,9 +24,9 @@
 
         public Company Company { get; set; }
 
-        public TrainOrder Order { get; set; }
+        public TrainOrder? Order { get; set; }
 
         [ForeignKey(nameof(Order))]
-        public Guid OrderId { get; set; }
+        public Guid? OrderId { get; set; }
     }
 }

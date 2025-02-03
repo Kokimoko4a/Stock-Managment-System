@@ -12,8 +12,8 @@ using SMS.Data;
 namespace SMS.Data.Migrations
 {
     [DbContext(typeof(SMSDbContext))]
-    [Migration("20250202100636_Initial")]
-    partial class Initial
+    [Migration("20250203175432_MadeNullableFieldsForDriversAndOrdersInVehicles")]
+    partial class MadeNullableFieldsForDriversAndOrdersInVehicles
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -351,8 +351,12 @@ namespace SMS.Data.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DriverId")
+                    b.Property<Guid?>("DriverId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDriving")
                         .HasColumnType("bit");
@@ -371,7 +375,7 @@ namespace SMS.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("RegistrationNumber")
@@ -393,7 +397,8 @@ namespace SMS.Data.Migrations
                     b.HasIndex("CompanyId");
 
                     b.HasIndex("DriverId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[DriverId] IS NOT NULL");
 
                     b.ToTable("Planes");
                 });
@@ -460,8 +465,12 @@ namespace SMS.Data.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DriverId")
+                    b.Property<Guid?>("DriverId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDriving")
                         .HasColumnType("bit");
@@ -480,7 +489,7 @@ namespace SMS.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("RegistrationNumber")
@@ -502,7 +511,8 @@ namespace SMS.Data.Migrations
                     b.HasIndex("CompanyId");
 
                     b.HasIndex("DriverId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[DriverId] IS NOT NULL");
 
                     b.ToTable("Ships");
                 });
@@ -621,8 +631,12 @@ namespace SMS.Data.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DriverId")
+                    b.Property<Guid?>("DriverId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDriving")
                         .HasColumnType("bit");
@@ -641,7 +655,7 @@ namespace SMS.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("RegistrationNumber")
@@ -663,7 +677,8 @@ namespace SMS.Data.Migrations
                     b.HasIndex("CompanyId");
 
                     b.HasIndex("DriverId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[DriverId] IS NOT NULL");
 
                     b.ToTable("Trains");
                 });
@@ -730,8 +745,12 @@ namespace SMS.Data.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DriverId")
+                    b.Property<Guid?>("DriverId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDriving")
                         .HasColumnType("bit");
@@ -750,7 +769,7 @@ namespace SMS.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("RegistrationNumber")
@@ -772,7 +791,8 @@ namespace SMS.Data.Migrations
                     b.HasIndex("CompanyId");
 
                     b.HasIndex("DriverId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[DriverId] IS NOT NULL");
 
                     b.ToTable("Trucks");
                 });
@@ -953,8 +973,7 @@ namespace SMS.Data.Migrations
                     b.HasOne("SMS.Models.Pilot", "Pilot")
                         .WithOne("Vehicle")
                         .HasForeignKey("SMS.Models.Plane", "DriverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Company");
 
@@ -999,8 +1018,7 @@ namespace SMS.Data.Migrations
                     b.HasOne("SMS.Models.Capitan", "Driver")
                         .WithOne("Vehicle")
                         .HasForeignKey("SMS.Models.Ship", "DriverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Company");
 
@@ -1072,8 +1090,7 @@ namespace SMS.Data.Migrations
                     b.HasOne("SMS.Models.Machinist", "Driver")
                         .WithOne("Vehicle")
                         .HasForeignKey("SMS.Models.Train", "DriverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Company");
 
@@ -1118,8 +1135,7 @@ namespace SMS.Data.Migrations
                     b.HasOne("SMS.Models.TruckDriver", "Driver")
                         .WithOne("Vehicle")
                         .HasForeignKey("SMS.Models.Truck", "DriverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Company");
 
@@ -1227,8 +1243,7 @@ namespace SMS.Data.Migrations
 
             modelBuilder.Entity("SMS.Models.Plane", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("SMS.Models.PlaneOrder", b =>
@@ -1238,8 +1253,7 @@ namespace SMS.Data.Migrations
 
             modelBuilder.Entity("SMS.Models.Ship", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("SMS.Models.ShipOrder", b =>
@@ -1249,8 +1263,7 @@ namespace SMS.Data.Migrations
 
             modelBuilder.Entity("SMS.Models.Train", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("SMS.Models.TrainOrder", b =>
@@ -1260,8 +1273,7 @@ namespace SMS.Data.Migrations
 
             modelBuilder.Entity("SMS.Models.Truck", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("SMS.Models.TruckDriver", b =>

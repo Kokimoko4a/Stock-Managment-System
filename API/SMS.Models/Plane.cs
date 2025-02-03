@@ -15,9 +15,9 @@
 
 
         [ForeignKey(nameof(Pilot))]
-        public Guid DriverId { get; set; }
+        public Guid? DriverId { get; set; }
 
-        public Pilot Pilot { get; set; }
+        public Pilot? Pilot { get; set; }
 
 
         [ForeignKey(nameof(Company))]
@@ -25,9 +25,9 @@
 
         public Company Company { get; set; }
 
-        public PlaneOrder Order { get; set; }
+        public PlaneOrder? Order { get; set; }
 
         [ForeignKey(nameof(Order))]
-        public Guid OrderId { get; set; }
+        public Guid? OrderId { get; set; }
     }
 }
