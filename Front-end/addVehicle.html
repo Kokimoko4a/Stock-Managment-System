@@ -167,6 +167,13 @@
 
       if (response.ok) {
         alert('Vehicle added successfully');
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const CompanyId = urlParams.get('companyId');
+
+
+        window.location.href = `companyDetails.html?id=CCFAAEC7-E842-466B-B2FE-28C855B976FE`;
+        
       } else {
         alert('Error adding vehicle');
       }

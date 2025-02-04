@@ -5,6 +5,7 @@ namespace SMS.Repository
     using SMS.Data;
     using SMS.Dtos.Company;
     using SMS.Dtos.Stock;
+    using SMS.Dtos.Vehicles;
     using SMS.Models;
     using System.Collections.Generic;
 
@@ -320,6 +321,48 @@ namespace SMS.Repository
             }
 
             await data.SaveChangesAsync();
+        }
+
+        public async Task<List<VehicleDtoExportSmall>> GetAllVehiclesByCompanyId(string companyId)
+        {
+            List<VehicleDtoExportSmall> trucks = await data.Trucks.Where(x => x.CompanyId.ToString() == companyId)
+                     .Select(x => new VehicleDtoExportSmall
+                     {
+                         Brand = x.Brand,
+                         ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
+                         Model = x.Model
+                     }).ToListAsync();
+
+            List<VehicleDtoExportSmall> ships = await data.Ships.Where(x => x.CompanyId.ToString() == companyId)
+                    .Select(x => new VehicleDtoExportSmall
+                    {
+                        Brand = x.Brand,
+                        ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
+                        Model = x.Model
+                    }).ToListAsync();
+
+
+            List<VehicleDtoExportSmall> planes = await data.Planes.Where(x => x.CompanyId.ToString() == companyId)
+                    .Select(x => new VehicleDtoExportSmall
+                    {
+                        Brand = x.Brand,
+                        ImagePath  = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
+                        Model = x.Model
+                    }).ToListAsync();
+
+            List<VehicleDtoExportSmall> trains = await data.Trains.Where(x => x.CompanyId.ToString() == companyId)
+                    .Select(x => new VehicleDtoExportSmall
+                    {
+                        Brand = x.Brand,
+                        ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
+                        Model = x.Model
+                    }).ToListAsync();
+
+            trucks.AddRange(ships);
+            trucks.AddRange(trains);
+            trucks.AddRange(planes);
+
+            return trucks;
         }
     }
 }

@@ -34,6 +34,37 @@ namespace Stock_Managment_System.Controllers
             return Ok();
         }
 
+        [HttpGet("getAllVehicles")]
+        public async Task<IActionResult> GetAllVehicles([FromQuery] string companyId)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+
+            return Ok(await vehicleService.GetAllVehiclesByCompanyId(companyId));
+
+
+        }
+
+
+        [HttpGet("getVehicleImage")]
+        public IActionResult GetVehicleImage([FromQuery] string imagePath)
+        {
+            if (string.IsNullOrEmpty(imagePath) || !System.IO.File.Exists(imagePath))
+            {
+                return NotFound(); // Return 404 if the file doesn't exist
+            }
+
+            var imageFileStream = System.IO.File.OpenRead(imagePath);
+            var mimeType = "image/jpeg"; // Adjust based on the actual image type
+
+            return File(imageFileStream, mimeType);
+        }
+
         private string GetTokenAndIdIfExists()
         {
             var token = Request.Headers["Authorization"].ToString();

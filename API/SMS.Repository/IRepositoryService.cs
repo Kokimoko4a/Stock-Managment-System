@@ -51,5 +51,7 @@
 
         public Task CreateVehicle(Vehicle vehicle, string companyId);
 
+        public Task<List<VehicleDtoExportSmall>> GetAllVehiclesByCompanyId(string companyId);
+
     }
 }

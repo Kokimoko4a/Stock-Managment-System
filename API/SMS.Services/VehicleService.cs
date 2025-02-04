@@ -4,6 +4,7 @@
     using SMS.Factory;
     using SMS.Repository;
     using SMS.Services.Interfaces;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class VehicleService : IVehicleService
@@ -20,6 +21,11 @@
         public async Task CreateVehicle(VehicleDtoImport vehicleDtoImport)
         {
             await factoryService.CreateVehicle(vehicleDtoImport);
+        }
+
+        public async Task<List<VehicleDtoExportSmall>> GetAllVehiclesByCompanyId(string companyId)
+        {
+            return await repositoryService.GetAllVehiclesByCompanyId(companyId);
         }
     }
 }
