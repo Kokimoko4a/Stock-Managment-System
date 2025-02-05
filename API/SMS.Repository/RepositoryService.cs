@@ -330,7 +330,8 @@ namespace SMS.Repository
                      {
                          Brand = x.Brand,
                          ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
-                         Model = x.Model
+                         Model = x.Model,
+                         Id = x.Id.ToString()
                      }).ToListAsync();
 
             List<VehicleDtoExportSmall> ships = await data.Ships.Where(x => x.CompanyId.ToString() == companyId)
@@ -338,7 +339,8 @@ namespace SMS.Repository
                     {
                         Brand = x.Brand,
                         ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
-                        Model = x.Model
+                        Model = x.Model,
+                        Id = x.Id.ToString()
                     }).ToListAsync();
 
 
@@ -346,8 +348,9 @@ namespace SMS.Repository
                     .Select(x => new VehicleDtoExportSmall
                     {
                         Brand = x.Brand,
-                        ImagePath  = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
-                        Model = x.Model
+                        ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
+                        Model = x.Model,
+                        Id = x.Id.ToString()
                     }).ToListAsync();
 
             List<VehicleDtoExportSmall> trains = await data.Trains.Where(x => x.CompanyId.ToString() == companyId)
@@ -355,7 +358,8 @@ namespace SMS.Repository
                     {
                         Brand = x.Brand,
                         ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(x.ImagePath)}",
-                        Model = x.Model
+                        Model = x.Model,
+                        Id = x.Id.ToString()
                     }).ToListAsync();
 
             trucks.AddRange(ships);
@@ -363,6 +367,96 @@ namespace SMS.Repository
             trucks.AddRange(planes);
 
             return trucks;
+        }
+
+        public async Task<VehicleDtoBigExport> GetDetailedInfoForVehicleById(string vehicleId)
+        {
+            VehicleDtoBigExport vehicleDto = null;
+
+            Train train = await data.Trains.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+            if (train != null)
+            {
+                 vehicleDto = new VehicleDtoBigExport()
+                {
+                    Brand = train.Brand,
+                    IsDriving = train.IsDriving,
+                    Id = train.Id.ToString(),
+                     ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(train.ImagePath)}",
+                    LoadCapacity = train.LoadCapacity,
+                    Model = train.Model,
+                    RegistrationNumber = train.RegistrationNumber,
+                    ReservoirCapacity = train.ReservoirCapacity,
+                    TravelledKm = train.TravelledKm
+                };
+
+                return vehicleDto;
+            }
+
+            Truck truck = await data.Trucks.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+            if (truck != null)
+            {
+                vehicleDto = new VehicleDtoBigExport()
+                {
+                    Brand = truck.Brand,
+                    IsDriving = truck.IsDriving,
+                    Id = truck.Id.ToString(),
+                    ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(truck.ImagePath)}",
+                    LoadCapacity = truck.LoadCapacity,
+                    Model = truck.Model,
+                    RegistrationNumber = truck.RegistrationNumber,
+                    ReservoirCapacity = truck.ReservoirCapacity,
+                    TravelledKm = truck.TravelledKm
+                };
+
+                return vehicleDto;
+            }
+
+
+            Ship ship = await data.Ships.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+            if (ship != null)
+            {
+                vehicleDto = new VehicleDtoBigExport()
+                {
+                    Brand = ship.Brand,
+                    IsDriving = ship.IsDriving,
+                    Id = ship.Id.ToString(),
+                    ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(ship.ImagePath)}",
+                    LoadCapacity = ship.LoadCapacity,
+                    Model = ship.Model,
+                    RegistrationNumber = ship.RegistrationNumber,
+                    ReservoirCapacity = ship.ReservoirCapacity,
+                    TravelledKm = ship.TravelledKm
+                };
+
+                return vehicleDto;
+            }
+
+            Plane plane = await data.Planes.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+            if (plane != null)
+            {
+                vehicleDto = new VehicleDtoBigExport()
+                {
+                    Brand = plane.Brand,
+                    IsDriving = plane.IsDriving,
+                    Id = plane.Id.ToString(),
+                    ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(plane.ImagePath)}",
+                    LoadCapacity = plane.LoadCapacity,
+                    Model = plane.Model,
+                    RegistrationNumber = plane.RegistrationNumber,
+                    ReservoirCapacity = plane.ReservoirCapacity,
+                    TravelledKm = plane.TravelledKm
+                };
+
+                return vehicleDto;
+            }
+
+            return vehicleDto;
+
         }
     }
 }

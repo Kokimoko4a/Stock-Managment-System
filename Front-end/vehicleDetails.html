@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .vehicle-details {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+            max-width: 500px;
+            width: 100%;
+        }
+        .vehicle-details img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            color: #333;
+        }
+        .info {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚗 Vehicle Details 🚗</h1>
+    <div id="vehicleDetails" class="vehicle-details"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const vehicleId = urlParams.get("vehicleId");
+            if (!vehicleId) {
+                alert("No vehicle ID found in the URL");
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://localhost:7020/Vehicle/getVehicleById?vehicleId=${vehicleId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch vehicle details");
+                }
+                const vehicle = await response.json();
+                
+                const vehicleDetails = document.getElementById("vehicleDetails");
+                vehicleDetails.innerHTML = `
+                    <img src="${vehicle.imagePath}" alt="${vehicle.brand} ${vehicle.model}">
+                    <h2 class="highlight">${vehicle.brand} ${vehicle.model}</h2>
+                    <p class="info"><span class="highlight">Registration Number:</span> ${vehicle.registrationNumber}</p>
+                    <p class="info"><span class="highlight">Travelled Kilometers:</span> ${vehicle.travelledKm}</p>
+                    <p class="info"><span class="highlight">Load Capacity:</span> ${vehicle.loadCapacity} kg</p>
+                    <p class="info"><span class="highlight">Reservoir Capacity:</span> ${vehicle.reservoirCapacity} liters</p>
+                    <p class="info"><span class="highlight">Currently Driving:</span> ${vehicle.isDriving ? "Yes" : "No"}</p>
+                `;
+            } catch (error) {
+                console.error("Error fetching vehicle details:", error);
+                alert("Failed to load vehicle details");
+            }
+        });
+    </script>
+</body>
+</html>

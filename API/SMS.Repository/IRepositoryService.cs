@@ -53,5 +53,7 @@
 
         public Task<List<VehicleDtoExportSmall>> GetAllVehiclesByCompanyId(string companyId);
 
+        public Task<VehicleDtoBigExport> GetDetailedInfoForVehicleById(string vehicleId);
+
     }
 }

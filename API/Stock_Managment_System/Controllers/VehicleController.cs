@@ -50,6 +50,20 @@ namespace Stock_Managment_System.Controllers
 
         }
 
+        [HttpGet("getVehicleById")]
+        public async Task<IActionResult> GetVehicleById([FromQuery] string vehicleId)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(await vehicleService.GetDetailedInfoForVehicleById(vehicleId));
+        }
+
+
 
         [HttpGet("getVehicleImage")]
         public IActionResult GetVehicleImage([FromQuery] string imagePath)

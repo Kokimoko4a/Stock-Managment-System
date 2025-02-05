@@ -216,7 +216,8 @@ namespace SMS.Factory
                     LoadCapacity = vehicleDtoImport.LoadCapacity,
                     RegistrationNumber = vehicleDtoImport.RegistrationNumber,
                     ReservoirCapacity = vehicleDtoImport.ReservoirCapacity,
-                    ImagePath = filePath
+                    ImagePath = filePath,
+                    
                 };  
             }
 

@@ -8,5 +8,7 @@
         public ApplicationUser CreateUser(RegisterDTO registerDTO);
 
         public ApplicationUser GetUserByEmail(string email);
+
+        
     }
 }

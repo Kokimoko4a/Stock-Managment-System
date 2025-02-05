@@ -110,6 +110,10 @@
         <input id="model" type="text" placeholder="Enter model" required>
       </div>
       <div class="form-group">
+        <label for="travelledKm">Travelled Kilometres</label>
+        <input id="travelledKm" type="number" placeholder="Enter travelled kilometres" required>
+      </div>
+      <div class="form-group">
         <label for="type">Vehicle Type</label>
         <select id="type" required>
           <option value="" disabled selected>Select type</option>
@@ -149,6 +153,7 @@
       formData.append('type', document.getElementById('type').value);
       formData.append('loadCapacity', document.getElementById('loadCapacity').value);
       formData.append('reservoirCapacity', document.getElementById('reservoirCapacity').value);
+      formData.append('travelledKm', document.getElementById('travelledKm').value);
       formData.append('companyId', CompanyId);
       
       // Append the image file
@@ -169,10 +174,10 @@
         alert('Vehicle added successfully');
 
         const urlParams = new URLSearchParams(window.location.search);
-        const CompanyId = urlParams.get('companyId');
+        const companyId = urlParams.get('companyId');
 
 
-        window.location.href = `companyDetails.html?id=CCFAAEC7-E842-466B-B2FE-28C855B976FE`;
+        window.location.href = `companyDetails.html?id=${companyId}`;
         
       } else {
         alert('Error adding vehicle');

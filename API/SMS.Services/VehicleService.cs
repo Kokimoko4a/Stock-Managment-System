@@ -27,5 +27,10 @@
         {
             return await repositoryService.GetAllVehiclesByCompanyId(companyId);
         }
+
+        public async Task<VehicleDtoBigExport> GetDetailedInfoForVehicleById(string vehicleId)
+        {
+          return  await repositoryService.GetDetailedInfoForVehicleById(vehicleId);
+        }
     }
 }
