@@ -65,6 +65,30 @@ namespace Stock_Managment_System.Controllers
 
 
 
+
+
+
+
+
+
+
+        [HttpPut("updateVehicle")]
+
+        public async Task<IActionResult> UpdateVehicleById([FromForm] VehicleDtoImport vehicleDto)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            await vehicleService.UpdateVehicle(vehicleDto);
+
+            return Ok();
+        }
+
+
         [HttpGet("getVehicleImage")]
         public IActionResult GetVehicleImage([FromQuery] string imagePath)
         {

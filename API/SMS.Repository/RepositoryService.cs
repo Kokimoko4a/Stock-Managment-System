@@ -1,6 +1,7 @@
 ﻿
 namespace SMS.Repository
 {
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using SMS.Data;
     using SMS.Dtos.Company;
@@ -377,12 +378,12 @@ namespace SMS.Repository
 
             if (train != null)
             {
-                 vehicleDto = new VehicleDtoBigExport()
+                vehicleDto = new VehicleDtoBigExport()
                 {
                     Brand = train.Brand,
                     IsDriving = train.IsDriving,
                     Id = train.Id.ToString(),
-                     ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(train.ImagePath)}",
+                    ImagePath = $"https://localhost:7020/Vehicle/getVehicleImage?imagePath={Uri.EscapeDataString(train.ImagePath)}",
                     LoadCapacity = train.LoadCapacity,
                     Model = train.Model,
                     RegistrationNumber = train.RegistrationNumber,
@@ -458,5 +459,110 @@ namespace SMS.Repository
             return vehicleDto;
 
         }
+
+        public async Task UpdateVehicle(VehicleDtoImport vehicleDto)
+        {
+            string filePath = null;
+
+            string directoryPath = Path.Combine("D:", "Kaloyan", "Stock Managment System", "API", "Images");
+
+            // Ensure the directory exists
+
+
+            if (vehicleDto.Image != null)
+            {
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(vehicleDto.Image.FileName)}";
+                filePath = Path.Combine(directoryPath, fileName);
+
+
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await vehicleDto.Image.CopyToAsync(stream);
+                }
+            }
+
+
+
+
+
+            Train train = await data.Trains.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleDto.Id);
+
+            if (train != null)
+            {
+                train.Model = vehicleDto.Model;
+                train.RegistrationNumber = vehicleDto.RegistrationNumber;
+                train.ReservoirCapacity = vehicleDto.ReservoirCapacity;
+                train.Brand = vehicleDto.Brand;
+                train.LoadCapacity = vehicleDto.LoadCapacity;
+                train.ImagePath = filePath != null ? filePath : train.ImagePath;
+                train.TravelledKm = vehicleDto.TravelledKm;
+
+
+            }
+
+            Truck truck = await data.Trucks.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleDto.Id);
+
+
+            if (truck != null)
+            {
+
+                truck.Model = vehicleDto.Model;
+                truck.RegistrationNumber = vehicleDto.RegistrationNumber;
+                truck.ReservoirCapacity = vehicleDto.ReservoirCapacity;
+                truck.Brand = vehicleDto.Brand;
+                truck.LoadCapacity = vehicleDto.LoadCapacity;
+                truck.ImagePath = filePath != null ? filePath : truck.ImagePath;
+                truck.TravelledKm = vehicleDto.TravelledKm;
+
+
+
+
+            }
+
+
+            Ship ship = await data.Ships.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleDto.Id);
+
+            if (ship != null)
+            {
+
+                ship.Model = vehicleDto.Model;
+                ship.RegistrationNumber = vehicleDto.RegistrationNumber;
+                ship.ReservoirCapacity = vehicleDto.ReservoirCapacity;
+                ship.Brand = vehicleDto.Brand;
+                ship.LoadCapacity = vehicleDto.LoadCapacity;
+                ship.ImagePath = filePath != null ? filePath : ship.ImagePath;
+                ship.TravelledKm = vehicleDto.TravelledKm;
+
+
+            }
+
+            Plane plane = await data.Planes.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleDto.Id);
+
+            if (plane != null)
+            {
+
+                plane.Model = vehicleDto.Model;
+                plane.RegistrationNumber = vehicleDto.RegistrationNumber;
+                plane.ReservoirCapacity = vehicleDto.ReservoirCapacity;
+                plane.Brand = vehicleDto.Brand;
+                plane.LoadCapacity = vehicleDto.LoadCapacity;
+                plane.ImagePath = filePath != null ? filePath : plane.ImagePath;
+                plane.TravelledKm = vehicleDto.TravelledKm;
+
+            }
+
+
+
+            await data.SaveChangesAsync();
+
+        }
+
+
     }
 }

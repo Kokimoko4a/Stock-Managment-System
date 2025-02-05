@@ -6,6 +6,7 @@ namespace SMS.Dtos.Vehicles
 
     public class VehicleDtoImport
     {
+        public string Id { get; set; }
 
         public string Brand { get; set; }
 

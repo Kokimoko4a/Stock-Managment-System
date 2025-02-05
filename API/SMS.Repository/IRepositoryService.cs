@@ -55,5 +55,9 @@
 
         public Task<VehicleDtoBigExport> GetDetailedInfoForVehicleById(string vehicleId);
 
+        public Task UpdateVehicle(VehicleDtoImport vehicleDto);
+
+     
+
     }
 }

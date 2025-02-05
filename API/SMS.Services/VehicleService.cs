@@ -32,5 +32,14 @@
         {
           return  await repositoryService.GetDetailedInfoForVehicleById(vehicleId);
         }
+
+
+        public async Task UpdateVehicle(VehicleDtoImport vehicleDto)
+        {
+            await repositoryService.UpdateVehicle(vehicleDto);
+        }
+
+
+    
     }
 }

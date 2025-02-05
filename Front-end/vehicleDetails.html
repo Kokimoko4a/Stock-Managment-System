@@ -40,12 +40,34 @@
             font-weight: bold;
             color: #007BFF;
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .edit-button {
+            padding: 12px 24px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>🚗 Vehicle Details 🚗</h1>
     <div id="vehicleDetails" class="vehicle-details"></div>
-
+    <div class="button-container">
+        <a id="editButton" class="edit-button">Edit Vehicle</a>
+    </div>
+    
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
             const urlParams = new URLSearchParams(window.location.search);
@@ -54,6 +76,8 @@
                 alert("No vehicle ID found in the URL");
                 return;
             }
+
+            document.getElementById("editButton").href = `vehicleEdit.html?vehicleId=${vehicleId}`;
 
             try {
                 const response = await fetch(`https://localhost:7020/Vehicle/getVehicleById?vehicleId=${vehicleId}`, {
