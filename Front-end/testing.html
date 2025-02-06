@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truck Markers on Map</title>
+    <title>Client Location Tracking Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #map { height: 500px; width: 100%; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -15,39 +23,47 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // 1. Инициализация на картата
-        const map = L.map('map').setView([42.6977, 23.3242], 13);
+        let map;
+        let userMarker;
 
-        // 2. Зареждане на OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+        // Function to initialize the map with the client's coordinates
+        function initializeMap(lat, lng) {
+            map = L.map('map').setView([lat, lng], 13);
 
-        // 3. Работеща икона на камион 🚛
-        const truckIcon = L.icon({
-            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Truck_icon.svg', // Директен SVG камион
-            iconSize: [50, 50], 
-            iconAnchor: [25, 50], 
-            popupAnchor: [0, -50] 
-        });
+            // Load OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
 
-        // 4. Начални координати
-        let lat = 42.6977;
-        let lng = 23.3242;
-        let counter = 1;
-
-        // 5. Добавяне на камиони на всеки 5 секунди
-        setInterval(() => {
-            lat += 0.001;
-            lng += 0.001;
-
-            L.marker([lat, lng], { icon: truckIcon }).addTo(map)
-                .bindPopup(`🚛 Камион #${counter} <br> Координати: ${lat.toFixed(5)}, ${lng.toFixed(5)}`)
+            // Initialize the marker at the user's starting position
+            userMarker = L.marker([lat, lng]).addTo(map)
+                .bindPopup(`Current Location: ${lat.toFixed(5)}, ${lng.toFixed(5)}`)
                 .openPopup();
+        }
 
-            counter++; // Увеличаваме броя на камионите
-        }, 5000);
+        // Function to update the user's position on the map
+        function updateUserPosition() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
 
+                // Initialize the map and marker if not already initialized
+                if (!userMarker) {
+                    initializeMap(lat, lng);
+                } else {
+                    // Update marker position and popup content
+                    userMarker.setLatLng([lat, lng])
+                        .bindPopup(`Current Location: ${lat.toFixed(5)}, ${lng.toFixed(5)}`)
+                        .openPopup();
+                    map.setView([lat, lng], 13);  // Recenter the map if the user moves
+                }
+            }, function(error) {
+                console.error('Error getting geolocation:', error);
+            });
+        }
+
+        // Start updating the user's position every second
+        setInterval(updateUserPosition, 1000);
     </script>
 
 </body>

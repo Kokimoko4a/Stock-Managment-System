@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .order-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            text-align: left;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .stock-list {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .submit-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>📦 Create a New Order</h1>
+    <div class="order-container">
+        <label for="title">Order Title:</label>
+        <input type="text" id="title" placeholder="Enter order title">
+
+        <label for="description">Description:</label>
+        <textarea id="description" placeholder="Enter order description"></textarea>
+
+        <label for="driverEmail">Driver Email:</label>
+        <input type="email" id="driverEmail" placeholder="Enter driver email">
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" placeholder="Enter destination">
+
+        <label for="startPoint">Start Point:</label>
+        <input type="text" id="startPoint" placeholder="Enter start point">
+
+        <label for="typeOrder">Transport Type:</label>
+        <select id="typeOrder">
+            <option value="truck">Truck</option>
+            <option value="train">Train</option>
+            <option value="plane">Plane</option>
+            <option value="ship">Ship</option>
+        </select>
+
+        <label>Available Stocks:</label>
+        <div class="stock-list" id="stockList"></div>
+
+        <button class="submit-btn" id="submitOrder">Create Order</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const companyId = urlParams.get("companyId");
+            if (!companyId) {
+                alert("No company ID found");
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://localhost:7020/Stock/getStocksForCompany/${companyId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                    }
+                });
+                if (!response.ok) throw new Error("Failed to fetch stocks");
+                
+                const stocks = await response.json();
+                const stockList = document.getElementById("stockList");
+                stocks.forEach(stock => {
+                    let checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.value = stock.id;
+                    checkbox.id = `stock-${stock.id}`;
+                    let label = document.createElement("label");
+                    label.htmlFor = `stock-${stock.id}`;
+                    label.textContent = stock.title;
+                    stockList.appendChild(checkbox);
+                    stockList.appendChild(label);
+                    stockList.appendChild(document.createElement("br"));
+                });
+            } catch (error) {
+                console.error("Error fetching stocks:", error);
+                alert("Failed to load stocks");
+            }
+        });
+
+        document.getElementById("submitOrder").addEventListener("click", async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const companyId = urlParams.get("companyId");
+
+            const selectedStocks = Array.from(document.querySelectorAll('.stock-list input:checked')).map(cb => cb.value);
+            const orderData = {
+                Title: document.getElementById("title").value,
+                Description: document.getElementById("description").value,
+                Stock: selectedStocks,
+                DriverEmail: document.getElementById("driverEmail").value,
+                ComapanyId: companyId,
+                Destination: document.getElementById("destination").value,
+                StartPoint: document.getElementById("startPoint").value,
+                TypeOrder: document.getElementById("typeOrder").value,
+            };
+
+            try {
+                const response = await fetch("https://localhost:7020/Order/createOrder", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                if (!response.ok) throw new Error("Order creation failed");
+                alert("Order created successfully!");
+            } catch (error) {
+                console.error("Error creating order:", error);
+                alert("Failed to create order");
+            }
+        });
+    </script>
+</body>
+</html>

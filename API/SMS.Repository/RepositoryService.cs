@@ -5,9 +5,11 @@ namespace SMS.Repository
     using Microsoft.EntityFrameworkCore;
     using SMS.Data;
     using SMS.Dtos.Company;
+    using SMS.Dtos.Order;
     using SMS.Dtos.Stock;
     using SMS.Dtos.Vehicles;
     using SMS.Models;
+    using System.Collections;
     using System.Collections.Generic;
 
     public class RepositoryService : IRepositoryService
@@ -563,6 +565,242 @@ namespace SMS.Repository
 
         }
 
+        public async Task DeleteVehicle(string vehicleId)
+        {
+            Truck truck = await data.Trucks.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
 
+            if (truck != null)
+            {
+                data.Trucks.Remove(truck);
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+            Ship ship = await data.Ships.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+            if (ship != null)
+            {
+                data.Ships.Remove(ship);
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+            Train train = await data.Trains.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+
+            if (train != null)
+            {
+                data.Trains.Remove(train);
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+            Plane plane = await data.Planes.FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+            if (plane != null)
+            {
+                data.Planes.Remove(plane);
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+
+
+        }
+
+        public async Task AssignVehicleToDriver(string driverEmail, string vehicleId)
+        {
+            string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Truck truck = await data.Trucks.Include(x => x.Driver).FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+            if (truck != null)
+            {
+                TruckDriver truckDriver = await data.TruckDrivers.Include(x => x.Vehicle).FirstOrDefaultAsync(x => x.Id.ToString() == driverId)!;
+
+
+                truck.Driver = truckDriver;
+                truck.DriverId = truckDriver.Id;
+
+                truckDriver.Vehicle = truck;
+                truckDriver.VehicleId = truck.Id;
+
+                await data.SaveChangesAsync();
+            }
+
+
+            Ship ship = await data.Ships.Include(x => x.Driver).FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+            if (ship != null)
+            {
+                Capitan capitan = await data.Capitans.Include(x => x.Vehicle).FirstOrDefaultAsync(x => x.Id.ToString() == driverId)!;
+
+
+                ship.Driver = capitan;
+                ship.DriverId = capitan.Id;
+
+                capitan.Vehicle = ship;
+                capitan.VehicleId = ship.Id;
+
+                await data.SaveChangesAsync();
+            }
+
+
+            Train train = await data.Trains.Include(x => x.Driver).FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+
+            if (train != null)
+            {
+
+                Machinist machinist = await data.Machinists.Include(x => x.Vehicle).FirstOrDefaultAsync(x => x.Id.ToString() == driverId)!;
+
+
+                train.Driver = machinist;
+                train.DriverId = machinist.Id;
+
+                machinist.Vehicle = train;
+                machinist.VehicleId = train.Id;
+
+                await data.SaveChangesAsync();
+            }
+
+
+            Plane plane = await data.Planes.Include(x => x.Pilot).FirstOrDefaultAsync(x => x.Id.ToString() == vehicleId);
+
+
+            if (plane != null)
+            {
+                Pilot pilot = await data.Pilots.Include(x => x.Vehicle).FirstOrDefaultAsync(x => x.Id.ToString() == driverId)!;
+
+
+                plane.Pilot = pilot;
+                plane.DriverId = pilot.Id;
+
+                pilot.Vehicle = plane;
+                pilot.VehicleId = plane.Id;
+
+                await data.SaveChangesAsync();
+            }
+        }
+
+        public async Task CreateTruckOrder(TruckOrder order, string driverEmail, List<string> stocks)
+        {
+            string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Truck truck = await data.Trucks.Include(x => x.Driver).Include(x => x.Company).ThenInclude(x => x.TruckOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+            order.Company = truck.Company;
+            order.Driver = truck.Driver;
+            order.DriverId = (Guid)truck.DriverId;
+            order.Vehicle = truck;
+            order.VehicleId = truck.Id;
+
+            foreach (var item in stocks)
+            {
+                order.Stocks.Add(await data.Stocks.FirstAsync(x => x.Id.ToString() == item));
+            }
+
+
+            await data.TruckOrders.AddAsync(order);
+
+            await data.SaveChangesAsync();
+
+            truck.Company.TruckOrders.Add(order);
+
+            await data.SaveChangesAsync();
+
+        }
+
+        public async Task CreatePlaneOrder(PlaneOrder order, string driverEmail, List<string> stocks)
+        {
+            string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Plane? plane = await data.Planes.Include(x => x.Pilot).Include(x => x.Company).ThenInclude(x => x.PlaneOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+            order.Company = plane.Company;
+            order.Driver = plane.Pilot;
+            order.DriverId = (Guid)plane.DriverId;
+            order.Vehicle = plane;
+            order.VehicleId = plane.Id;
+
+            foreach (var item in stocks)
+            {
+                order.Stocks.Add(await data.Stocks.FirstAsync(x => x.Id.ToString() == item));
+            }
+
+
+            await data.PlaneOrders.AddAsync(order);
+
+            await data.SaveChangesAsync();
+
+            plane.Company.PlaneOrders.Add(order);
+
+            await data.SaveChangesAsync();
+        }
+
+        public async Task CreateShipOrder(ShipOrder order, string driverEmail , List<string> stocks)
+        {
+            string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Ship? ship = await data.Ships.Include(x => x.Driver).Include(x => x.Company).ThenInclude(x => x.ShipOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+            order.Company = ship.Company;
+            order.Driver = ship.Driver;
+            order.DriverId = (Guid)ship.DriverId;
+            order.Vehicle = ship;
+            order.VehicleId = ship.Id;
+
+            foreach (var item in stocks)
+            {
+                order.Stocks.Add(await data.Stocks.FirstAsync(x => x.Id.ToString() == item));
+            }
+
+
+            await data.ShipOrders.AddAsync(order);
+
+            await data.SaveChangesAsync();
+
+            ship.Company.ShipOrders.Add(order);
+
+            await data.SaveChangesAsync();
+        }
+
+        public async Task CreateTrainOrder(TrainOrder order, string driverEmail, List<string> stocks)
+        {
+            string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Train? train = await data.Trains.Include(x => x.Driver).Include(x => x.Company).ThenInclude(x => x.TrainOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+            order.Company = train.Company;
+            order.Driver = train.Driver;
+            order.DriverId = (Guid)train.DriverId;
+            order.Vehicle = train;
+            order.VehicleId = train.Id;
+
+            foreach (var item in stocks)
+            {
+                order.Stocks.Add(await data.Stocks.FirstAsync(x => x.Id.ToString() == item));
+            }
+
+
+            await data.TrainOrders.AddAsync(order);
+
+            await data.SaveChangesAsync();
+
+            train.Company.TrainOrders.Add(order);
+
+            await data.SaveChangesAsync();
+        }
+
+    
     }
 }

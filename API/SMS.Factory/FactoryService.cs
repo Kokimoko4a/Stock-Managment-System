@@ -4,6 +4,7 @@ namespace SMS.Factory
 {
     using SMS.Dtos.Company;
     using SMS.Dtos.Driver;
+    using SMS.Dtos.Order;
     using SMS.Dtos.Stock;
     using SMS.Dtos.User;
     using SMS.Dtos.Vehicles;
@@ -152,8 +153,8 @@ namespace SMS.Factory
                 Description = stockImportDto.Description,
                 Gauge = stockImportDto.Gauge,
                 Title = stockImportDto.Title,
-                
-                
+
+
             };
 
             if (typeTransport == "air")
@@ -184,7 +185,7 @@ namespace SMS.Factory
             Vehicle vehicle = null;
 
             string typeVehicle = vehicleDtoImport.Type.ToLower();
-            var company  = await repository.GetCompany(vehicleDtoImport.CompanyId);
+            var company = await repository.GetCompany(vehicleDtoImport.CompanyId);
 
             string directoryPath = Path.Combine("D:", "Kaloyan", "Stock Managment System", "API", "Images");
 
@@ -195,7 +196,7 @@ namespace SMS.Factory
             }
 
 
-            
+
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(vehicleDtoImport.Image.FileName)}";
             var filePath = Path.Combine(directoryPath, fileName);
 
@@ -217,8 +218,8 @@ namespace SMS.Factory
                     RegistrationNumber = vehicleDtoImport.RegistrationNumber,
                     ReservoirCapacity = vehicleDtoImport.ReservoirCapacity,
                     ImagePath = filePath,
-                    
-                };  
+
+                };
             }
 
             else if (typeVehicle == "ship")
@@ -273,5 +274,78 @@ namespace SMS.Factory
             await repository.CreateVehicle(vehicle, vehicleDtoImport.CompanyId);
 
         }
+
+        public async Task CreateOrder(OrderImportDto orderDto)
+        {
+
+
+            string typeTransport = orderDto.TypeOrder.ToLower();
+
+            if (typeTransport == "truck")
+            {
+                TruckOrder truckOrder = new TruckOrder()
+                {
+                    Description = orderDto.Description,
+                    ComapanyId = Guid.Parse(orderDto.ComapanyId),
+                    Destination = orderDto.Destination,
+                    StartPoint = orderDto.StartPoint,
+                    Title = orderDto.Title,
+                    //Set the driver and the vehicle and the company 
+                   
+                };
+
+                await repository.CreateTruckOrder(truckOrder, orderDto.DriverEmail, orderDto.Stock);
+            }
+
+            else if (typeTransport == "train")
+            {
+                TrainOrder trainOrder = new TrainOrder()
+                {
+                    Description = orderDto.Description,
+                    ComapanyId = Guid.Parse(orderDto.ComapanyId),
+                    Destination = orderDto.Destination,
+                    StartPoint = orderDto.StartPoint,
+                    Title = orderDto.Title,
+                    //Set the driver and the vehicle and the company 
+                };
+
+                await repository.CreateTrainOrder(trainOrder, orderDto.DriverEmail, orderDto.Stock);
+            }
+
+
+            else if (typeTransport == "plane")
+            {
+                PlaneOrder planeOrder = new PlaneOrder()
+                {
+                    Description = orderDto.Description,
+                    ComapanyId = Guid.Parse(orderDto.ComapanyId),
+                    Destination = orderDto.Destination,
+                    StartPoint = orderDto.StartPoint,
+                    Title = orderDto.Title,
+                    //Set the driver and the vehicle and the company 
+                };
+
+
+                await repository.CreatePlaneOrder(planeOrder, orderDto.DriverEmail, orderDto.Stock);
+
+            }
+
+            else if (typeTransport == "ship")
+            {
+                ShipOrder shipOrder = new ShipOrder()
+                {
+                    Description = orderDto.Description,
+                    ComapanyId = Guid.Parse(orderDto.ComapanyId),
+                    Destination = orderDto.Destination,
+                    StartPoint = orderDto.StartPoint,
+                    Title = orderDto.Title,
+                    //Set the driver and the vehicle and the company 
+                };
+
+                await repository.CreateShipOrder(shipOrder, orderDto.DriverEmail, orderDto.Stock);
+            }
+        }
     }
+
 }
+

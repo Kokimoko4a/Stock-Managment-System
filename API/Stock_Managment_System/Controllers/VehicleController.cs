@@ -27,7 +27,7 @@ namespace Stock_Managment_System.Controllers
                 return BadRequest();
             }
 
-          
+
 
             await vehicleService.CreateVehicle(vehicleDto);
 
@@ -64,6 +64,23 @@ namespace Stock_Managment_System.Controllers
         }
 
 
+        [HttpPost("assignVehicleToDriver")]
+
+        public async Task<IActionResult> AssignVehicleToDriver([FromBody] AssignVehicleToDriverDto assignVehicleToDriverDto)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+
+            await vehicleService.AssignVehicleToDriver(assignVehicleToDriverDto.Email, assignVehicleToDriverDto.VehicleId);
+
+            return Ok();
+        }
+
 
 
 
@@ -87,6 +104,26 @@ namespace Stock_Managment_System.Controllers
 
             return Ok();
         }
+
+
+
+
+        [HttpDelete("deleteVehicle")]
+        public async Task<IActionResult> DeleteVehicle([FromQuery] string vehicleId)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            await vehicleService.DeleteVehicle(vehicleId);
+
+            return Ok();
+
+        }
+
 
 
         [HttpGet("getVehicleImage")]

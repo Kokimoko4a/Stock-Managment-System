@@ -23,6 +23,8 @@
             await factoryService.CreateVehicle(vehicleDtoImport);
         }
 
+
+
         public async Task<List<VehicleDtoExportSmall>> GetAllVehiclesByCompanyId(string companyId)
         {
             return await repositoryService.GetAllVehiclesByCompanyId(companyId);
@@ -40,6 +42,14 @@
         }
 
 
-    
+        public async Task DeleteVehicle(string vehicleId)
+        {
+           await repositoryService.DeleteVehicle(vehicleId);
+        }
+
+        public async Task AssignVehicleToDriver(string driverEmail, string vehicleId)
+        {
+            await repositoryService.AssignVehicleToDriver(driverEmail, vehicleId);
+        }
     }
 }

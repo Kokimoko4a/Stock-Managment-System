@@ -115,6 +115,7 @@
             <button id="viewStocksButton">View Stocks</button>
             <button id="addVehicleButton">Add Vehicle</button>
             <button id="getVehicles">Get All Vehicles</button>
+            <button id="createOrder">Create Order</button>
         </div>
     </div>
 
@@ -350,6 +351,25 @@
             
 
            
+        })
+
+
+
+        document.getElementById('createOrder').addEventListener('click', () => 
+        {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const companyId = urlParams.get('id');
+
+            if (!companyId) {
+                alert('No company ID found.');
+                return;
+            }
+
+
+
+            window.location.href = `createOrder.html?companyId=${companyId}`;
+        
         })
     </script>
 </body>

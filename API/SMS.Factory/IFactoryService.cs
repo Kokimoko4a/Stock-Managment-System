@@ -2,6 +2,7 @@
 {
     using SMS.Dtos.Company;
     using SMS.Dtos.Driver;
+    using SMS.Dtos.Order;
     using SMS.Dtos.Stock;
     using SMS.Dtos.User;
     using SMS.Dtos.Vehicles;
@@ -20,5 +21,7 @@
         public Task CreateStock(StockImportDto stockImportDto);
 
         public Task CreateVehicle(VehicleDtoImport vehicleDtoImport);
+
+        public Task CreateOrder(OrderImportDto orderDto);
     }
 }

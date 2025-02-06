@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Vehicle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .assign-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .assign-button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assign Vehicle to Driver</h1>
+    <div class="container">
+        <input type="email" id="emailInput" placeholder="Enter driver's email" required>
+        <p id="errorMessage" class="error"></p>
+        <button id="assignButton" class="assign-button">Assign Vehicle</button>
+    </div>
+
+    <script>
+        document.getElementById('assignButton').addEventListener('click', async () => {
+            const email = document.getElementById('emailInput').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = "";
+
+            if (!email || !email.includes("@")) {
+                errorMessage.textContent = "Please enter a valid email address.";
+                return;
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const vehicleId = urlParams.get("vehicleId");
+            if (!vehicleId) {
+                alert("No vehicle ID found in the URL");
+                return;
+            }
+
+            const requestBody = {
+                Email: email,
+                VehicleId: vehicleId
+            };
+
+            try {
+                const response = await fetch('https://localhost:7020/Vehicle/assignVehicleToDriver', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to assign vehicle");
+                }
+
+                alert("Vehicle successfully assigned to driver!");
+                window.history.back();
+            } catch (error) {
+                console.error("Error assigning vehicle:", error);
+                alert("Failed to assign vehicle. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

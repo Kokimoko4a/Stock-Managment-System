@@ -12,6 +12,10 @@ namespace SMS.Services.Interfaces
 
         public Task UpdateVehicle(VehicleDtoImport vehicleDto);
 
+        public Task DeleteVehicle(string vehicleId);
+
+        public Task AssignVehicleToDriver(string driverEmail, string vehicleId);
+
      
     }
 }

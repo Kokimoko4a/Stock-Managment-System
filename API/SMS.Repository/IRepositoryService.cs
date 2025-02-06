@@ -1,6 +1,7 @@
 ﻿namespace SMS.Repository
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Order;
     using SMS.Dtos.Stock;
     using SMS.Dtos.Vehicles;
     using SMS.Models;
@@ -57,7 +58,17 @@
 
         public Task UpdateVehicle(VehicleDtoImport vehicleDto);
 
-     
+        public Task DeleteVehicle(string vehicleId);
+
+        public Task AssignVehicleToDriver(string driverEmail, string vehicleId);
+
+        public Task CreateTruckOrder(TruckOrder order, string driverEmail, List<string> stocks);
+
+        public Task CreatePlaneOrder(PlaneOrder order,string  driverEmail, List<string> stocks);
+
+        public Task CreateShipOrder(ShipOrder order, string driverEmail, List<string> stocks);
+
+        public Task CreateTrainOrder(TrainOrder order, string driverEmail, List<string> stocks );
 
     }
 }
