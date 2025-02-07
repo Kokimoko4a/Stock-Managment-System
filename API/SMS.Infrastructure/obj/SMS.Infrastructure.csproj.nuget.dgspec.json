@@ -126,18 +126,6 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[6.0.0, )"
-            },
-            "Microsoft.ML": {
-              "target": "Package",
-              "version": "[4.0.1, )"
-            },
-            "OpenCvSharp4": {
-              "target": "Package",
-              "version": "[4.10.0.20241108, )"
-            },
-            "OpenCvSharp4.runtime.win": {
-              "target": "Package",
-              "version": "[4.10.0.20241108, )"
             }
           },
           "imports": [
