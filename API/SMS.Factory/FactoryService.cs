@@ -11,6 +11,7 @@ namespace SMS.Factory
     using SMS.Models;
     using SMS.Repository;
     using System.Threading.Tasks;
+  
 
     public class FactoryService : IFactoryService
     {
@@ -200,10 +201,16 @@ namespace SMS.Factory
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(vehicleDtoImport.Image.FileName)}";
             var filePath = Path.Combine(directoryPath, fileName);
 
+
+         
+
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await vehicleDtoImport.Image.CopyToAsync(stream);
             }
+
+
+       
 
             if (typeVehicle == "plane")
             {

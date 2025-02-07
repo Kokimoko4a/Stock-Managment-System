@@ -70,5 +70,10 @@
 
         public Task CreateTrainOrder(TrainOrder order, string driverEmail, List<string> stocks );
 
+        public Task<List<SmallOrderExportDto>> GetOrdersByCompanyId(string companyId);
+
+        public Task<OrderDtoBigExport> GetDetailedOrderById(string orderId);
+    
+
     }
 }

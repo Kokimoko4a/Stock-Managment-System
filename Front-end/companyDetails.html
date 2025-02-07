@@ -104,6 +104,36 @@
         .delete-button:hover {
             background-color: #c0392b;
         }
+
+
+        .order-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    background: #f9f9f9;
+}
+
+.order-content p {
+    margin: 4px 0;
+}
+
+.view-order-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 6px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.view-order-btn:hover {
+    background: #0056b3;
+}
+
     </style>
 </head>
 <body>
@@ -116,6 +146,7 @@
             <button id="addVehicleButton">Add Vehicle</button>
             <button id="getVehicles">Get All Vehicles</button>
             <button id="createOrder">Create Order</button>
+            <button id="getOrdersButton">Get Orders</button>
         </div>
     </div>
 
@@ -371,6 +402,89 @@
             window.location.href = `createOrder.html?companyId=${companyId}`;
         
         })
+
+
+
+
+
+        //get orders logic 
+
+        document.getElementById('getOrdersButton').addEventListener('click', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const companyId = urlParams.get('id');
+
+    if (!companyId) {
+        alert('No company ID found.');
+        return;
+    }
+
+    fetch(`https://localhost:7020/Order/getOrdersForCompany?companyId=${companyId}`, {
+        method: 'GET',
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch orders.');
+        }
+        return response.json();
+    })
+    .then(data => {
+        displayOrders(data);
+    })
+    .catch(error => {
+        console.error('Error fetching orders:', error);
+        alert('An error occurred while fetching orders.');
+    });
+});
+
+function displayOrders(orders) {
+    let orderList = document.getElementById('orderList');
+
+    if (!orderList) {
+        orderList = document.createElement('div');
+        orderList.id = 'orderList';
+        document.body.appendChild(orderList);
+    }
+
+    orderList.innerHTML = '<h3>Orders:</h3>';
+
+    if (orders.length === 0) {
+        orderList.innerHTML += '<p>No orders found.</p>';
+        return;
+    }
+
+    orders.forEach(order => {
+        const orderDiv = document.createElement('div');
+        orderDiv.className = 'order-item';
+        orderDiv.setAttribute('data-id', order.id); // Store ID without displaying it
+
+        orderDiv.innerHTML = `
+            <div class="order-content">
+                <p><strong>Title:</strong> ${order.title}</p>
+                <p><strong>Transport Type:</strong> ${order.typeTransport}</p>
+                <p><strong>Vehicle:</strong> ${order.vehicle}</p>
+                <p><strong>Destination:</strong> ${order.destination}</p>
+                <p><strong>Start Point:</strong> ${order.startPoint}</p>
+                <button class="view-order-btn">View Details</button>
+            </div>
+            <hr>
+        `;
+
+        orderList.appendChild(orderDiv);
+    });
+
+    // Attach event listeners to "View" buttons
+    document.querySelectorAll('.view-order-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const orderId = event.target.closest('.order-item').getAttribute('data-id');
+            window.location.href = `orderDetails.html?orderId=${orderId}`;
+        });
+    });
+}
+
+
     </script>
 </body>
 </html>

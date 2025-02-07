@@ -8,10 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.36" />
+    <PackageReference Include="Microsoft.ML" Version="4.0.1" />
+    <PackageReference Include="Microsoft.ML.Vision" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SMS.Dtos\SMS.Dtos.csproj" />
+    <ProjectReference Include="..\SMS.Infrastructure\SMS.Infrastructure.csproj" />
     <ProjectReference Include="..\SMS.Models\SMS.Models.csproj" />
     <ProjectReference Include="..\SMS.Repository\SMS.Repository.csproj" />
   </ItemGroup>

@@ -22,3 +22,5 @@ D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Repositor
 D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Common.pdb
 D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Data.pdb
 D:\Kaloyan\Stock Managment System\API\SMS.Factory\obj\Debug\net6.0\SMS.Fact.C345CD3A.Up2Date
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Infrastructure.dll
+D:\Kaloyan\Stock Managment System\API\SMS.Factory\bin\Debug\net6.0\SMS.Infrastructure.pdb

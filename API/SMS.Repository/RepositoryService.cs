@@ -11,6 +11,7 @@ namespace SMS.Repository
     using SMS.Models;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Diagnostics;
 
     public class RepositoryService : IRepositoryService
     {
@@ -213,6 +214,9 @@ namespace SMS.Repository
 
         public async Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId)
         {
+          
+
+
             return await data.Stocks.Where(x => x.CompanyId.ToString() == companyId)
                  .Select(x => new SmallStockExportDto()
                  {
@@ -694,35 +698,79 @@ namespace SMS.Repository
 
         public async Task CreateTruckOrder(TruckOrder order, string driverEmail, List<string> stocks)
         {
-            string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
 
-            Truck truck = await data.Trucks.Include(x => x.Driver).Include(x => x.Company).ThenInclude(x => x.TruckOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+            // Step 1: Get Driver ID
+            string? driverId = await data.Users
+                .Where(x => x.Email == driverEmail)
+                .Select(x => x.Id.ToString())
+                .FirstOrDefaultAsync();
 
+            if (driverId == null)
+            {
+                throw new InvalidOperationException($"No user found with email {driverEmail}.");
+            }
+
+            // Step 2: Get TruckDriver
+            TruckDriver? driverTruckFullModel = await data.TruckDrivers
+                .FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
+            if (driverTruckFullModel == null)
+            {
+                throw new InvalidOperationException($"No truck driver found with ID {driverId}.");
+            }
+
+            // Step 3: Get Truck
+            Truck? truck = await data.Trucks
+                .Include(x => x.Driver)
+                .Include(x => x.Company)
+                .ThenInclude(x => x.TruckOrders)
+                .FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+            if (truck == null)
+            {
+                throw new InvalidOperationException($"No truck found for driver with ID {driverId}.");
+            }
+
+            // Step 4: Set Order Relationships
             order.Company = truck.Company;
-            order.Driver = truck.Driver;
-            order.DriverId = (Guid)truck.DriverId;
+            order.Driver = driverTruckFullModel;
+            order.DriverId = driverTruckFullModel.Id;  // No need for casting
             order.Vehicle = truck;
             order.VehicleId = truck.Id;
 
+            // Step 5: Ensure `order.Stocks` is Initialized
+            order.Stocks ??= new List<Stock>();
+
+            // Step 6: Add Stocks to Order
             foreach (var item in stocks)
             {
-                order.Stocks.Add(await data.Stocks.FirstAsync(x => x.Id.ToString() == item));
+                Stock? stock = await data.Stocks.FirstOrDefaultAsync(x => x.Id.ToString() == item);
+                if (stock != null)
+                {
+                    order.Stocks.Add(stock);
+                }
             }
 
+            // Step 7: Assign Order to Truck and Driver
+            truck.Order = order;
+            truck.OrderId = order.Id;
+            driverTruckFullModel.Order = order;
+            driverTruckFullModel.OrderId = order.Id;
 
+            // Step 8: Add Order to Database and Save Once
             await data.TruckOrders.AddAsync(order);
-
             await data.SaveChangesAsync();
 
-            truck.Company.TruckOrders.Add(order);
-
-            await data.SaveChangesAsync();
 
         }
 
         public async Task CreatePlaneOrder(PlaneOrder order, string driverEmail, List<string> stocks)
         {
             string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Pilot? pilotFullModel = await data.Pilots.FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
+
 
             Plane? plane = await data.Planes.Include(x => x.Pilot).Include(x => x.Company).ThenInclude(x => x.PlaneOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
 
@@ -731,6 +779,15 @@ namespace SMS.Repository
             order.DriverId = (Guid)plane.DriverId;
             order.Vehicle = plane;
             order.VehicleId = plane.Id;
+
+
+            plane.Order = order;
+            plane.OrderId = order.Id;
+
+
+            pilotFullModel.OrderId = order.Id;
+            pilotFullModel.Order = order;
+
 
             foreach (var item in stocks)
             {
@@ -747,9 +804,12 @@ namespace SMS.Repository
             await data.SaveChangesAsync();
         }
 
-        public async Task CreateShipOrder(ShipOrder order, string driverEmail , List<string> stocks)
+        public async Task CreateShipOrder(ShipOrder order, string driverEmail, List<string> stocks)
         {
             string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
+
+            Capitan? capitanFullModel = await data.Capitans.FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
 
             Ship? ship = await data.Ships.Include(x => x.Driver).Include(x => x.Company).ThenInclude(x => x.ShipOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
 
@@ -758,6 +818,15 @@ namespace SMS.Repository
             order.DriverId = (Guid)ship.DriverId;
             order.Vehicle = ship;
             order.VehicleId = ship.Id;
+
+
+            ship.Order = order;
+            ship.OrderId = order.Id;
+
+
+            capitanFullModel.OrderId = order.Id;
+            capitanFullModel.Order = order;
+
 
             foreach (var item in stocks)
             {
@@ -778,6 +847,9 @@ namespace SMS.Repository
         {
             string driverId = await data.Users.Where(x => x.Email == driverEmail).Select(x => x.Id.ToString()).FirstAsync();
 
+
+            Machinist? machinistFullModel = await data.Machinists.FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
             Train? train = await data.Trains.Include(x => x.Driver).Include(x => x.Company).ThenInclude(x => x.TrainOrders).FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
 
             order.Company = train.Company;
@@ -785,6 +857,14 @@ namespace SMS.Repository
             order.DriverId = (Guid)train.DriverId;
             order.Vehicle = train;
             order.VehicleId = train.Id;
+
+            train.Order = order;
+            train.OrderId = order.Id;
+
+
+            machinistFullModel.OrderId = order.Id;
+            machinistFullModel.Order = order;
+
 
             foreach (var item in stocks)
             {
@@ -801,6 +881,228 @@ namespace SMS.Repository
             await data.SaveChangesAsync();
         }
 
-    
+        public async Task<List<SmallOrderExportDto>> GetOrdersByCompanyId(string companyId)
+        {
+            List<SmallOrderExportDto> exportDtosTrain = new List<SmallOrderExportDto>();
+
+            exportDtosTrain = await data.TrainOrders.Include(x => x.Vehicle).Where(x => x.ComapanyId.ToString() == companyId).Select(x => new SmallOrderExportDto()
+            {
+                Destination = x.Destination,
+                Id = x.Id,
+                StartPoint = x.StartPoint,
+                Title = x.Title,
+                TypeTransport = "Rail",
+                Vehicle = x.Vehicle.Brand + " " + x.Vehicle.Model,
+
+            }).ToListAsync();
+
+
+
+
+            List<SmallOrderExportDto> exportDtosTruck = new List<SmallOrderExportDto>();
+
+            exportDtosTruck = await data.TruckOrders.Include(x => x.Vehicle).Where(x => x.ComapanyId.ToString() == companyId).Select(x => new SmallOrderExportDto()
+            {
+                Destination = x.Destination,
+                Id = x.Id,
+                StartPoint = x.StartPoint,
+                Title = x.Title,
+                TypeTransport = "Land",
+                Vehicle = x.Vehicle.Brand + " " + x.Vehicle.Model,
+
+            }).ToListAsync();
+
+
+
+
+            List<SmallOrderExportDto> exportDtosPlane = new List<SmallOrderExportDto>();
+
+            exportDtosPlane = await data.PlaneOrders.Include(x => x.Vehicle).Where(x => x.ComapanyId.ToString() == companyId).Select(x => new SmallOrderExportDto()
+            {
+                Destination = x.Destination,
+                Id = x.Id,
+                StartPoint = x.StartPoint,
+                Title = x.Title,
+                TypeTransport = "Air",
+                Vehicle = x.Vehicle.Brand + " " + x.Vehicle.Model,
+
+            }).ToListAsync();
+
+
+
+
+
+
+            List<SmallOrderExportDto> exportDtosShips = new List<SmallOrderExportDto>();
+
+            exportDtosShips = await data.ShipOrders.Include(x => x.Vehicle).Where(x => x.ComapanyId.ToString() == companyId).Select(x => new SmallOrderExportDto()
+            {
+                Destination = x.Destination,
+                Id = x.Id,
+                StartPoint = x.StartPoint,
+                Title = x.Title,
+                TypeTransport = "Water",
+                Vehicle = x.Vehicle.Brand + " " + x.Vehicle.Model,
+
+            }).ToListAsync();
+
+
+            exportDtosTruck.AddRange(exportDtosShips);
+            exportDtosTruck.AddRange(exportDtosTrain);
+            exportDtosTruck.AddRange(exportDtosPlane);
+
+            return exportDtosTruck;
+        }
+
+
+        public async Task<OrderDtoBigExport> GetDetailedOrderById(string orderId)
+        {
+           
+
+            TrainOrder? trainOrder = await data.TrainOrders.Include(x => x.Vehicle).Include(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+
+            if (trainOrder != null)
+            {
+                ApplicationUser? driver = await data.Users.FirstOrDefaultAsync(x => x.Id == trainOrder.DriverId);
+
+
+                OrderDtoBigExport orderDto = new OrderDtoBigExport()
+                {
+                    Description = trainOrder.Description,
+                    Destination = trainOrder.Destination,
+                    DriverEmail = driver.Email,
+                    DriverNames = driver.FirstName + " " + driver.LastName,
+                    Id = trainOrder.Id,
+                    StartPoint = trainOrder.StartPoint,
+                    Stocks = trainOrder.Stocks.Select(x => x.Title).ToList(),
+                    Title = trainOrder.Title,
+                    TypeTransport = "Rail",
+                    VehicleBrand = trainOrder.Vehicle.Brand,
+                    VehicleModel = trainOrder.Vehicle.Model,
+                };
+
+
+                return orderDto;
+
+            }
+
+
+
+
+
+
+            TruckOrder? truckOrder = await data.TruckOrders.Include(x => x.Vehicle).Include(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+
+            if (truckOrder != null)
+            {
+                ApplicationUser? driver = await data.Users.FirstOrDefaultAsync(x => x.Id == truckOrder.DriverId);
+
+
+                OrderDtoBigExport orderDto = new OrderDtoBigExport()
+                {
+                    Description = truckOrder.Description,
+                    Destination = truckOrder.Destination,
+                    DriverEmail = driver.Email,
+                    DriverNames = driver.FirstName + " " + driver.LastName,
+                    Id = truckOrder.Id,
+                    StartPoint = truckOrder.StartPoint,
+                    Stocks = truckOrder.Stocks.Select(x => x.Title).ToList(),
+                    Title = truckOrder.Title,
+                    TypeTransport = "Land",
+                    VehicleBrand = truckOrder.Vehicle.Brand,
+                    VehicleModel = truckOrder.Vehicle.Model,
+                };
+
+
+                return orderDto;
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            PlaneOrder? planeOrder = await data.PlaneOrders.Include(x => x.Vehicle).Include(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+
+            if (planeOrder != null)
+            {
+                ApplicationUser? driver = await data.Users.FirstOrDefaultAsync(x => x.Id == planeOrder.DriverId);
+
+
+                OrderDtoBigExport orderDto = new OrderDtoBigExport()
+                {
+                    Description = planeOrder.Description,
+                    Destination = planeOrder.Destination,
+                    DriverEmail = driver.Email,
+                    DriverNames = driver.FirstName + " " + driver.LastName,
+                    Id = planeOrder.Id,
+                    StartPoint = planeOrder.StartPoint,
+                    Stocks = planeOrder.Stocks.Select(x => x.Title).ToList(),
+                    Title = planeOrder.Title,
+                    TypeTransport = "Air",
+                    VehicleBrand = planeOrder.Vehicle.Brand,
+                    VehicleModel = planeOrder.Vehicle.Model,
+                };
+
+
+                return orderDto;
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+            ShipOrder? shipOrder = await data.ShipOrders.Include(x => x.Vehicle).Include(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+
+            if (shipOrder != null)
+            {
+                ApplicationUser? driver = await data.Users.FirstOrDefaultAsync(x => x.Id == shipOrder.DriverId);
+
+
+                OrderDtoBigExport orderDto = new OrderDtoBigExport()
+                {
+                    Description = shipOrder.Description,
+                    Destination = shipOrder.Destination,
+                    DriverEmail = driver.Email,
+                    DriverNames = driver.FirstName + " " + driver.LastName,
+                    Id = shipOrder.Id,
+                    StartPoint = shipOrder.StartPoint,
+                    Stocks = shipOrder.Stocks.Select(x => x.Title).ToList(),
+                    Title = shipOrder.Title,
+                    TypeTransport = "Rail",
+                    VehicleBrand = shipOrder.Vehicle.Brand,
+                    VehicleModel = shipOrder.Vehicle.Model,
+                };
+
+
+                return orderDto;
+
+            }
+
+
+
+
+
+            throw new Exception("Vehicle id not found!!!");
+        }
     }
 }

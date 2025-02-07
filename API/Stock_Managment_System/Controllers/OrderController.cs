@@ -39,6 +39,39 @@ namespace Stock_Managment_System.Controllers
         }
 
 
+        [HttpGet("getOrdersForCompany")]
+
+        public async Task<IActionResult> GetOrders([FromQuery] string companyId)
+        {
+
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(await orderService.GetOrdersByCompanyId(companyId));
+        }
+
+
+
+        [HttpGet("getDetailedOrder")]
+
+        public async Task<IActionResult> GetDetailedOrder([FromQuery] string orderId)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(await orderService.GetDetailedOrderById(orderId));
+
+        }
+
+
         private string GetTokenAndIdIfExists()
         {
             var token = Request.Headers["Authorization"].ToString();

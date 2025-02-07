@@ -259,6 +259,9 @@
               "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj": {
                 "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Dtos\\SMS.Dtos.csproj"
               },
+              "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Infrastructure\\SMS.Infrastructure.csproj": {
+                "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Infrastructure\\SMS.Infrastructure.csproj"
+              },
               "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj": {
                 "projectPath": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Models\\SMS.Models.csproj"
               },
@@ -286,6 +289,14 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.36, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Microsoft.ML.Vision": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             }
           },
           "imports": [
@@ -365,6 +376,18 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "OpenCvSharp4": {
+              "target": "Package",
+              "version": "[4.10.0.20241108, )"
+            },
+            "OpenCvSharp4.runtime.win": {
+              "target": "Package",
+              "version": "[4.10.0.20241108, )"
             }
           },
           "imports": [
