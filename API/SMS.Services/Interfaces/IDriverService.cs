@@ -9,5 +9,7 @@ namespace SMS.Services.Interfaces
         public Task BecomeDriver(DriverImportDto driverImportDto);
 
         public Task<bool> IsDriver(string userId);
+
+        public Task<List<DriverSmallExportDto>> GetDriversForCompany(string companyId);
     }
 }

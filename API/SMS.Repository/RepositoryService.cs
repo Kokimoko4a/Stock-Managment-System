@@ -5,6 +5,7 @@ namespace SMS.Repository
     using Microsoft.EntityFrameworkCore;
     using SMS.Data;
     using SMS.Dtos.Company;
+    using SMS.Dtos.Driver;
     using SMS.Dtos.Order;
     using SMS.Dtos.Stock;
     using SMS.Dtos.Vehicles;
@@ -214,7 +215,7 @@ namespace SMS.Repository
 
         public async Task<List<SmallStockExportDto>> GetAllStocksForCompany(string companyId)
         {
-          
+
 
 
             return await data.Stocks.Where(x => x.CompanyId.ToString() == companyId)
@@ -957,7 +958,7 @@ namespace SMS.Repository
 
         public async Task<OrderDtoBigExport> GetDetailedOrderById(string orderId)
         {
-           
+
 
             TrainOrder? trainOrder = await data.TrainOrders.Include(x => x.Vehicle).Include(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
 
@@ -1103,6 +1104,39 @@ namespace SMS.Repository
 
 
             throw new Exception("Vehicle id not found!!!");
+        }
+
+        public async Task<List<DriverSmallExportDto>> GetDriversForCompany(string companyId)
+        {
+
+            Company company = await data.Companies.Include(x => x.TruckDrivers).Include(x => x.Pilots).Include(x => x.Capitans)
+                .Include(x => x.Machinists).FirstAsync(x => x.Id.ToString() == companyId);
+
+            var truckDrivers = company.TruckDrivers.Select(x => x.Id).ToList();
+
+            var machinists = company.Machinists.Select(x => x.Id).ToList();
+
+            var pilots = company.Pilots.Select(x => x.Id).ToList();
+
+            var capitans = company.Capitans.Select(x => x.Id).ToList();
+
+
+            truckDrivers.AddRange(machinists);
+            truckDrivers.AddRange(pilots);
+            truckDrivers.AddRange(capitans);
+
+
+
+            List<DriverSmallExportDto> driverExportDtos = data.Users.Where(x => truckDrivers.Contains(x.Id)).Select(x => new DriverSmallExportDto()
+            {
+
+                Email = x.Email,
+                Names = x.FirstName + " " + x.LastName,
+                Id = x.Id.ToString()
+            }).ToList();
+
+            return driverExportDtos;
+
         }
     }
 }

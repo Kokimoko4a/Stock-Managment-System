@@ -1,6 +1,7 @@
 ﻿namespace SMS.Repository
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Driver;
     using SMS.Dtos.Order;
     using SMS.Dtos.Stock;
     using SMS.Dtos.Vehicles;
@@ -73,7 +74,7 @@
         public Task<List<SmallOrderExportDto>> GetOrdersByCompanyId(string companyId);
 
         public Task<OrderDtoBigExport> GetDetailedOrderById(string orderId);
-    
 
+        public Task<List<DriverSmallExportDto>> GetDriversForCompany(string companyId);
     }
 }

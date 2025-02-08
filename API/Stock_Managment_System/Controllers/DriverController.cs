@@ -57,6 +57,23 @@ namespace Stock_Managment_System.Controllers
             return Unauthorized();
         }
 
+        [HttpGet("getDriversForCompany")]
+
+        public async Task<IActionResult> GetDriversForCompany([FromQuery] string companyId)
+        {
+            var id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+
+            var drivers = await driverService.GetDriversForCompany(companyId);
+
+            return Ok(drivers);
+        }
+
 
         private string GetTokenAndIdIfExists()
         {
