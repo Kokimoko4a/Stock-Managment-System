@@ -37,5 +37,10 @@ namespace SMS.Services
         {
            return await repositoryService.GetDriversForCompany(companyId);
         }
+
+        public async Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId)
+        {
+            return await repositoryService.GetDetailsForDriverByCompanyId(driverId);
+        }
     }
 }

@@ -75,6 +75,23 @@ namespace Stock_Managment_System.Controllers
         }
 
 
+        [HttpGet("getDetailsForDriver")]
+
+        public async Task<IActionResult> GetDetailsForDriver([FromQuery] string driverId)
+        {
+            var id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(await driverService.GetDetailsForDriverByCompanyId(driverId));
+        }
+
+
+
+
         private string GetTokenAndIdIfExists()
         {
             var token = Request.Headers["Authorization"].ToString();

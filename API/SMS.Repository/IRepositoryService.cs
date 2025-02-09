@@ -76,5 +76,7 @@
         public Task<OrderDtoBigExport> GetDetailedOrderById(string orderId);
 
         public Task<List<DriverSmallExportDto>> GetDriversForCompany(string companyId);
+
+        public Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId);
     }
 }
