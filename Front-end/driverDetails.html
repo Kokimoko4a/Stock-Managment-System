@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="userCard">
+        <h2>User Information</h2>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Age:</strong> <span id="age"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Vehicle Info:</strong> <span id="vehicleInfo"></span></p>
+        <p><strong>Order Info:</strong> <span id="orderInfo"></span></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fetchDriverDetails = async () => {
+                try {
+
+ 
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let driverId = urlParams.get('driverId');
+
+                   
+                    const response = await fetch(`https://localhost:7020/Driver/getDetailsForDriver?driverId=${driverId}`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem("jwtToken")}` // Assuming token is stored in localStorage
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch data");
+                    }
+                    const data = await response.json();
+                    
+                    document.getElementById("name").textContent = data.Names;
+                    document.getElementById("age").textContent = data.Age;
+                    document.getElementById("email").textContent = data.Email;
+                    document.getElementById("vehicleInfo").textContent = data.VehicleInfo;
+                    document.getElementById("orderInfo").textContent = data.OrderInfo;
+                } catch (error) {
+                    console.error("Error fetching driver details:", error);
+                }
+            };
+            
+            fetchDriverDetails();
+        });
+    </script>
+</body>
+</html>
