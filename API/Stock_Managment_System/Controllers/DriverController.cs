@@ -78,7 +78,7 @@ namespace Stock_Managment_System.Controllers
         [HttpGet("getDetailsForDriver")]
 
         public async Task<IActionResult> GetDetailsForDriver([FromQuery] string driverId)
-        {
+       {
             var id = GetTokenAndIdIfExists();
 
             if (id == null)

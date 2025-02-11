@@ -55,11 +55,11 @@
                     }
                     const data = await response.json();
                     
-                    document.getElementById("name").textContent = data.Names;
-                    document.getElementById("age").textContent = data.Age;
-                    document.getElementById("email").textContent = data.Email;
-                    document.getElementById("vehicleInfo").textContent = data.VehicleInfo;
-                    document.getElementById("orderInfo").textContent = data.OrderInfo;
+                    document.getElementById("name").textContent = data.names;
+                    document.getElementById("age").textContent = data.age;
+                    document.getElementById("email").textContent = data.email;
+                    document.getElementById("vehicleInfo").textContent = data.vehicleInfo;
+                    document.getElementById("orderInfo").textContent = data.orderInfo;
                 } catch (error) {
                     console.error("Error fetching driver details:", error);
                 }

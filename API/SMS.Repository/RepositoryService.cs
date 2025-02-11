@@ -1141,17 +1141,17 @@ namespace SMS.Repository
 
         public async Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId)
         {
-            DriverBigExportDto driverBigExportDto = null;
+            DriverBigExportDto driverBigExportDto = new DriverBigExportDto();
 
             ApplicationUser? user =  await data.Users.FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
-            Machinist? machinist = await data.Machinists.Include(x => x.Vehicle).Include(x => x.Order).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+            Machinist? machinist = await data.Machinists.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
 
             if (machinist != null)
             {
                 driverBigExportDto.OrderInfo = $"From {machinist.Order.StartPoint} To {machinist.Order.Description}" +
-                    $"Stocks: {string.Join(',' , machinist.Order.Stocks.Select(x => x.Title))}";
+                    $" Stocks: {string.Join(',' , machinist.Order.Stocks.Select(x => x.Title))}";
 
                 driverBigExportDto.Id = machinist.Id;
                 driverBigExportDto.VehicleInfo = $"{machinist.Vehicle.Brand} {machinist.Vehicle.Model}";
@@ -1168,14 +1168,14 @@ namespace SMS.Repository
 
 
 
-            TruckDriver? truckDriver = await data.TruckDrivers.Include(x => x.Vehicle).Include(x => x.Order).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+            TruckDriver? truckDriver = await data.TruckDrivers.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
 
 
             if (truckDriver != null)
             {
                 driverBigExportDto.OrderInfo = $"From {truckDriver.Order.StartPoint} To {truckDriver.Order.Description}" +
-                    $"Stocks: {string.Join(',', truckDriver.Order.Stocks.Select(x => x.Title))}";
+                    $" Stocks: {string.Join(',', truckDriver.Order.Stocks.Select(x => x.Title))}";
 
                 driverBigExportDto.Id = truckDriver.Id;
                 driverBigExportDto.VehicleInfo = $"{truckDriver.Vehicle.Brand} {truckDriver.Vehicle.Model}";
@@ -1192,14 +1192,14 @@ namespace SMS.Repository
 
 
 
-            Pilot? pilot = await data.Pilots.Include(x => x.Vehicle).Include(x => x.Order).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+            Pilot? pilot = await data.Pilots.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
 
 
             if (pilot != null)
             {
                 driverBigExportDto.OrderInfo = $"From {pilot.Order.StartPoint} To {pilot.Order.Description}" +
-                    $"Stocks: {string.Join(',', pilot.Order.Stocks.Select(x => x.Title))}";
+                    $" Stocks: {string.Join(',', pilot.Order.Stocks.Select(x => x.Title))}";
 
                 driverBigExportDto.Id = pilot.Id;
                 driverBigExportDto.VehicleInfo = $"{pilot.Vehicle.Brand} {pilot.Vehicle.Model}";
@@ -1215,13 +1215,13 @@ namespace SMS.Repository
 
 
 
-            Capitan? capitan = await data.Capitans.Include(x => x.Vehicle).Include(x => x.Order).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+            Capitan? capitan = await data.Capitans.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
 
             if (capitan != null)
             {
                 driverBigExportDto.OrderInfo = $"From {capitan.Order.StartPoint} To {capitan.Order.Description}" +
-                    $"Stocks: {string.Join(',', capitan.Order.Stocks.Select(x => x.Title))}";
+                    $" Stocks: {string.Join(',', capitan.Order.Stocks.Select(x => x.Title))}";
 
                 driverBigExportDto.Id = capitan.Id;
                 driverBigExportDto.VehicleInfo = $"{capitan.Vehicle.Brand} {capitan.Vehicle.Model}";
