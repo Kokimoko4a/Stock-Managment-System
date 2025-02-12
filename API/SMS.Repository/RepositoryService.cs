@@ -1236,5 +1236,115 @@ namespace SMS.Repository
             throw new Exception("The driver does not exist!");
 
         }
+
+        public async Task<DriverDashboardDtoExport> GetDriverDashboardInfoForDriverByDriverId(string driverId)
+        {
+            DriverDashboardDtoExport driverDashboardDtoExport = new DriverDashboardDtoExport();
+
+
+            TruckDriver? truckDriver = await  data.TruckDrivers.Include(x => x.Order).ThenInclude(x => x.Stocks).Include(x => x.Vehicle)
+                                                        .FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
+
+            if (truckDriver != null)
+            {
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", truckDriver.Order.Stocks);
+
+                driverDashboardDtoExport.StartPoint = truckDriver.Order.StartPoint;
+
+                driverDashboardDtoExport.Destination = truckDriver.Order.Destination;
+
+                driverDashboardDtoExport.OrderTitle = truckDriver.Order.Title;
+
+                driverDashboardDtoExport.VehicleBrand = truckDriver.Vehicle.Brand;
+
+                driverDashboardDtoExport.VehicleModel = truckDriver.Vehicle.Model;
+
+                
+                return driverDashboardDtoExport;
+            }
+
+
+
+
+
+
+            Pilot? pilot = await data.Pilots.Include(x => x.Order).ThenInclude(x => x.Stocks).Include(x => x.Vehicle)
+                                                        .FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
+
+            if (pilot != null)
+            {
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", pilot.Order.Stocks);
+
+                driverDashboardDtoExport.StartPoint = pilot.Order.StartPoint;
+
+                driverDashboardDtoExport.Destination = pilot.Order.Destination;
+
+                driverDashboardDtoExport.OrderTitle = pilot.Order.Title;
+
+                driverDashboardDtoExport.VehicleBrand = pilot.Vehicle.Brand;
+
+                driverDashboardDtoExport.VehicleModel = pilot.Vehicle.Model;
+
+
+                return driverDashboardDtoExport;
+            }
+
+
+
+
+
+            Machinist? machinist = await data.Machinists.Include(x => x.Order).ThenInclude(x => x.Stocks).Include(x => x.Vehicle)
+                                                        .FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
+
+            if (machinist != null)
+            {
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", machinist.Order.Stocks);
+
+                driverDashboardDtoExport.StartPoint = machinist.Order.StartPoint;
+
+                driverDashboardDtoExport.Destination = machinist.Order.Destination;
+
+                driverDashboardDtoExport.OrderTitle = machinist.Order.Title;
+
+                driverDashboardDtoExport.VehicleBrand = machinist.Vehicle.Brand;
+
+                driverDashboardDtoExport.VehicleModel = machinist.Vehicle.Model;
+
+
+                return driverDashboardDtoExport;
+            }
+
+
+
+
+
+            Capitan? capitan = await data.Capitans.Include(x => x.Order).ThenInclude(x => x.Stocks).Include(x => x.Vehicle)
+                                                        .FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+
+
+            if (capitan != null)
+            {
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", capitan.Order.Stocks);
+
+                driverDashboardDtoExport.StartPoint = capitan.Order.StartPoint;
+
+                driverDashboardDtoExport.Destination = capitan.Order.Destination;
+
+                driverDashboardDtoExport.OrderTitle = capitan.Order.Title;
+
+                driverDashboardDtoExport.VehicleBrand = capitan.Vehicle.Brand;
+
+                driverDashboardDtoExport.VehicleModel = capitan.Vehicle.Model;
+
+
+                return driverDashboardDtoExport;
+            }
+
+
+            throw new Exception("Driver not found!");
+        }
     }
 }

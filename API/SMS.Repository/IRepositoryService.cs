@@ -78,5 +78,7 @@
         public Task<List<DriverSmallExportDto>> GetDriversForCompany(string companyId);
 
         public Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId);
+
+        public Task<DriverDashboardDtoExport> GetDriverDashboardInfoForDriverByDriverId(string driverId);
     }
 }

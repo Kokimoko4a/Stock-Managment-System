@@ -7,6 +7,7 @@ namespace SMS.Services
     using SMS.Repository;
     using SMS.Services.Interfaces;
     using System.Collections.Generic;
+    using System.Reflection.Metadata.Ecma335;
 
     public class DriverService : IDriverService
     {
@@ -41,6 +42,11 @@ namespace SMS.Services
         public async Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId)
         {
             return await repositoryService.GetDetailsForDriverByCompanyId(driverId);
+        }
+
+        public async Task<DriverDashboardDtoExport> GetDriverDashboardInfoForDriverByDriverId(string driverId)
+        {
+            return await repositoryService.GetDriverDashboardInfoForDriverByDriverId(driverId); 
         }
     }
 }
