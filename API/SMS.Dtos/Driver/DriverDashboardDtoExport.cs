@@ -3,6 +3,8 @@ namespace SMS.Dtos.Driver
 {
     public class DriverDashboardDtoExport
     {
+     
+
         public string VehicleBrand { get; set; }
 
         public string VehicleModel { get; set; }

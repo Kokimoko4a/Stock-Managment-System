@@ -140,6 +140,24 @@ namespace Stock_Managment_System.Controllers
             return File(imageFileStream, mimeType);
         }
 
+
+        [HttpPut("setVehicleCoordinates")]
+
+        public async Task<IActionResult> SetVehicleCoordinates([FromBody] VehicleCoordinatesDtoImport vehicleCoordinatesDtoImport)
+        {
+            string id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            await vehicleService.SetVehicleCoorinates(vehicleCoordinatesDtoImport, id);
+
+            return Ok();
+        }
+
+
         private string GetTokenAndIdIfExists()
         {
             var token = Request.Headers["Authorization"].ToString();

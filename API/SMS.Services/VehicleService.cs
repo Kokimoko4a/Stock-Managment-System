@@ -51,5 +51,10 @@
         {
             await repositoryService.AssignVehicleToDriver(driverEmail, vehicleId);
         }
+
+        public async Task SetVehicleCoorinates(VehicleCoordinatesDtoImport vehicleCoordinatesDtoImport , string driverId)
+        {
+            await repositoryService.SetVehicleCoorinates(vehicleCoordinatesDtoImport,  driverId);
+        }
     }
 }

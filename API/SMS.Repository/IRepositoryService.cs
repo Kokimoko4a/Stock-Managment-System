@@ -80,5 +80,7 @@
         public Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId);
 
         public Task<DriverDashboardDtoExport> GetDriverDashboardInfoForDriverByDriverId(string driverId);
+
+        public Task SetVehicleCoorinates(VehicleCoordinatesDtoImport vehicleCoordinatesDtoImport , string driverId);
     }
 }

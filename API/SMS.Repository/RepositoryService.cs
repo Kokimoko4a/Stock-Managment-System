@@ -13,6 +13,7 @@ namespace SMS.Repository
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Xml.Schema;
 
     public class RepositoryService : IRepositoryService
     {
@@ -1248,7 +1249,7 @@ namespace SMS.Repository
 
             if (truckDriver != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", truckDriver.Order.Stocks);
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", truckDriver.Order.Stocks.Select(x => x.Title));
 
                 driverDashboardDtoExport.StartPoint = truckDriver.Order.StartPoint;
 
@@ -1259,6 +1260,8 @@ namespace SMS.Repository
                 driverDashboardDtoExport.VehicleBrand = truckDriver.Vehicle.Brand;
 
                 driverDashboardDtoExport.VehicleModel = truckDriver.Vehicle.Model;
+
+           
 
                 
                 return driverDashboardDtoExport;
@@ -1275,7 +1278,7 @@ namespace SMS.Repository
 
             if (pilot != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", pilot.Order.Stocks);
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", pilot.Order.Stocks.Select(x => x.Title));
 
                 driverDashboardDtoExport.StartPoint = pilot.Order.StartPoint;
 
@@ -1287,6 +1290,7 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = pilot.Vehicle.Model;
 
+            
 
                 return driverDashboardDtoExport;
             }
@@ -1301,7 +1305,7 @@ namespace SMS.Repository
 
             if (machinist != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", machinist.Order.Stocks);
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", machinist.Order.Stocks.Select(x => x.Title));
 
                 driverDashboardDtoExport.StartPoint = machinist.Order.StartPoint;
 
@@ -1313,6 +1317,7 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = machinist.Vehicle.Model;
 
+             
 
                 return driverDashboardDtoExport;
             }
@@ -1327,7 +1332,7 @@ namespace SMS.Repository
 
             if (capitan != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", capitan.Order.Stocks);
+                driverDashboardDtoExport.OrderProducts = string.Join(", ", capitan.Order.Stocks.Select(x => x.Title));
 
                 driverDashboardDtoExport.StartPoint = capitan.Order.StartPoint;
 
@@ -1339,12 +1344,79 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = capitan.Vehicle.Model;
 
+             
 
                 return driverDashboardDtoExport;
             }
 
 
             throw new Exception("Driver not found!");
+        }
+
+        public async Task SetVehicleCoorinates(VehicleCoordinatesDtoImport vehicleCoordinatesDtoImport, string driverId)
+        {
+            double longtitude = vehicleCoordinatesDtoImport.Longitude;
+
+            double latitude = vehicleCoordinatesDtoImport.Latitude;
+
+          
+
+            Truck? truck = await data.Trucks.FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+            if (truck != null)
+            {
+
+                truck.Latitude = latitude;
+                truck.Longtitude = longtitude;
+
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+            Ship? ship = await data.Ships.FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+
+            if (ship != null)
+            {
+                ship.Latitude = latitude;
+                ship.Longtitude = longtitude;
+
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+            Train? train = await data.Trains.FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+
+
+            if (train != null)
+            {
+
+                train.Latitude = latitude;
+                train.Longtitude = longtitude;
+                
+
+                await data.SaveChangesAsync();
+                return;
+            }
+
+
+            Plane? plane = await data.Planes.FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
+
+
+            if (plane != null)
+            {
+                plane.Latitude = latitude;
+                plane.Longtitude = longtitude;
+              
+
+                await data.SaveChangesAsync();
+                return;
+            }
+
+            throw new Exception("Vehicle not found!");
         }
     }
 }

@@ -16,6 +16,8 @@ namespace SMS.Services.Interfaces
 
         public Task AssignVehicleToDriver(string driverEmail, string vehicleId);
 
-     
+        public Task SetVehicleCoorinates(VehicleCoordinatesDtoImport vehicleCoordinatesDtoImport, string driverId);
+
+
     }
 }
