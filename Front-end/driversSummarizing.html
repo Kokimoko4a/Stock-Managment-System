@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Locator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: white;
+            text-align: center;
+        }
+        #map {
+            height: 600px;
+            width: 90%;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🚗 Cool Driver Locator 🚀</h2>
+    <div id="map"></div>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const map = L.map('map').setView([0, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+            
+            async function fetchDrivers() {
+                try {
+                    const response = await fetch('/api/drivers'); // Adjust to your backend URL
+                    const drivers = await response.json();
+                    
+                    drivers.forEach(driver => {
+                        const marker = L.marker([driver.latitude, driver.longitude]).addTo(map);
+                        marker.bindPopup(`<b>${driver.name}</b><br>🚘 Location: ${driver.latitude}, ${driver.longitude}`);
+                        marker.openPopup();
+                    });
+                } catch (error) {
+                    console.error("Error fetching driver locations:", error);
+                }
+            }
+            
+            fetchDrivers();
+        });
+    </script>
+</body>
+</html>
