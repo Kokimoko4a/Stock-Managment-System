@@ -1365,9 +1365,19 @@ namespace SMS.Repository
 
             if (truck != null)
             {
+                if (truck.Latitude == 0 && truck.Longtitude == 0)
+                {
+                    truck.Latitude = latitude;
+                    truck.Longtitude = longtitude;
+                }
 
-                truck.Latitude = latitude;
-                truck.Longtitude = longtitude;
+                else
+                {
+                    truck.Latitude += 5;
+
+                    truck.Longtitude += 5;
+                }
+               
 
                 await data.SaveChangesAsync();
                 return;
@@ -1379,8 +1389,19 @@ namespace SMS.Repository
 
             if (ship != null)
             {
-                ship.Latitude = latitude;
-                ship.Longtitude = longtitude;
+                if (ship.Latitude == 0 && ship.Longtitude == 0)
+                {
+                    ship.Latitude = latitude;
+                    ship.Longtitude = longtitude;
+                }
+
+                else
+                {
+                    ship.Latitude += 5;
+
+                    ship.Longtitude += 5;
+                }
+
 
                 await data.SaveChangesAsync();
                 return;
@@ -1393,10 +1414,20 @@ namespace SMS.Repository
 
             if (train != null)
             {
+                if (train.Latitude == 0 && train.Longtitude == 0)
+                {
+                    train.Latitude = latitude;
+                    train.Longtitude = longtitude;
+                }
 
-                train.Latitude = latitude;
-                train.Longtitude = longtitude;
-                
+                else
+                {
+                    train.Latitude += 5;
+
+                    train.Longtitude += 5;
+                }
+
+
 
                 await data.SaveChangesAsync();
                 return;
@@ -1408,9 +1439,20 @@ namespace SMS.Repository
 
             if (plane != null)
             {
-                plane.Latitude = latitude;
-                plane.Longtitude = longtitude;
-              
+                if (plane.Latitude == 0 && plane.Longtitude == 0)
+                {
+                    plane.Latitude = latitude;
+                    plane.Longtitude = longtitude;
+                }
+
+                else
+                {
+                    plane.Latitude += 5;
+
+                    plane.Longtitude += 5;
+                }
+
+
 
                 await data.SaveChangesAsync();
                 return;
