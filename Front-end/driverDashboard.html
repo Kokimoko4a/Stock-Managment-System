@@ -105,6 +105,7 @@
             <p>Vehicle: <span id="vehicleName">Loading...</span></p>
             <p>Model: <span id="vehicleModel">Loading...</span></p>
             <button class="btn" onclick="startVehicle()">Start Vehicle</button>
+            <button class="btn btn-danger" onclick="stopVehicle()">Stop Driving</button>
         </div>
     </div>
 
@@ -188,77 +189,78 @@
             await loadDriverDashboard();
         });
 
-
-
-
         let sendCount = 0;  // Initialize the counter
-let sendInterval = 5000;  // Interval for sending (in milliseconds)
-let intervalId = null;  // Store the interval ID
-let isSending = false;  // Flag to check if a send is in progress
+        let sendInterval = 5000;  // Interval for sending (in milliseconds)
+        let intervalId = null;  // Store the interval ID
+        let isSending = false;  // Flag to check if a send is in progress
 
-async function startVehicle() {
-    const isConfirmed = confirm("Are you sure you want to start the vehicle?");
-    if (!isConfirmed) return;
+        async function startVehicle() {
+            const isConfirmed = confirm("Are you sure you want to start the vehicle?");
+            if (!isConfirmed) return;
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
 
-            const requestBody = {
-                latitude: latitude,
-                longitude: longitude
-            };
+                    const requestBody = {
+                        latitude: latitude,
+                        longitude: longitude
+                    };
 
-            sendCount++;  // Increment the counter
+                    sendCount++;  // Increment the counter
 
-            // Start sending coordinates at a regular interval, but check if the request is in progress
-            if (sendCount === 1) {
-                intervalId = setInterval(async () => {
-                    if (isSending) {
-                        return;  // Skip if a request is already in progress
+                    // Start sending coordinates at a regular interval, but check if the request is in progress
+                    if (sendCount === 1) {
+                        intervalId = setInterval(async () => {
+                            if (isSending) {
+                                return;  // Skip if a request is already in progress
+                            }
+
+                            isSending = true;  // Mark as sending
+
+                            try {
+                                const response = await fetch("https://localhost:7020/Vehicle/setVehicleCoordinates", {
+                                    method: "PUT",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                                    },
+                                    body: JSON.stringify(requestBody)
+                                });
+
+                                if (response.ok) {
+                                    console.log("Coordinates sent successfully!");
+                                } else {
+                                    console.log("Failed to send coordinates.");
+                                }
+                            } catch (error) {
+                                console.error("Error:", error);
+                            }
+
+                            isSending = false;  // Mark as not sending after the request is complete
+                        }, sendInterval);  // Set interval to send coordinates every 5 seconds
                     }
 
-                    isSending = true;  // Mark as sending
-
-                    try {
-                        const response = await fetch("https://localhost:7020/Vehicle/setVehicleCoordinates", {
-                            method: "PUT",
-                            headers: {
-                                "Content-Type": "application/json",
-                                'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
-                            },
-                            body: JSON.stringify(requestBody)
-                        });
-
-                        if (response.ok) {
-                            console.log("Coordinates sent successfully!");
-                        } else {
-                            console.log("Failed to send coordinates.");
-                        }
-                    } catch (error) {
-                        console.error("Error:", error);
+                    // Stop sending after 5 attempts
+                    if (sendCount >= 5) {
+                        clearInterval(intervalId);  // Stop the interval after sending 5 times
+                        sendCount = 0;  // Reset counter after sending
+                        alert("Coordinates sent 5 times.");
                     }
-
-                    isSending = false;  // Mark as not sending after the request is complete
-                }, sendInterval);  // Set interval to send coordinates every 5 seconds
+                }, (error) => {
+                    alert("Failed to get location: " + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
             }
+        }
 
-            // Stop sending after 5 attempts
-            if (sendCount >= 5) {
-                clearInterval(intervalId);  // Stop the interval after sending 5 times
-                sendCount = 0;  // Reset counter after sending
-                alert("Coordinates sent 5 times.");
-            }
-        }, (error) => {
-            alert("Failed to get location: " + error.message);
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
-
-
+        function stopVehicle() {
+            clearInterval(intervalId);  // Stop the interval
+            sendCount = 0;  // Reset counter
+            alert("Vehicle stopped and coordinates sending is stopped.");
+        }
     </script>
 </body>
 </html>

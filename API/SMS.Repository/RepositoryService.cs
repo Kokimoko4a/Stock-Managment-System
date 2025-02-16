@@ -1373,9 +1373,9 @@ namespace SMS.Repository
 
                 else
                 {
-                    truck.Latitude += 5;
+                    truck.Latitude += 0.0001;
 
-                    truck.Longtitude += 5;
+                    truck.Longtitude += 0.0001;
                 }
                
 
@@ -1397,9 +1397,9 @@ namespace SMS.Repository
 
                 else
                 {
-                    ship.Latitude += 5;
+                    ship.Latitude += 0.0001;
 
-                    ship.Longtitude += 5;
+                    ship.Longtitude += 0.0001;
                 }
 
 
@@ -1422,9 +1422,9 @@ namespace SMS.Repository
 
                 else
                 {
-                    train.Latitude += 5;
+                    train.Latitude += 0.0001;
 
-                    train.Longtitude += 5;
+                    train.Longtitude += 0.0001;
                 }
 
 
@@ -1447,9 +1447,9 @@ namespace SMS.Repository
 
                 else
                 {
-                    plane.Latitude += 5;
+                    plane.Latitude += 0.0001;
 
-                    plane.Longtitude += 5;
+                    plane.Longtitude += 0.0001;
                 }
 
 
