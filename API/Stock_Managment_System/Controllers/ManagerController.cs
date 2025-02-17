@@ -163,6 +163,18 @@ namespace Stock_Managment_System.Controllers
            return  Ok();
         }
 
+
+        [HttpGet("getDriversWithCoordinates")]
+        public async Task<IActionResult> GetDriversWithCoordinates([FromQuery] string companyId)
+        {
+            if (GetTokenAndIdIfExists() == null!)
+            {
+                return BadRequest();
+            }
+
+            //HERE ADD LOGIC FOR GETTING DRIVERS WITH COORDINATES ;)
+        }
+
        
     }
 }
