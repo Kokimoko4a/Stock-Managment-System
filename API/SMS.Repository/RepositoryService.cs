@@ -1144,7 +1144,7 @@ namespace SMS.Repository
         {
             DriverBigExportDto driverBigExportDto = new DriverBigExportDto();
 
-            ApplicationUser? user =  await data.Users.FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
+            ApplicationUser? user = await data.Users.FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
             Machinist? machinist = await data.Machinists.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
@@ -1152,7 +1152,7 @@ namespace SMS.Repository
             if (machinist != null)
             {
                 driverBigExportDto.OrderInfo = $"From {machinist.Order.StartPoint} To {machinist.Order.Description}" +
-                    $" Stocks: {string.Join(',' , machinist.Order.Stocks.Select(x => x.Title))}";
+                    $" Stocks: {string.Join(',', machinist.Order.Stocks.Select(x => x.Title))}";
 
                 driverBigExportDto.Id = machinist.Id;
                 driverBigExportDto.VehicleInfo = $"{machinist.Vehicle.Brand} {machinist.Vehicle.Model}";
@@ -1243,7 +1243,7 @@ namespace SMS.Repository
             DriverDashboardDtoExport driverDashboardDtoExport = new DriverDashboardDtoExport();
 
 
-            TruckDriver? truckDriver = await  data.TruckDrivers.Include(x => x.Order).ThenInclude(x => x.Stocks).Include(x => x.Vehicle)
+            TruckDriver? truckDriver = await data.TruckDrivers.Include(x => x.Order).ThenInclude(x => x.Stocks).Include(x => x.Vehicle)
                                                         .FirstOrDefaultAsync(x => x.Id.ToString() == driverId);
 
 
@@ -1261,9 +1261,9 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = truckDriver.Vehicle.Model;
 
-           
 
-                
+
+
                 return driverDashboardDtoExport;
             }
 
@@ -1290,7 +1290,7 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = pilot.Vehicle.Model;
 
-            
+
 
                 return driverDashboardDtoExport;
             }
@@ -1317,7 +1317,7 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = machinist.Vehicle.Model;
 
-             
+
 
                 return driverDashboardDtoExport;
             }
@@ -1344,7 +1344,7 @@ namespace SMS.Repository
 
                 driverDashboardDtoExport.VehicleModel = capitan.Vehicle.Model;
 
-             
+
 
                 return driverDashboardDtoExport;
             }
@@ -1359,7 +1359,7 @@ namespace SMS.Repository
 
             double latitude = vehicleCoordinatesDtoImport.Latitude;
 
-          
+
 
             Truck? truck = await data.Trucks.FirstOrDefaultAsync(x => x.DriverId.ToString() == driverId);
 
@@ -1377,7 +1377,7 @@ namespace SMS.Repository
 
                     truck.Longtitude += 0.0001;
                 }
-               
+
 
                 await data.SaveChangesAsync();
                 return;
@@ -1459,6 +1459,125 @@ namespace SMS.Repository
             }
 
             throw new Exception("Vehicle not found!");
+        }
+
+        public async Task<ICollection<VehicleExportDtoWithCoordinates>> GetVehicleExportDtoWithCoordinates(string companyId)
+        {
+            var company = await data.Companies.Include(x => x.Ships).ThenInclude(x => x.Driver).ThenInclude(x => x.Order)
+                .ThenInclude(x => x.Stocks)
+                .Include(x => x.Trains).ThenInclude(x => x.Driver).ThenInclude(x => x.Order).ThenInclude(x => x.Stocks)
+                 .Include(x => x.Planes).ThenInclude(x => x.Pilot).ThenInclude(x => x.Order).ThenInclude(x => x.Stocks)
+                 .Include(x => x.Trucks).ThenInclude(x => x.Driver).ThenInclude(x => x.Order).ThenInclude(x => x.Stocks)
+                    .Where(x => x.Id.ToString() == companyId).FirstAsync();
+
+
+
+            List<VehicleExportDtoWithCoordinates> shipsDtos = null;
+
+
+            if (company.Ships.Any())
+            {
+                 shipsDtos = company.Ships.Select(x => new VehicleExportDtoWithCoordinates()
+                {
+
+
+                    DriverFirstName = data.Users.Where(u => u.Id == x.Driver.Id).Select(u => u.FirstName).First(),
+                    DriverLastName = data.Users.Where(u => u.Id == x.Driver.Id).Select(u => u.LastName).First(),
+                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
+                    Brand = x.Brand,
+                    Model = x.Model,
+                    Id = x.Id.ToString()
+
+
+                }).Where(x => x.StocksInfo != null).ToList();
+            }
+
+
+
+
+
+            List<VehicleExportDtoWithCoordinates> trainsDtos = null;
+
+
+
+            if (company.Trains.Any())
+            {
+                trainsDtos = company.Trains.Select(x => new VehicleExportDtoWithCoordinates()
+                {
+
+
+                    DriverFirstName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.FirstName).First(),
+                    DriverLastName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.LastName).First(),
+                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
+                    Brand = x.Brand,
+                    Model = x.Model,
+                    Id = x.Id.ToString()
+
+
+                }).Where(x => x.StocksInfo != null).ToList();
+            }
+
+
+
+
+
+
+            List<VehicleExportDtoWithCoordinates> planeDtos = null;
+
+
+            if (company.Planes.Any())
+            {
+                planeDtos = company.Planes.Select(x => new VehicleExportDtoWithCoordinates()
+                {
+
+
+                    DriverFirstName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.FirstName).First(),
+                    DriverLastName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.LastName).First(),
+                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
+                    Brand = x.Brand,
+                    Model = x.Model,
+                    Id = x.Id.ToString()
+
+
+                }).Where(x => x.StocksInfo != null).ToList();
+            }
+
+
+
+
+
+            List<VehicleExportDtoWithCoordinates> truckDtos = null;
+
+
+            if (company.Trucks.Any())
+            {
+                truckDtos = company.Trucks.Select(x => new VehicleExportDtoWithCoordinates()
+                {
+
+
+                    DriverFirstName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.FirstName).First(),
+                    DriverLastName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.LastName).First(),
+                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
+                    Brand = x.Brand,
+                    Model = x.Model,
+                    Id = x.Id.ToString()
+
+
+                }).Where(x => x.StocksInfo != null).ToList();
+            }
+
+
+
+
+           
+
+
+
+            truckDtos.AddRange(shipsDtos);
+            truckDtos.AddRange(trainsDtos);
+            truckDtos.AddRange(planeDtos);
+
+            return truckDtos;
         }
     }
 }

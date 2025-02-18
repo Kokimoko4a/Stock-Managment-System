@@ -1,10 +1,12 @@
 ﻿namespace SMS.Services
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Vehicles;
     using SMS.Factory;
     using SMS.Models;
     using SMS.Repository;
     using SMS.Services.Interfaces;
+    using System.Collections.Generic;
 
     public class ManagerService : IManagerService
     {
@@ -94,6 +96,11 @@
         public async Task DeleteCompany(string companyId)
         {
            await repositoryService.DeleteCompany(companyId);
+        }
+
+        public async Task<ICollection<VehicleExportDtoWithCoordinates>> GetVehicleExportDtoWithCoordinates(string companyId)
+        {
+            return await repositoryService.GetVehicleExportDtoWithCoordinates(companyId);
         }
     }
 }

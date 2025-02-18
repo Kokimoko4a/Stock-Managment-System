@@ -1,6 +1,7 @@
 ﻿namespace SMS.Services.Interfaces
 {
     using SMS.Dtos.Company;
+    using SMS.Dtos.Vehicles;
     using SMS.Models;
 
     public interface IManagerService
@@ -19,5 +20,7 @@
 
 
         public Task DeleteCompany(string companyId);
+
+        public Task<ICollection<VehicleExportDtoWithCoordinates>> GetVehicleExportDtoWithCoordinates(string companyId);
     }
 }
