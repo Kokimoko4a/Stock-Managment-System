@@ -297,7 +297,7 @@
               "RelativeDocumentMoniker": "..\\SMS.Repository\\RepositoryService.cs",
               "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Repository\\RepositoryService.cs",
               "RelativeToolTip": "..\\SMS.Repository\\RepositoryService.cs",
-              "ViewState": "AQIAALkFAAAAAAAAAAAkwMsFAABPAAAA",
+              "ViewState": "AQIAALQFAAAAAAAAAAAuwOQFAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-03T13:24:00.477Z",
               "EditorCaption": ""
@@ -312,8 +312,7 @@
               "RelativeToolTip": "..\\SMS.Repository\\IRepositoryService.cs",
               "ViewState": "AQIAAEQAAAAAAAAAAAAUwFgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:28:05.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T08:28:05.485Z"
             },
             {
               "$type": "Document",
@@ -325,8 +324,7 @@
               "RelativeToolTip": "..\\SMS.Services\\Interfaces\\IUserService.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAAAsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T12:47:04.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T12:47:04.774Z"
             },
             {
               "$type": "Document",
@@ -338,8 +336,7 @@
               "RelativeToolTip": "..\\SMS.Services\\Interfaces\\IVehicleService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwBIAAABxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T16:18:39.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T16:18:39.829Z"
             },
             {
               "$type": "Document",
@@ -351,8 +348,7 @@
               "RelativeToolTip": "..\\SMS.Services\\Interfaces\\IManagerService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAB3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T13:28:35.214Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-04T13:28:35.214Z"
             },
             {
               "$type": "Document",
@@ -362,7 +358,7 @@
               "RelativeDocumentMoniker": "..\\SMS.Services\\ManagerService.cs",
               "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\SMS.Services\\ManagerService.cs",
               "RelativeToolTip": "..\\SMS.Services\\ManagerService.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAAAGYAAAAMAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAwGYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-04T13:29:21.928Z",
               "EditorCaption": ""
@@ -375,7 +371,7 @@
               "RelativeDocumentMoniker": "Controllers\\ManagerController.cs",
               "ToolTip": "D:\\Kaloyan\\Stock Managment System\\API\\Stock_Managment_System\\Controllers\\ManagerController.cs",
               "RelativeToolTip": "Controllers\\ManagerController.cs",
-              "ViewState": "AQIAAKIAAAAAAAAAAAAvwK4AAAAMAAAA",
+              "ViewState": "AQIAAJoAAAAAAAAAAAAAwK4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-04T08:49:28.738Z",
               "EditorCaption": ""
@@ -390,8 +386,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Vehicles\\VehicleExportDtoWithCoordinates.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T18:02:13.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T18:02:13.643Z"
             },
             {
               "$type": "Document",
@@ -403,8 +398,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Vehicles\\VehicleDtoImport.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T16:22:26.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T16:22:26.075Z"
             },
             {
               "$type": "Document",
@@ -416,8 +410,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Vehicles\\VehicleCoordinatesDtoImport.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T16:23:03.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-13T16:23:03.218Z"
             },
             {
               "$type": "Document",
@@ -429,8 +422,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Vehicles\\VehicleDtoBigExport.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAIAwwBwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:33:07.865Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T11:33:07.865Z"
             },
             {
               "$type": "Document",
@@ -442,8 +434,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Vehicles\\VehicleDtoExportSmall.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T13:15:55.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T13:15:55.36Z"
             },
             {
               "$type": "Document",

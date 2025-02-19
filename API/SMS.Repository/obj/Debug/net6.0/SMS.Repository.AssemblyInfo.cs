@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SMS.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3729de469f277cd243c532c3c6f58f4f95efa8e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae8bba9d7e1852824809cf2579564709d295b242")]
 [assembly: System.Reflection.AssemblyProductAttribute("SMS.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SMS.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

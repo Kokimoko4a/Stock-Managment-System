@@ -1463,121 +1463,50 @@ namespace SMS.Repository
 
         public async Task<ICollection<VehicleExportDtoWithCoordinates>> GetVehicleExportDtoWithCoordinates(string companyId)
         {
-            var company = await data.Companies.Include(x => x.Ships).ThenInclude(x => x.Driver).ThenInclude(x => x.Order)
-                .ThenInclude(x => x.Stocks)
-                .Include(x => x.Trains).ThenInclude(x => x.Driver).ThenInclude(x => x.Order).ThenInclude(x => x.Stocks)
-                 .Include(x => x.Planes).ThenInclude(x => x.Pilot).ThenInclude(x => x.Order).ThenInclude(x => x.Stocks)
-                 .Include(x => x.Trucks).ThenInclude(x => x.Driver).ThenInclude(x => x.Order).ThenInclude(x => x.Stocks)
-                    .Where(x => x.Id.ToString() == companyId).FirstAsync();
+            var company = await data.Companies.Include(x => x.Ships).Include(x => x.Trains).Include(x => x.Trucks).Include(x => x.Planes).FirstOrDefaultAsync(x => x.Id.ToString() == companyId);
 
-
-
-            List<VehicleExportDtoWithCoordinates> shipsDtos = null;
+            List<VehicleExportDtoWithCoordinates> listWithDtosCapitans = null;
 
 
             if (company.Ships.Any())
             {
-                 shipsDtos = company.Ships.Select(x => new VehicleExportDtoWithCoordinates()
+                var isThereCapitans =  await data.Companies.Include(x => x.Capitans).Where(x => x.Capitans.Any())
+                    .FirstOrDefaultAsync(x => x.Id.ToString() == companyId)  != null ? true  : false;
+
+
+                if (isThereCapitans)
                 {
+                    var capitans =  data.Companies.Include(x => x.Capitans).ThenInclude(x => x.Id).Where(x => x.Capitans.Any())
+                    .FirstOrDefault(x => x.Id.ToString() == companyId).Capitans;
 
+                    var capitansAsUsers = await data.Users.Where(x => capitans.Any(u => u.Id == x.Id)).ToArrayAsync();
 
-                    DriverFirstName = data.Users.Where(u => u.Id == x.Driver.Id).Select(u => u.FirstName).First(),
-                    DriverLastName = data.Users.Where(u => u.Id == x.Driver.Id).Select(u => u.LastName).First(),
-                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
-                    Brand = x.Brand,
-                    Model = x.Model,
-                    Id = x.Id.ToString()
+                    var capitansWithInfo = data.Capitans.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks)
+                        .Where(x => x.CompanyId.ToString() == companyId);
 
+                     listWithDtosCapitans = new List<VehicleExportDtoWithCoordinates>();
 
-                }).Where(x => x.StocksInfo != null).ToList();
+                    foreach (var item in capitansWithInfo)
+                    {
+                        VehicleExportDtoWithCoordinates vehicleExportDto = new VehicleExportDtoWithCoordinates()
+                        {
+                            DriverFirstName = capitansAsUsers.FirstOrDefault(x => x.Id == item.Id)!.FirstName,
+                            DriverLastName = capitansAsUsers.FirstOrDefault(x => x.Id == item.Id)!.LastName,
+                            StocksInfo = string.Join(' ', item.Order.Stocks.Select(x => x.Title)),
+                            Brand = item.Vehicle.Brand,
+                            Id = item.Vehicle.Id.ToString(),
+                            Model =item.Vehicle.Model
+                        };
+
+                        listWithDtosCapitans.Add(vehicleExportDto);
+                    }
+                }
+
             }
 
+            return null;
 
 
-
-
-            List<VehicleExportDtoWithCoordinates> trainsDtos = null;
-
-
-
-            if (company.Trains.Any())
-            {
-                trainsDtos = company.Trains.Select(x => new VehicleExportDtoWithCoordinates()
-                {
-
-
-                    DriverFirstName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.FirstName).First(),
-                    DriverLastName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.LastName).First(),
-                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
-                    Brand = x.Brand,
-                    Model = x.Model,
-                    Id = x.Id.ToString()
-
-
-                }).Where(x => x.StocksInfo != null).ToList();
-            }
-
-
-
-
-
-
-            List<VehicleExportDtoWithCoordinates> planeDtos = null;
-
-
-            if (company.Planes.Any())
-            {
-                planeDtos = company.Planes.Select(x => new VehicleExportDtoWithCoordinates()
-                {
-
-
-                    DriverFirstName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.FirstName).First(),
-                    DriverLastName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.LastName).First(),
-                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
-                    Brand = x.Brand,
-                    Model = x.Model,
-                    Id = x.Id.ToString()
-
-
-                }).Where(x => x.StocksInfo != null).ToList();
-            }
-
-
-
-
-
-            List<VehicleExportDtoWithCoordinates> truckDtos = null;
-
-
-            if (company.Trucks.Any())
-            {
-                truckDtos = company.Trucks.Select(x => new VehicleExportDtoWithCoordinates()
-                {
-
-
-                    DriverFirstName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.FirstName).First(),
-                    DriverLastName = data.Users.Where(u => u.Id == x.DriverId).Select(u => u.LastName).First(),
-                    StocksInfo = string.Join(' ', x.Order.Stocks.Select(x => x.Title)),
-                    Brand = x.Brand,
-                    Model = x.Model,
-                    Id = x.Id.ToString()
-
-
-                }).Where(x => x.StocksInfo != null).ToList();
-            }
-
-
-
-
-           
-
-
-
-            truckDtos.AddRange(shipsDtos);
-            truckDtos.AddRange(trainsDtos);
-            truckDtos.AddRange(planeDtos);
-
-            return truckDtos;
         }
     }
 }
