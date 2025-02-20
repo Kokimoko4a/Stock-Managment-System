@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SMS.Dtos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3729de469f277cd243c532c3c6f58f4f95efa8e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f6ca6d1287089f675eff7bac9a0f757a0290379")]
 [assembly: System.Reflection.AssemblyProductAttribute("SMS.Dtos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SMS.Dtos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

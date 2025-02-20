@@ -15,5 +15,11 @@ namespace SMS.Dtos.Vehicles
         public string DriverFirstName { get; set; }
 
         public string DriverLastName { get; set; }
+
+        public double Longitude { get; set; }
+
+        public double Latitude { get; set; }
+
+
     }
 }
