@@ -423,6 +423,9 @@ namespace SMS.Data.Migrations
                     b.Property<Guid>("DriverId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("StartPoint")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -536,6 +539,9 @@ namespace SMS.Data.Migrations
 
                     b.Property<Guid>("DriverId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("StartPoint")
                         .IsRequired()
@@ -703,6 +709,9 @@ namespace SMS.Data.Migrations
                     b.Property<Guid>("DriverId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("StartPoint")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -838,6 +847,9 @@ namespace SMS.Data.Migrations
 
                     b.Property<Guid>("DriverId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("StartPoint")
                         .IsRequired()
