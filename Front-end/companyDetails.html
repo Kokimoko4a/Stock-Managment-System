@@ -181,6 +181,7 @@
             <button id="createOrder">Create Order</button>
             <button id="getOrdersButton">Get Orders</button>
             <button id="getDriversButton">Get Drivers</button>
+            <button id="localizeDrivers">Get drivers locations</button>
         </div>
     </div>
 
@@ -580,6 +581,19 @@ function displayOrders(orders) {
     // You can navigate to another page or open a modal here
 }
 
+
+        document.getElementById('localizeDrivers').addEventListener('click', () => {
+
+        
+            let urlParams = new URLSearchParams(window.location.search);
+            let companyId = urlParams.get('id');
+
+            window.location.href = `driversSummarizing.html?companyId=${companyId}`;
+
+        }
+    
+    
+    )
 
     </script>
 </body>

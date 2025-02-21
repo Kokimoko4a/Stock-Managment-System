@@ -31,29 +31,69 @@
     
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const map = L.map('map').setView([0, 0], 2);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-            
-            async function fetchDrivers() {
-                try {
-                    const response = await fetch('/api/drivers'); // Adjust to your backend URL
-                    const drivers = await response.json();
-                    
-                    drivers.forEach(driver => {
-                        const marker = L.marker([driver.latitude, driver.longitude]).addTo(map);
-                        marker.bindPopup(`<b>${driver.name}</b><br>🚘 Location: ${driver.latitude}, ${driver.longitude}`);
-                        marker.openPopup();
-                    });
-                } catch (error) {
-                    console.error("Error fetching driver locations:", error);
+    document.addEventListener("DOMContentLoaded", () => {
+    const map = L.map('map').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let markers = []; // Store markers
+
+    async function fetchDrivers() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const companyId = urlParams.get('companyId');
+
+        try {
+            const response = await fetch(`https://localhost:7020/Manager/getDriversWithCoordinates?companyId=${companyId}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`
                 }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
-            
-            fetchDrivers();
-        });
+
+            const drivers = await response.json();
+
+            // Remove previous markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = []; 
+
+            // Add new markers with full info
+            drivers.forEach(driver => {
+                const marker = L.marker([driver.latitude, driver.longitude]).addTo(map);
+
+                const popupContent = `
+                    <b>🚛 Driver Information</b><br>
+                   
+                    📛 <b>Name:</b> ${driver.driverFirstName} ${driver.driverLastName}<br>
+                    🚗 <b>Vehicle:</b> ${driver.brand} ${driver.model}<br>
+                    📦 <b>Stocks Info:</b> ${driver.stocksInfo}<br>
+                    📍 <b>Location:</b> ${driver.latitude}, ${driver.longitude}
+                `;
+
+                marker.bindPopup(popupContent);
+                markers.push(marker);
+            });
+
+        } catch (error) {
+            console.error("Error fetching driver locations:", error);
+        }
+    }
+
+    async function updateDriversPeriodically() {
+        while (true) { 
+            await fetchDrivers(); // Ensure request completes before waiting
+            await new Promise(resolve => setTimeout(resolve, 5000)); // Wait 5 seconds
+        }
+    }
+
+    updateDriversPeriodically();
+});
+
     </script>
 </body>
 </html>
