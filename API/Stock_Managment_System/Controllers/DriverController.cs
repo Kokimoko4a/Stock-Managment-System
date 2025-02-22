@@ -105,6 +105,24 @@ namespace Stock_Managment_System.Controllers
         }
 
 
+        [HttpDelete("orderCompleted")]
+
+        public async Task<IActionResult> MarkOrderAsCompleted([FromQuery] string orderId)
+        {
+            /*var id = GetTokenAndIdIfExists();
+
+            if (id == null)
+            {
+                return BadRequest();
+            }*/
+
+            await driverService.MarkOrderAsCompleted(orderId);
+
+            return Ok();
+        }
+
+
+
         private string GetTokenAndIdIfExists()
         {
             var token = Request.Headers["Authorization"].ToString();

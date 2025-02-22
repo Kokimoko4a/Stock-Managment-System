@@ -84,5 +84,7 @@
         public Task SetVehicleCoorinates(VehicleCoordinatesDtoImport vehicleCoordinatesDtoImport , string driverId);
 
         public Task<ICollection< VehicleExportDtoWithCoordinates>> GetVehicleExportDtoWithCoordinates(string companyId);
+
+        public Task MarkOrderAsCompleted(string orderId);
     }
 }

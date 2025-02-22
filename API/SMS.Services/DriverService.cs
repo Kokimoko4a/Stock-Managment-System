@@ -47,6 +47,12 @@ namespace SMS.Services
         public async Task<DriverDashboardDtoExport> GetDriverDashboardInfoForDriverByDriverId(string driverId)
         {
             return await repositoryService.GetDriverDashboardInfoForDriverByDriverId(driverId); 
+
+        }
+
+        public async Task MarkOrderAsCompleted(string orderId)
+        {
+            await repositoryService.MarkOrderAsCompleted(orderId);
         }
     }
 }

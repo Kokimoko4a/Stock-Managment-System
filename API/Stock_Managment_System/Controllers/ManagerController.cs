@@ -167,10 +167,10 @@ namespace Stock_Managment_System.Controllers
         [HttpGet("getDriversWithCoordinates")]
         public async Task<IActionResult> GetDriversWithCoordinates([FromQuery] string companyId)
         {
-           // if (GetTokenAndIdIfExists() == null!)
-            //{
-            //    return BadRequest();
-            //}
+            if (GetTokenAndIdIfExists() == null!)
+            {
+                return BadRequest();
+            }
 
             return Ok(await managerService.GetVehicleExportDtoWithCoordinates(companyId));
         }

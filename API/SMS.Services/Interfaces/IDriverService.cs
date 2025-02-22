@@ -15,5 +15,7 @@ namespace SMS.Services.Interfaces
         public Task<DriverBigExportDto> GetDetailsForDriverByCompanyId(string driverId);
 
         public Task<DriverDashboardDtoExport> GetDriverDashboardInfoForDriverByDriverId(string driverId);
+
+        public Task MarkOrderAsCompleted(string orderId);
     }
 }

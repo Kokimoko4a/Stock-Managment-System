@@ -1151,11 +1151,11 @@ namespace SMS.Repository
 
             if (machinist != null)
             {
-                driverBigExportDto.OrderInfo = $"From {machinist.Order.StartPoint} To {machinist.Order.Description}" +
-                    $" Stocks: {string.Join(',', machinist.Order.Stocks.Select(x => x.Title))}";
+                driverBigExportDto.OrderInfo = machinist.Order != null ? $"From {machinist.Order.StartPoint} To {machinist.Order.Description}" +
+                    $" Stocks: {string.Join(',', machinist.Order.Stocks.Select(x => x.Title))}" : "";
 
                 driverBigExportDto.Id = machinist.Id;
-                driverBigExportDto.VehicleInfo = $"{machinist.Vehicle.Brand} {machinist.Vehicle.Model}";
+                driverBigExportDto.VehicleInfo = machinist.Vehicle != null ? $"{machinist.Vehicle.Brand} {machinist.Vehicle.Model}" : "";
                 driverBigExportDto.Email = user.Email;
                 driverBigExportDto.Age = user.Age;
                 driverBigExportDto.Names = $"{user.FirstName} {user.LastName}";
@@ -1175,11 +1175,11 @@ namespace SMS.Repository
 
             if (truckDriver != null)
             {
-                driverBigExportDto.OrderInfo = $"From {truckDriver.Order.StartPoint} To {truckDriver.Order.Description}" +
-                    $" Stocks: {string.Join(',', truckDriver.Order.Stocks.Select(x => x.Title))}";
+                driverBigExportDto.OrderInfo = truckDriver.Order != null ?  $"From {truckDriver.Order.StartPoint} To {truckDriver.Order.Description}" +
+                    $" Stocks: {string.Join(',', truckDriver.Order.Stocks.Select(x => x.Title))}" : "";
 
                 driverBigExportDto.Id = truckDriver.Id;
-                driverBigExportDto.VehicleInfo = $"{truckDriver.Vehicle.Brand} {truckDriver.Vehicle.Model}";
+                driverBigExportDto.VehicleInfo = truckDriver.Vehicle != null ?  $"{truckDriver.Vehicle.Brand} {truckDriver.Vehicle.Model}" : "";
                 driverBigExportDto.Email = user.Email;
                 driverBigExportDto.Age = user.Age;
                 driverBigExportDto.Names = $"{user.FirstName} {user.LastName}";
@@ -1199,11 +1199,10 @@ namespace SMS.Repository
 
             if (pilot != null)
             {
-                driverBigExportDto.OrderInfo = $"From {pilot.Order.StartPoint} To {pilot.Order.Description}" +
-                    $" Stocks: {string.Join(',', pilot.Order.Stocks.Select(x => x.Title))}";
+                driverBigExportDto.OrderInfo = pilot.Order != null ? $"From {pilot.Order.StartPoint} To {pilot.Order.Description}" + $" Stocks: {string.Join(',', pilot.Order.Stocks.Select(x => x.Title))}" : "";
 
                 driverBigExportDto.Id = pilot.Id;
-                driverBigExportDto.VehicleInfo = $"{pilot.Vehicle.Brand} {pilot.Vehicle.Model}";
+                driverBigExportDto.VehicleInfo = pilot.Vehicle != null ? $"{pilot.Vehicle.Brand} {pilot.Vehicle.Model}" : "";
                 driverBigExportDto.Email = user.Email;
                 driverBigExportDto.Age = user.Age;
                 driverBigExportDto.Names = $"{user.FirstName} {user.LastName}";
@@ -1221,11 +1220,10 @@ namespace SMS.Repository
 
             if (capitan != null)
             {
-                driverBigExportDto.OrderInfo = $"From {capitan.Order.StartPoint} To {capitan.Order.Description}" +
-                    $" Stocks: {string.Join(',', capitan.Order.Stocks.Select(x => x.Title))}";
+                driverBigExportDto.OrderInfo = capitan.Order != null ? $"From {capitan.Order.StartPoint} To {capitan.Order.Description}" + $" Stocks: {string.Join(',', capitan.Order.Stocks.Select(x => x.Title))}" : "";
 
                 driverBigExportDto.Id = capitan.Id;
-                driverBigExportDto.VehicleInfo = $"{capitan.Vehicle.Brand} {capitan.Vehicle.Model}";
+                driverBigExportDto.VehicleInfo = capitan.Vehicle != null ? $"{capitan.Vehicle.Brand} {capitan.Vehicle.Model}" : "";
                 driverBigExportDto.Email = user.Email;
                 driverBigExportDto.Age = user.Age;
                 driverBigExportDto.Names = $"{user.FirstName} {user.LastName}";
@@ -1473,13 +1471,13 @@ namespace SMS.Repository
 
             if (company.Ships.Any())
             {
-                var isThereCapitans =  await data.Companies.Include(x => x.Capitans).Where(x => x.Capitans.Any())
-                    .FirstOrDefaultAsync(x => x.Id.ToString() == companyId)  != null ? true  : false;
+                var isThereCapitans = await data.Companies.Include(x => x.Capitans).Where(x => x.Capitans.Any())
+                    .FirstOrDefaultAsync(x => x.Id.ToString() == companyId) != null ? true : false;
 
 
                 if (isThereCapitans)
                 {
-                    var capitans =  data.Companies.Include(x => x.Capitans).Where(x => x.Capitans.Any())
+                    var capitans = data.Companies.Include(x => x.Capitans).Where(x => x.Capitans.Any())
                     .FirstOrDefault(x => x.Id.ToString() == companyId).Capitans;
 
                     var capitansAsUsers = await data.Users.Where(x => capitans.Select(u => u.Id).Contains(x.Id)).ToArrayAsync();
@@ -1487,7 +1485,7 @@ namespace SMS.Repository
                     var capitansWithInfo = data.Capitans.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks)
                         .Where(x => x.CompanyId.ToString() == companyId);
 
-                     //listWithDtosCapitans = new List<VehicleExportDtoWithCoordinates>();
+                    //listWithDtosCapitans = new List<VehicleExportDtoWithCoordinates>();
 
                     foreach (var item in capitansWithInfo)
                     {
@@ -1498,7 +1496,7 @@ namespace SMS.Repository
                             StocksInfo = string.Join(' ', item.Order.Stocks.Select(x => x.Title)),
                             Brand = item.Vehicle.Brand,
                             Id = item.Vehicle.Id.ToString(),
-                            Model =item.Vehicle.Model,
+                            Model = item.Vehicle.Model,
                             Latitude = item.Vehicle.Latitude,
                             Longitude = item.Vehicle.Longtitude
                         };
@@ -1535,7 +1533,7 @@ namespace SMS.Repository
                     var pilotsWithInfo = data.Pilots.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks)
                         .Where(x => x.CompanyId.ToString() == companyId);
 
-                  //  listWithDtosPilots = new List<VehicleExportDtoWithCoordinates>();
+                    //  listWithDtosPilots = new List<VehicleExportDtoWithCoordinates>();
 
                     foreach (var item in pilotsWithInfo)
                     {
@@ -1579,7 +1577,7 @@ namespace SMS.Repository
                     var machinistsWithInfo = data.Machinists.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks)
                         .Where(x => x.CompanyId.ToString() == companyId);
 
-                  //  listWithDtosMachinists = new List<VehicleExportDtoWithCoordinates>();
+                    //  listWithDtosMachinists = new List<VehicleExportDtoWithCoordinates>();
 
                     foreach (var item in machinistsWithInfo)
                     {
@@ -1625,7 +1623,7 @@ namespace SMS.Repository
                     var truckDriversWithInfo = data.TruckDrivers.Include(x => x.Vehicle).Include(x => x.Order).ThenInclude(x => x.Stocks)
                         .Where(x => x.CompanyId.ToString() == companyId);
 
-                   // listWithDtosTruckDrivers = new List<VehicleExportDtoWithCoordinates>();
+                    // listWithDtosTruckDrivers = new List<VehicleExportDtoWithCoordinates>();
 
                     foreach (var item in truckDriversWithInfo)
                     {
@@ -1655,6 +1653,27 @@ namespace SMS.Repository
             return listWithDtosTruckDrivers;
 
 
+        }
+
+        public async Task MarkOrderAsCompleted(string orderId)
+        {
+            TruckOrder? truckOrder = await data.TruckOrders.Include(x => x.Vehicle).Include(x => x.Driver).Include(x => x.Company)
+                                             .FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+            if (truckOrder != null)
+            {
+                truckOrder.IsCompleted = true;
+
+                truckOrder.Vehicle.Order = null;
+
+                truckOrder.Driver.Order = null;
+
+                await data.SaveChangesAsync();
+
+                data.Remove(truckOrder);
+
+                
+            }
         }
     }
 }
