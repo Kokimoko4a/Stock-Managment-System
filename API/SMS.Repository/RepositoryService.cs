@@ -1658,7 +1658,7 @@ namespace SMS.Repository
         public async Task MarkOrderAsCompleted(string orderId)
         {
             TruckOrder? truckOrder = await data.TruckOrders.Include(x => x.Vehicle).Include(x => x.Driver).Include(x => x.Company)
-                                             .FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+                                        .Include(s => s.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
 
             if (truckOrder != null)
             {
@@ -1668,11 +1668,113 @@ namespace SMS.Repository
 
                 truckOrder.Driver.Order = null;
 
-                await data.SaveChangesAsync();
+                var sd = truckOrder.Stocks;
+
+                data.RemoveRange(truckOrder.Stocks);
 
                 data.Remove(truckOrder);
 
+
+                await data.SaveChangesAsync();
+
+                return;
+
                 
+            }
+
+
+
+
+
+
+
+
+
+
+            TrainOrder? trainOrder = await data.TrainOrders.Include(x => x.Vehicle).Include(x => x.Driver).Include(x => x.Company)
+                                       .Include(s => s.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+            if (trainOrder != null)
+            {
+                trainOrder.IsCompleted = true;
+
+                trainOrder.Vehicle.Order = null;
+
+                trainOrder.Driver.Order = null;
+
+                var sd = trainOrder.Stocks;
+
+                data.RemoveRange(trainOrder.Stocks);
+
+                data.Remove(trainOrder);
+
+
+                await data.SaveChangesAsync();
+
+
+                return;
+
+            }
+
+
+
+
+
+            PlaneOrder? planeOrder = await data.PlaneOrders.Include(x => x.Vehicle).Include(x => x.Driver).Include(x => x.Company)
+                                       .Include(s => s.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+            if (planeOrder != null)
+            {
+                planeOrder.IsCompleted = true;
+
+                planeOrder.Vehicle.Order = null;
+
+                planeOrder.Driver.Order = null;
+
+                var sd = planeOrder.Stocks;
+
+                data.RemoveRange(planeOrder.Stocks);
+
+                data.Remove(planeOrder);
+
+
+                await data.SaveChangesAsync();
+
+
+                return;
+
+            }
+
+
+
+
+
+
+
+
+            ShipOrder? shipOrder = await data.ShipOrders.Include(x => x.Vehicle).Include(x => x.Driver).Include(x => x.Company)
+                                       .Include(s => s.Stocks).FirstOrDefaultAsync(x => x.Id.ToString() == orderId);
+
+            if (shipOrder != null)
+            {
+                shipOrder.IsCompleted = true;
+
+                shipOrder.Vehicle.Order = null;
+
+                shipOrder.Driver.Order = null;
+
+                var sd = shipOrder.Stocks;
+
+                data.RemoveRange(shipOrder.Stocks);
+
+                data.Remove(shipOrder);
+
+
+                await data.SaveChangesAsync();
+
+
+
+                return;
             }
         }
     }

@@ -13,10 +13,10 @@ namespace SMS.Models
 
 
         [ForeignKey(nameof(Vehicle))]
-        public Guid VehicleId { get; set; }
+        public Guid? VehicleId { get; set; }
 
 
-        public Train Vehicle { get; set; }
+        public Train? Vehicle { get; set; }
 
 
         [ForeignKey(nameof(Company))]
@@ -25,9 +25,9 @@ namespace SMS.Models
 
         public Company Company { get; set; }
 
-        public TrainOrder Order { get; set; }
+        public TrainOrder? Order { get; set; }
 
         [ForeignKey(nameof(Order))]
-        public Guid OrderId { get; set; }
+        public Guid? OrderId { get; set; }
     }
 }

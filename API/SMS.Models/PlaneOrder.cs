@@ -28,14 +28,14 @@
         [ForeignKey(nameof(Driver))]
         public Guid DriverId { get; set; }
 
-        public Pilot Driver { get; set; }
+        public Pilot? Driver { get; set; }
 
         [ForeignKey(nameof(Company))]
         public Guid ComapanyId { get; set; }
 
         public Company Company { get; set; }
 
-        public Plane Vehicle { get; set; }
+        public Plane? Vehicle { get; set; }
 
         [ForeignKey(nameof(VehicleId))]
         public Guid VehicleId { get; set; }

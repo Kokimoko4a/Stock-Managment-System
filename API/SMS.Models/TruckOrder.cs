@@ -30,14 +30,14 @@
         [ForeignKey(nameof(Driver))]
         public Guid DriverId { get; set; }
 
-        public TruckDriver Driver { get; set; }
+        public TruckDriver? Driver { get; set; }
 
         [ForeignKey(nameof(Company))]
         public Guid ComapanyId { get; set; }
 
         public Company Company { get; set; }
 
-        public Truck Vehicle { get; set; }
+        public Truck? Vehicle { get; set; }
 
         [ForeignKey(nameof(VehicleId))]
         public Guid VehicleId { get; set; }

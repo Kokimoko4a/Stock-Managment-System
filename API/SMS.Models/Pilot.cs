@@ -12,10 +12,10 @@
 
 
         [ForeignKey(nameof(Vehicle))]
-        public Guid VehicleId { get; set; }
+        public Guid? VehicleId { get; set; }
 
 
-        public Plane Vehicle { get; set; }
+        public Plane? Vehicle { get; set; }
 
 
         [ForeignKey(nameof(Company))]
@@ -24,9 +24,9 @@
 
         public Company Company { get; set; }
 
-        public PlaneOrder Order { get; set; }
+        public PlaneOrder? Order { get; set; }
 
         [ForeignKey(nameof(Order))]
-        public Guid OrderId { get; set; }
+        public Guid? OrderId { get; set; }
     }
 }

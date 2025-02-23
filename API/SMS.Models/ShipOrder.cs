@@ -31,14 +31,14 @@ namespace SMS.Models
         [ForeignKey(nameof(Driver))]
         public Guid DriverId { get; set; }
 
-        public Capitan Driver { get; set; }
+        public Capitan? Driver { get; set; }
 
         [ForeignKey(nameof(Company))]
         public Guid ComapanyId { get; set; }
 
         public Company Company { get; set; }
 
-        public Ship Vehicle { get; set; }
+        public Ship? Vehicle { get; set; }
 
         [ForeignKey(nameof(VehicleId))]
         public Guid VehicleId { get; set; }
