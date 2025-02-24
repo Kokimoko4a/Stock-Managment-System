@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SMS.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42a8b0d4202c72421ad275ada01221c288232085")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9590d973155470dda3ea59b79031b7924366308")]
 [assembly: System.Reflection.AssemblyProductAttribute("SMS.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SMS.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

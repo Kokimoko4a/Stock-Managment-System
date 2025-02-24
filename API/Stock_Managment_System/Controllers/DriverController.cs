@@ -109,12 +109,12 @@ namespace Stock_Managment_System.Controllers
 
         public async Task<IActionResult> MarkOrderAsCompleted([FromQuery] string orderId)
         {
-            /*var id = GetTokenAndIdIfExists();
+            var id = GetTokenAndIdIfExists();
 
             if (id == null)
             {
                 return BadRequest();
-            }*/
+            }
 
             await driverService.MarkOrderAsCompleted(orderId);
 

@@ -3,7 +3,15 @@ namespace SMS.Dtos.Driver
 {
     public class DriverDashboardDtoExport
     {
-     
+        public DriverDashboardDtoExport()
+        {
+            Destination = "None";
+            StartPoint = "None";
+            OrderProducts = "None";
+            OrderTitle = "None";
+        }
+
+        public string Id { get; set; }
 
         public string VehicleBrand { get; set; }
 

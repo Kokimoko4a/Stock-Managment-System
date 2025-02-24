@@ -1175,11 +1175,11 @@ namespace SMS.Repository
 
             if (truckDriver != null)
             {
-                driverBigExportDto.OrderInfo = truckDriver.Order != null ?  $"From {truckDriver.Order.StartPoint} To {truckDriver.Order.Description}" +
+                driverBigExportDto.OrderInfo = truckDriver.Order != null ? $"From {truckDriver.Order.StartPoint} To {truckDriver.Order.Description}" +
                     $" Stocks: {string.Join(',', truckDriver.Order.Stocks.Select(x => x.Title))}" : "";
 
                 driverBigExportDto.Id = truckDriver.Id;
-                driverBigExportDto.VehicleInfo = truckDriver.Vehicle != null ?  $"{truckDriver.Vehicle.Brand} {truckDriver.Vehicle.Model}" : "";
+                driverBigExportDto.VehicleInfo = truckDriver.Vehicle != null ? $"{truckDriver.Vehicle.Brand} {truckDriver.Vehicle.Model}" : "";
                 driverBigExportDto.Email = user.Email;
                 driverBigExportDto.Age = user.Age;
                 driverBigExportDto.Names = $"{user.FirstName} {user.LastName}";
@@ -1247,19 +1247,28 @@ namespace SMS.Repository
 
             if (truckDriver != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", truckDriver.Order.Stocks.Select(x => x.Title));
 
-                driverDashboardDtoExport.StartPoint = truckDriver.Order.StartPoint;
+                if (truckDriver.Order != null)
+                {
+                    driverDashboardDtoExport.OrderProducts = string.Join(", ", truckDriver.Order.Stocks.Select(x => x.Title));
 
-                driverDashboardDtoExport.Destination = truckDriver.Order.Destination;
+                    driverDashboardDtoExport.StartPoint = truckDriver.Order.StartPoint;
 
-                driverDashboardDtoExport.OrderTitle = truckDriver.Order.Title;
+                    driverDashboardDtoExport.Destination = truckDriver.Order.Destination;
+
+                    driverDashboardDtoExport.OrderTitle = truckDriver.Order.Title;
+
+                    driverDashboardDtoExport.Id = truckDriver.Order.Id.ToString();
+
+
+
+                }
 
                 driverDashboardDtoExport.VehicleBrand = truckDriver.Vehicle.Brand;
 
                 driverDashboardDtoExport.VehicleModel = truckDriver.Vehicle.Model;
 
-
+                
 
 
                 return driverDashboardDtoExport;
@@ -1276,19 +1285,27 @@ namespace SMS.Repository
 
             if (pilot != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", pilot.Order.Stocks.Select(x => x.Title));
 
-                driverDashboardDtoExport.StartPoint = pilot.Order.StartPoint;
+                if (pilot.Order != null)
+                {
+                    driverDashboardDtoExport.OrderProducts = string.Join(", ", pilot.Order.Stocks.Select(x => x.Title));
 
-                driverDashboardDtoExport.Destination = pilot.Order.Destination;
+                    driverDashboardDtoExport.StartPoint = pilot.Order.StartPoint;
 
-                driverDashboardDtoExport.OrderTitle = pilot.Order.Title;
+                    driverDashboardDtoExport.Destination = pilot.Order.Destination;
+
+                    driverDashboardDtoExport.OrderTitle = pilot.Order.Title;
+
+                    driverDashboardDtoExport.Id = pilot.Order.Id.ToString();
+
+                }
+
 
                 driverDashboardDtoExport.VehicleBrand = pilot.Vehicle.Brand;
 
                 driverDashboardDtoExport.VehicleModel = pilot.Vehicle.Model;
 
-
+              
 
                 return driverDashboardDtoExport;
             }
@@ -1303,19 +1320,28 @@ namespace SMS.Repository
 
             if (machinist != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", machinist.Order.Stocks.Select(x => x.Title));
+                if (machinist.Order != null)
+                {
 
-                driverDashboardDtoExport.StartPoint = machinist.Order.StartPoint;
+                    driverDashboardDtoExport.OrderProducts = string.Join(", ", machinist.Order.Stocks.Select(x => x.Title));
 
-                driverDashboardDtoExport.Destination = machinist.Order.Destination;
+                    driverDashboardDtoExport.StartPoint = machinist.Order.StartPoint;
 
-                driverDashboardDtoExport.OrderTitle = machinist.Order.Title;
+                    driverDashboardDtoExport.Destination = machinist.Order.Destination;
+
+                    driverDashboardDtoExport.OrderTitle = machinist.Order.Title;
+
+                    driverDashboardDtoExport.Id = machinist.Order.Id.ToString();
+                }
+
+
+
 
                 driverDashboardDtoExport.VehicleBrand = machinist.Vehicle.Brand;
 
                 driverDashboardDtoExport.VehicleModel = machinist.Vehicle.Model;
 
-
+               
 
                 return driverDashboardDtoExport;
             }
@@ -1330,19 +1356,29 @@ namespace SMS.Repository
 
             if (capitan != null)
             {
-                driverDashboardDtoExport.OrderProducts = string.Join(", ", capitan.Order.Stocks.Select(x => x.Title));
+                if (capitan.Order != null)
+                {
+                    driverDashboardDtoExport.OrderProducts = string.Join(", ", capitan.Order.Stocks.Select(x => x.Title));
 
-                driverDashboardDtoExport.StartPoint = capitan.Order.StartPoint;
+                    driverDashboardDtoExport.StartPoint = capitan.Order.StartPoint;
 
-                driverDashboardDtoExport.Destination = capitan.Order.Destination;
+                    driverDashboardDtoExport.Destination = capitan.Order.Destination;
 
-                driverDashboardDtoExport.OrderTitle = capitan.Order.Title;
+                    driverDashboardDtoExport.OrderTitle = capitan.Order.Title;
+
+                    driverDashboardDtoExport.Id = capitan.Order.Id.ToString();
+                }
+
+              
+
+
+
 
                 driverDashboardDtoExport.VehicleBrand = capitan.Vehicle.Brand;
 
                 driverDashboardDtoExport.VehicleModel = capitan.Vehicle.Model;
 
-
+             
 
                 return driverDashboardDtoExport;
             }
@@ -1679,7 +1715,7 @@ namespace SMS.Repository
 
                 return;
 
-                
+
             }
 
 
