@@ -308,8 +308,7 @@
               "RelativeToolTip": "..\\SMS.Services\\DriverService.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAcwB8AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T17:22:52.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T17:22:52.608Z"
             },
             {
               "$type": "Document",
@@ -321,8 +320,7 @@
               "RelativeToolTip": "Controllers\\ManagerController.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAiwLQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T08:49:28.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-04T08:49:28.738Z"
             },
             {
               "$type": "Document",
@@ -334,8 +332,7 @@
               "RelativeToolTip": "..\\SMS.Services\\SMS.Services.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-03T12:46:33.538Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T12:46:33.538Z"
             },
             {
               "$type": "Document",
@@ -347,8 +344,7 @@
               "RelativeToolTip": "Controllers\\VehicleController.cs",
               "ViewState": "AQIAADcAAAAAAAAAAAAAwEUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T16:17:39.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T16:17:39.914Z"
             },
             {
               "$type": "Document",
@@ -360,8 +356,7 @@
               "RelativeToolTip": "..\\SMS.Repository\\RepositoryService.cs",
               "ViewState": "AQIAAFQFAAAAAAAAAAAAAFgFAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T13:24:00.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T13:24:00.477Z"
             },
             {
               "$type": "Document",
@@ -386,8 +381,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Driver\\DriverDashboardDtoExport.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwA0AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T18:54:25.174Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T18:54:25.174Z"
             },
             {
               "$type": "Document",
@@ -399,8 +393,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\Vehicles\\VehicleCoordinatesDtoImport.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T16:23:03.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-13T16:23:03.218Z"
             },
             {
               "$type": "Document",
@@ -412,8 +405,7 @@
               "RelativeToolTip": "..\\SMS.Models\\TruckDriver.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAuwAgAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T08:49:24.11Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T08:49:24.11Z"
             },
             {
               "$type": "Document",
@@ -425,8 +417,7 @@
               "RelativeToolTip": "Controllers\\StockControlller.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAADIAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T16:47:03.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T16:47:03.127Z"
             },
             {
               "$type": "Document",
@@ -438,8 +429,7 @@
               "RelativeToolTip": "Controllers\\OrderController.cs",
               "ViewState": "AQIAABUAAAAAAAAAAADwvywAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T13:00:16.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T13:00:16.444Z"
             },
             {
               "$type": "Document",
@@ -955,8 +945,7 @@
               "RelativeToolTip": "..\\SMS.Repository\\SMS.Repository.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-03T13:23:28.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T13:23:28.569Z"
             },
             {
               "$type": "Document",
@@ -1016,8 +1005,7 @@
               "RelativeToolTip": "Stock_Managment_System.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-03T13:27:34.301Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T13:27:34.301Z"
             },
             {
               "$type": "Document",
@@ -1041,8 +1029,7 @@
               "RelativeToolTip": "..\\SMS.Infrastructure\\SMS.Infrastructure.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-06T18:37:46.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T18:37:46.473Z"
             },
             {
               "$type": "Document",
@@ -1078,8 +1065,7 @@
               "RelativeToolTip": "..\\SMS.Dtos\\SMS.Dtos.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-28T18:11:44.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T18:11:44.676Z"
             },
             {
               "$type": "Document",
@@ -1115,8 +1101,7 @@
               "RelativeToolTip": "..\\SMS.Data\\SMS.Data.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-26T08:24:19.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T08:24:19.197Z"
             },
             {
               "$type": "Document",
@@ -1152,8 +1137,7 @@
               "RelativeToolTip": "..\\SMS.Models\\SMS.Models.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-22T18:53:55.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T18:53:55.961Z"
             },
             {
               "$type": "Document",
@@ -1165,8 +1149,7 @@
               "RelativeToolTip": "..\\SMS.Common\\SMS.Common.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-02T09:53:46.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-02T09:53:46.507Z"
             },
             {
               "$type": "Document",
@@ -1236,8 +1219,7 @@
               "RelativeToolTip": "..\\SMS.Factory\\SMS.Factory.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-02T09:59:40.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T09:59:40.111Z"
             },
             {
               "$type": "Document",
