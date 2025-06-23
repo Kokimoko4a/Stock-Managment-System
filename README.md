@@ -91,11 +91,3 @@ This project is licensed under the MIT License.
 
 👨‍💻 Author
 Developed by Kaloyan Rusev
-
-yaml
-Copy
-Edit
-
----
-
-Let me know if you'd like a version with database diagrams, frontend screenshots, or help setting u
